@@ -1,1 +1,1 @@
-h1. MYAPP
+h1. NEW_APP

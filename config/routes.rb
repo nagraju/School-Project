@@ -1,5 +1,19 @@
 ActionController::Routing::Routes.draw do |map|
   
+  # Account routes
+  map.resource :account, :path_names => {:new => :signup}, :member => {:delete => :get} do |account|
+    account.resource :password, :only => [:new, :edit, :create, :update], :controller => 'accounts/passwords'
+    account.resource :confirmation, :only => [:new, :show, :create], :controller => 'accounts/confirmations'
+    
+    account.with_options(:controller => 'accounts/sessions', :name_prefix => nil) do |m|
+      m.new_account_session     'login',  :action => 'new',     :conditions => {:method => :get}
+      m.account_session         'login',  :action => 'create',  :conditions => {:method => :post}
+      m.destroy_account_session 'logout', :action => 'destroy', :conditions => {:method => :get}
+    end
+  end
+  
+  map.resource :contact_message, :path_prefix => 'help', :only => [:new, :create]
+  
   map.root :controller => 'home'
   
   SprocketsApplication.routes(map)

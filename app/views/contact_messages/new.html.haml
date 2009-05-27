@@ -1,0 +1,14 @@
+%h1 Contact us
+
+- semantic_form_for @contact_message, :url => contact_message_path do |f|
+  = f.error_messages if Settings.preferences.forms.error_messages
+  
+  - f.inputs do
+    = f.input :issue_type, :as => :select, :collection => ContactMessage.issue_types
+    = f.input :message, :required => true, :as => :text, :rows => 6, :cols => 25
+    = f.input :email, :required => true
+    = f.input :name
+    = f.input :nickname, :wrapper_html => {:style => 'display:none;'}
+    
+  - f.buttons do
+    = f.commit_button 'Send'

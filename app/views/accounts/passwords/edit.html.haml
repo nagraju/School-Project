@@ -1,0 +1,21 @@
+%h1 Reset password
+
+- semantic_form_for(@account, :url => account_password_url, :html => {:method => :put}) do |f|
+  = f.error_messages if Settings.preferences.forms.error_messages
+  
+  - f.inputs do
+    = f.input :perishable_token, :as => :hidden
+    
+    = f.input :password, :label => 'Password', :hint => ''
+    = f.input :password_confirmation, :label => 'Confirm Password', :hint => ''
+    
+  - f.buttons do
+    = f.commit_button 'Update my password'
+    
+= link_to 'Login', new_account_session_path
+|
+= link_to 'Sign up', new_account_path
+|
+= link_to 'Forgot your password?', new_account_password_path
+|
+= link_to 'Resend confirmation instructions', new_account_confirmation_path

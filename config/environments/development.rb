@@ -2,8 +2,8 @@
 
 # Development gems.
 config.gem 'capistrano'
-config.gem 'josevalim-rails-footnotes', :lib => 'rails-footnotes',
-  :source => 'http://gems.github.com'
+config.gem 'ruby-debug'
+config.gem 'josevalim-rails-footnotes', :lib => 'rails-footnotes'
 
 # In the development environment your application's code is reloaded on
 # every request.  This slows down response time but is perfect for development

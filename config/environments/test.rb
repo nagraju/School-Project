@@ -1,10 +1,8 @@
 # Settings specified here will take precedence over those in config/environment.rb
 
 # Test gems.
-config.gem 'thoughtbot-shoulda', :lib => 'shoulda',
-  :source => 'http://gems.github.com'
-config.gem 'notahat-machinist', :lib => 'machinist',
-  :source => 'http://gems.github.com'
+config.gem 'thoughtbot-shoulda', :lib => 'shoulda'
+config.gem 'notahat-machinist', :lib => 'machinist'
     
 # The test environment is used exclusively to run your application's
 # test suite.  You never need to work with it otherwise.  Remember that

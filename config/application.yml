@@ -1,12 +1,24 @@
 defaults: &defaults
   site:
-    name: "NewApp"
+    name: NewApp
     devname: newapp
     domain: newapp.com
+    email:
+      contact_form: support@newapp.com
+      
+  meta:
+    default_title: 
+    default_keywords: 
+    default_description: 
     
   localization:
     default_locale: en
     default_time_zone: UTC
+    
+  smtp_mail:
+    domain: newapp.com
+    user_name: mailer@newapp.com
+    password: 
     
   sessions:
     id: newapp
@@ -16,11 +28,22 @@ defaults: &defaults
     hoptoad: 3b2019ffdeb1cc9612be42adbc18b0a3
     google_analytics: 
     
+  preferences:
+    forms:
+      error_messages: true
+    pagination:
+      per_page: 20
+      ajax: false
+      
 development:
   <<: *defaults
   
 test:
   <<: *defaults
-  
+  smtp_mail:
+    domain: localhost:3000
+    
 production:
   <<: *defaults
+  smtp_mail:
+    domain: localhost:3000

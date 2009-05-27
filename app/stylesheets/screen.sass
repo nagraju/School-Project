@@ -2,11 +2,15 @@
 @import blueprint/modules/scaffolding.sass
 @import compass/reset.sass
 
+@import reset.sass
+
 @import extensions/ck_fu.sass
 @import extensions/formtastic.sass
 @import extensions/formtastic_changes.sass
 
-@import colors.sass
+@import application/colors.sass
+
+@import scaffold2.sass
 
 +blueprint
 
@@ -20,3 +24,6 @@ body
   
 #main
   :padding 1em 2em
+
+#content
+  :padding 1em

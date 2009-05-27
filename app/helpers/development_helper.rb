@@ -10,7 +10,7 @@ module DevelopmentHelper
     options[:except] ||= []
     options[:except].collect!(&:to_sym)
     
-    unless options[:only].blank?
+    if options[:only].blank?
       model_file_names = Dir.glob(File.join(Rails.root, 'app', 'models', '*.rb'))
       model_names = model_file_names.collect { |file| File.basename(file, '.rb').pluralize.to_sym }
     else
@@ -18,8 +18,8 @@ module DevelopmentHelper
     end
     model_names.delete(options[:except])
     model_names.collect do |name|
-      [name.humanize, eval("#{name}_path")]
-    end
+      [name.to_s.humanize, eval("#{name}_path")] rescue nil
+    end.compact
   end
   
 end

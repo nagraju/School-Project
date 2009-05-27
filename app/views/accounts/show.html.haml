@@ -1,0 +1,13 @@
+%h1 My account
+
+%dl
+  %dt Email:
+  %dd= h @account.email
+  
+  %dt Confirmed?
+  %dd= h @account.confirmed?
+  
+= link_to 'Edit', edit_account_path
+|
+= link_to 'Delete', delete_account_path
+ 

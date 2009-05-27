@@ -19,6 +19,10 @@
     
     #main
       #header
+        = render '/accounts/status_menu'
+          
       #content
+        = flash_message
         = yield
+        
       #footer

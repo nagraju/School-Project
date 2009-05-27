@@ -1,0 +1,16 @@
+%h1 Resend confirmation instructions
+
+- semantic_form_for(@account, :url => account_confirmation_url, :html => {:method => :post}) do |f|
+  = f.error_messages if Settings.preferences.forms.error_messages
+  
+  - f.inputs do
+    = f.input :email, :label => 'E-mail', :hint => ''
+  
+  - f.buttons do
+    = f.commit_button 'Resend confirmation code'
+
+= link_to 'Login', new_account_session_path
+|
+= link_to 'Sign up', new_account_path
+|
+= link_to 'Forgot your password?', new_account_password_path

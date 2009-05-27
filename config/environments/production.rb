@@ -29,3 +29,6 @@ config.logger = Logger.new(config.log_path, 50, 1.megabyte)
 
 # Enable threaded mode
 # config.threadsafe!
+
+# TODO
+config.action_mailer.default_url_options = { :host => Settings.site.domain }

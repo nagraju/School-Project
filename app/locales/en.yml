@@ -1,0 +1,71 @@
+en:
+  formtastic:
+    yes: "Yes"
+    no: "No"
+    create: "Create"
+    save: "Save"
+    submit: "Submit"
+    required: "Required"
+    
+  simple_form:
+    models:
+      contact_message: "Your site contact form"
+    attributes:
+      email: "E-mail"
+    messages:
+      blank: "can't be blank"
+      invalid: "is invalid"
+    request:
+      title: "Technical information about the user"
+      remote_ip: "IP Address"
+      user_agent: "User agent"
+      
+  actionmailer:
+    auth_helpers:
+      create_confirmation: "Welcome to myapp"
+      resend_confirmation: "Account confirmation instructions"
+      reset_password: "Reset password instructions"
+      update_confirmation: "Update e-mail confirmation"
+      
+  activerecord:
+    errors:
+      models:
+        account:
+          already_confirmed: "was already confirmed"
+          not_found: "could not be found. Are you sure you gave the right e-mail address?"
+          perishable_token:
+            invalid_confirmation: "is invalid. Are you sure you copied the right link from your e-mail?"
+            invalid_reset_password: "is invalid. Are you sure you copied the right link from your e-mail?"
+            
+  flash:
+    actions:
+      create:
+        notice: "Your {{resource_name}} has been created."
+      update:
+        notice: "Your {{resource_name}} has been updated."
+      destroy:
+        notice: "Your {{resource_name}} has been canceled."
+    accounts:
+      create:
+        notice: "Your account was successfully created. A confirmation e-mail was sent, please check your inbox."
+      update:
+        notice: "Your account was successfully updated."
+      destroy:
+        notice: "Your account and all data was deleted. We hope to see you again in a near future."
+      filters:
+        require_account: "You have to login to see this page."
+      sessions:
+        create:
+          notice: "Logged in successfully."
+        destroy:
+          notice: "Bye! We hope to see you again soon."
+      confirmations:
+        show:
+          notice: "Your account was successfully confirmed."
+        create:
+          notice: "We sent instructions for you to confirm your account. Please check your inbox."
+      passwords:
+        create:
+          notice: "We sent instructions for you to reset your password. Please check your inbox."
+        update:
+          notice: "Your password was successfully reset."

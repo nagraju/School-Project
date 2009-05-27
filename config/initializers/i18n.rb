@@ -1,7 +1,10 @@
 # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
 
 # Load locale files recursively - if locale files are broken into seperate files
-I18n.load_path += Dir.glob(File.join(RAILS_ROOT, 'config', 'locales', '**', '*.{rb,yml}'))
+I18n.load_path = [
+    Dir.glob(File.join(Rails.root, 'app',    'locales', '*.{rb,yml}')),
+    Dir.glob(File.join(Rails.root, 'config', 'locales', '*.{rb,yml}'))
+  ].flatten
 
 # Set default locale
 I18n.default_locale = Settings.localization.default_locale

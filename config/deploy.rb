@@ -1,6 +1,6 @@
 # General.
-set :application, 'myapp'
-set :domain, '67.23.29.101'
+set :application, 'newapp'
+set :domain, 'newapp.com'
 set :user, 'deployer'
 
 # Repo.

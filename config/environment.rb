@@ -15,15 +15,15 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
   
   # Specify gems that this application depends on and have them installed with rake gems:install
-  config.gem 'josevalim-inherited_resources', :lib => 'inherited_resources',
-    :source => 'http://gems.github.com'
-  config.gem 'justinfrench-formtastic', :lib => 'formtastic',
-    :source => 'http://gems.github.com'
-  config.gem 'chriseppstein-compass', :lib => 'compass', :version => '0.6.5',
-    :source => 'http://gems.github.com'
-  config.gem 'haml', :version => '2.1.0'
+  config.gem 'haml',                          :version => '>= 2.1.0'
   config.gem 'sprockets'
   config.gem 'authlogic'
+  config.gem 'settingslogic'
+  config.gem 'josevalim-auth_helpers',        :lib => 'auth_helpers'
+  config.gem 'josevalim-inherited_resources', :lib => 'inherited_resources'
+  config.gem 'josevalim-simple_form',         :lib => 'simple_form'
+  config.gem 'justinfrench-formtastic',       :lib => 'formtastic'
+  config.gem 'chriseppstein-compass',         :lib => 'compass', :version => '>= 0.6.5'
   config.gem 'settingslogic'
   config.gem 'will_paginate'
   

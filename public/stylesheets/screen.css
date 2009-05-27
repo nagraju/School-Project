@@ -63,6 +63,10 @@ table {
 a img {
   border: none; }
 
+body {
+  padding: 0;
+  margin: 0; }
+
 #ck_fu {
   color: white;
   font-size: 13px;
@@ -229,6 +233,48 @@ html[xmlns] form.formtastic fieldset {
 form label.error {
   background: none;
   border: none; }
+
+div.notice_flash {
+  border: 2px solid #6C6; }
+div.warn_flash {
+  border: 2px solid #FC3; }
+div.error_flash {
+  border: 2px solid #D00; }
+div#flash_message {
+  background-color: #FAFAFA;
+  background-repeat: no-repeat;
+  background-position: 5px 50%;
+  border-left: 0;
+  border-right: 0;
+  display: block;
+  padding: 8px 5px; }
+  div#flash_message p {
+    line-height: 20px;
+    margin: 0 0 2px 0;
+    padding: 0; }
+div#errorExplanation {
+  width: 600px;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; }
+  div#errorExplanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    background-color: #c00;
+    color: #fff; }
+  div#errorExplanation p {
+    color: #333;
+    margin-bottom: 0;
+    padding: 10px 5px; }
+  div#errorExplanation ul {
+    margin-left: 20px; }
+    div#errorExplanation ul li {
+      font-size: 12px;
+      list-style: square; }
 
 body {
   line-height: 1.5;
@@ -999,3 +1045,6 @@ body {
 
 #main {
   padding: 1em 2em; }
+
+#content {
+  padding: 1em; }
