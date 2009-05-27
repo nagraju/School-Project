@@ -1,5 +1,9 @@
 module DevelopmentHelper
   
+  def development_toolbar
+    ck_fu(:links => [['Home', root_path]] + resource_links)
+  end
+  
   def resource_links(options = {})
     options[:only] ||= []
     options[:only].collect!(&:to_sym)
