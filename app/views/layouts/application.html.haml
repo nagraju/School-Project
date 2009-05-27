@@ -1,0 +1,24 @@
+!!!
+%html{html_attrs(I18n.locale)}
+  %head
+    %meta{:'http-equiv' => 'content-type', :content => 'text/html;charset=UTF-8'}
+    %meta{:'http-equiv' => 'content-script-type', :content => 'text/javascript'}
+    %meta{:'http-equiv' => 'content-style-type', :content => 'text/css'}
+    
+    %title= "#{Settings.site.name} | #{controller.controller_name}: #{controller.action_name}"
+    
+    = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'print.css', :media => 'print'
+    /[if IE]
+      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+      
+    = sprockets_include_tag
+    
+  %body
+    = ck_fu :links => [['Home', root_path]] + resource_links
+    
+    #main
+      #header
+      #content
+        = yield
+      #footer

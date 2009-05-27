@@ -1,0 +1,26 @@
+defaults: &defaults
+  site:
+    name: "NewApp"
+    devname: newapp
+    domain: newapp.com
+    
+  localization:
+    default_locale: en
+    default_time_zone: UTC
+    
+  sessions:
+    id: newapp
+    secret: 0728d2b85ed6fe0e31d9b21bcde21f83b0c06bea14a14cdbff5a2bf5ec53a89e75b47a1c9cdd2c224506d4278323856fb642da6b245b2ee84ef26d51b9a7e0d9
+    
+  api_keys:
+    hoptoad: 3b2019ffdeb1cc9612be42adbc18b0a3
+    google_analytics: 
+    
+development:
+  <<: *defaults
+  
+test:
+  <<: *defaults
+  
+production:
+  <<: *defaults

@@ -1,0 +1,13 @@
+:asset_root: public
+:load_path:
+  - app/javascripts
+  - vendor/sprockets/*/src
+  - vendor/plugins/*/javascripts
+:source_files:
+  - app/javascripts/jquery.js
+  - app/javascripts/jquery-ui.js
+  - app/javascripts/jrails.js
+  - app/javascripts/jquery.validate.js
+  - app/javascripts/jquery.livequery.js
+  - app/javascripts/jquery.will_paginate.js
+  - app/javascripts/application.js
