@@ -1,18 +1,24 @@
-%h1 Login
-
+= title do
+  Login
+= description do
+  Got no account?
+  %strong= link_to 'Sign up', new_account_path
+  
 - semantic_form_for(@account_session, :url => account_session_path) do |f|
-  = f.error_messages if Settings.preferences.forms.error_messages
+  - flash_form_error(f)
   
   - f.inputs do
-    = f.input :email, :label => 'E-mail', :hint => ''
-    = f.input :password, :label => 'Password', :hint => ''
+    = f.input :email, :required => true, :label => 'E-mail', :hint => ''
+    = f.input :password, :required => true, :label => 'Password', :hint => ''
     = f.input :remember_me, :as => :boolean
     
   - f.buttons do
     = f.commit_button 'Login'
     
-= link_to 'Sign up', new_account_path
-|
-= link_to 'Forgot your password?', new_account_password_path
-|
-= link_to 'Resend confirmation instructions', new_account_confirmation_path
+- if Settings.authentication.facebook_connect.enabled
+  %p or login with Facebook:
+  %p= facebook_connect_button
+  
+%ul.horizontal
+  %li= link_to 'Forgot your password?', new_account_password_path
+  %li= link_to 'Resend confirmation instructions', new_account_confirmation_path

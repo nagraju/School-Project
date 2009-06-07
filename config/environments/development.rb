@@ -1,9 +1,21 @@
 # Settings specified here will take precedence over those in config/environment.rb
 
 # Development gems.
-config.gem 'capistrano'
+
+# Debugging.
 config.gem 'ruby-debug'
-config.gem 'josevalim-rails-footnotes', :lib => 'rails-footnotes'
+config.gem 'josevalim-rails-footnotes',       :lib => 'rails-footnotes'
+config.gem 'internuity-quick_scopes',         :lib => 'quick_scopes'
+
+# Deployment.
+config.gem 'capistrano'
+#config.gem 'eric-gemist',                     :lib => 'gemist'
+
+# Generators.
+#config.gem 'grimen-dry_scaffold',             :lib => 'dry_scaffold'
+
+# Optimization.
+#config.gem 'wvanbergen-request-log-analyzer', :lib => 'request-log-analyzer'
 
 # In the development environment your application's code is reloaded on
 # every request.  This slows down response time but is perfect for development

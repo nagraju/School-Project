@@ -1,14 +1,17 @@
-%h1 Editing account
-
-- semantic_form_for(@account, :url => account_path) do |f|
-  = f.error_messages if Settings.preferences.forms.error_messages
+= title do
+  Editing account
+= description ''
   
+- semantic_form_for(@account, :url => account_path) do |f|
+  - flash_form_error(f)
+    
   - f.inputs do
-    = f.input :email, :label => 'Password', :hint => 'If you change your e-mail, new confirmation instructions will be sent to your new e-mail.'
+    = f.input :email, :label => 'E-mail', :hint => 'If you change your e-mail, new confirmation instructions will be sent to your new e-mail.'
     = f.input :password, :required => false, :label => 'Password', :hint => 'If you want to change your password, fill in the fields below.'
     = f.input :password_confirmation, :required => false, :label => 'Confirm Password'
     
   - f.buttons do
-    = f.commit_button 'Update'
+    = f.commit_button 'Save changes'
     
-= link_to 'Show', account_url
+%ul.horizontal
+  %li= link_to 'Cancel', :back

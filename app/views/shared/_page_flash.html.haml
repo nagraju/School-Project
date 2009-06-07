@@ -1,0 +1,19 @@
+- if @content_for_flash.present?
+  #page_flash
+    .padding
+      = yield :flash
+    
+- elsif flash[:error]
+  #page_flash.error_flash
+    .padding
+      %p= flash[:error]
+    
+- elsif flash[:warn]
+  #page_flash.warn_flash
+    .padding
+      %p= flash[:warn]
+    
+- elsif flash[:notice]
+  #page_flash.notice_flash
+    .padding
+      %p= flash[:notice]

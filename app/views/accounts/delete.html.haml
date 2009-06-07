@@ -1,7 +1,8 @@
-%h1 Cancel My Account
+= title do
+  Cancel my account
+= description do
+  Are you sure you want to cancel your account?
 
-%p Are you sure you want to cancel your account?
-
-= link_to "Yes, cancel it", account_path, :method => :delete, :confirm => "Are you sure?"
-|
-= link_to "No, keep my account", account_path
+%ul.horizontal
+  %li= link_to "Yes, cancel it", account_path, :method => :delete, :confirm => "Are you sure?"
+  %li= link_to "No, keep my account", account_path

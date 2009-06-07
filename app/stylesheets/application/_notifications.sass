@@ -1,0 +1,68 @@
+=flash_heading
+  :font
+    :weight bold
+    :size 1em
+  :color #fff
+  :padding 0.5em 0.9em
+  
+#page_flash
+  +clearfix
+  +box_style
+  
+  .padding
+    > p
+      +flash_heading
+      :margin 0
+    
+  &.notice_flash
+    p
+      :background-color #0b0
+      
+  &.warn_flash
+    p
+      :background-color #000
+      
+  &.error_flash
+    p
+      :background-color #c00
+      
+#page_notice
+  :background
+    :color= !notice_bg_color !important
+  :color= !notice_color
+  :font
+    :size 0.9em
+    :weight bold
+    
+  a
+    :color= !notice_color
+    
+  .padding
+    :padding 0 0.2em
+    
+#errorExplanation
+  +clearfix
+  :padding 0
+  :margin 0
+  :background-color #fcfcfc
+  :border 1px solid #e3e3e3 !important
+  
+  h2
+    +flash_heading
+    :background-color #c00
+    
+  p
+    :color #666
+    :margin
+      :bottom 0.6em
+    :padding 0 1em
+    
+  ul
+    :margin
+      :bottom 1em
+    :padding
+      :left 1.8em
+      
+    li
+      :list-style square
+      :color #666

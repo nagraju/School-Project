@@ -1,0 +1,34 @@
+= padding(!value = 0.5em)
+  .padding
+    :padding= !value
+    
+= box_style(!color = "transparent")
+  +box
+  :background-color= !color
+  :margin 2px
+  :padding 0
+  +padding(1em)
+  
+= reset_layout
+  a:focus
+    :outline none !important
+    
+  html
+    :min-height 100%
+    
+  body
+    :padding 0
+    :margin 0
+    
+= right
+  :float right
+  
+= left
+  :float left
+  
+= round_corners(!radius = 5px)
+  :-moz-border-radius= !radius
+  :-webkit-border-radius= !radius
+  
+= button
+  +round_corners

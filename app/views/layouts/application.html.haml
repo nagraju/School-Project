@@ -1,9 +1,9 @@
-!!!
-%html{html_attrs(I18n.locale)}
+!!! 1.1
+%html{html_attributes}
   %head
-    %meta{:'http-equiv' => 'content-type', :content => 'text/html;charset=UTF-8'}
-    %meta{:'http-equiv' => 'content-script-type', :content => 'text/javascript'}
-    %meta{:'http-equiv' => 'content-style-type', :content => 'text/css'}
+    = content_type_tag('content-type', 'text/html;charset=UTF-8')
+    = content_type_tag('content-script-type', 'text/javascript')
+    = content_type_tag('content-style-type', 'text/css')
     
     %title= "#{Settings.site.name} | #{controller.controller_name}: #{controller.action_name}"
     
@@ -14,15 +14,23 @@
       
     = sprockets_include_tag
     
-  %body
+  %body{body_attributes}
+    = facebook_connect_initializers if Settings.authentication.facebook_connect.enabled
     = development_toolbar
     
-    #main
+    #container
       #header
-        = render '/accounts/status_menu'
+        .padding
+          = render '/accounts/account_bar'
           
-      #content
-        = flash_message
-        = yield
-        
+      = render '/shared/page_flash'
+      
+      #main
+        .padding
+          = yield
+          
+      = render '/shared/page_notice'
+      
       #footer
+        .padding
+          = render '/shared/site_footer'

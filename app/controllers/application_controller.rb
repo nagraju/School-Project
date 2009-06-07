@@ -4,25 +4,19 @@
 class ApplicationController < ActionController::Base
   include Accounts::Filters
   
+  before_filter :set_facebook_session
+  helper_method :facebook_session
+  
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
   layout :set_layout
   helper :all # include all helpers, all the time
-  filter_parameter_logging :password
   
   protected
     
     # Skip layouts for AJAX calls + DRY up controller.
     def set_layout
-      begin
-        if request.format == :js
-          false
-        else
-          'application'
-        end
-      rescue
-        'application'
-      end
+      (request.format == :js ? false : 'application') rescue 'application'
     end
     
     # Store the requested path in session.
@@ -42,7 +36,6 @@ class ApplicationController < ActionController::Base
     end
     
     # Add new key only if flash is empty. Otherwise, refreshes it.
-    #
     def add_to_flash_if_empty_or_update(key, message)
       if flash.empty?
         flash[key] = message
@@ -55,4 +48,5 @@ class ApplicationController < ActionController::Base
     def interpolation_options
       {:resource_name => resource_class.human_name.downcase}
     end
+    
 end

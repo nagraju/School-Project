@@ -1,3 +1,25 @@
+# == Schema Information
+#
+# Table name: accounts
+#
+#  id                   :integer         not null, primary key
+#  email                :string(255)
+#  crypted_password     :string(255)
+#  password_salt        :string(255)
+#  persistence_token    :string(255)     not null
+#  perishable_token     :string(255)     not null
+#  confirmed_at         :datetime
+#  confirmation_sent_at :datetime
+#  login_count          :integer         default(0), not null
+#  failed_login_count   :integer         default(0), not null
+#  last_request_at      :datetime
+#  current_login_at     :datetime
+#  last_login_at        :datetime
+#  current_login_ip     :string(255)
+#  last_login_ip        :string(255)
+#  facebook_uid         :integer(8)
+#
+
 class Account < ActiveRecord::Base
   acts_as_authentic do |c|
     c.perishable_token_valid_for = 5.days

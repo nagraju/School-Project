@@ -1,0 +1,9 @@
+= h @current_account.email if @current_account
+%ul.horizontal
+  - if @current_account
+    %li= link_to 'My account', account_path
+    %li= link_to 'Logout', destroy_account_session_path
+  - else
+    %li= link_to 'Home', root_path
+    %li= link_to 'Login', new_account_session_path
+    %li= link_to 'Sign up', new_account_path

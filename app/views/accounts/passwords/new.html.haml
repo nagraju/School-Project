@@ -1,16 +1,18 @@
-%h1 Forgot password
+= title do
+  Reset password
+= description do
+  Enter the email address you used when creating your account. Then, hit the
+  %strong "Send instructions"
+  button and we will send you an email with instructions on how to reset your password.
   
 - semantic_form_for(@account, :url => account_password_url, :html => {:method => :post}) do |f|
-  = f.error_messages if Settings.preferences.forms.error_messages
+  - flash_form_error(f)
   
   - f.inputs do
     = f.input :email, :label => 'E-mail', :hint => ''
   
   - f.buttons do
-    = f.commit_button 'Send me reset-instructions'
+    = f.commit_button 'Send instructions'
     
-= link_to 'Login', new_account_session_path
-|
-= link_to 'Sign up', new_account_path
-|
-= link_to 'Resend confirmation instructions', new_account_confirmation_path
+%ul.horizontal
+  %li= link_to 'Cancel', :back

@@ -1,0 +1,73 @@
+// For some reason...
+!site_width = !blueprint_grid_columns - 0.1
+
+!page_head_space_bottom = 1.5em
+!title_and_desc_spacing = 0.2em
+
+!page_padding_top_bottom= 1.8em
+!page_padding_left_right= 1em
+
++reset_layout
+
+#container
+  +container
+  :margin-top 1em
+    
+  > div
+    +column(!site_width, true)
+    +box_style(#eee)
+    
+  #header
+    :background-color #222
+    :color #999
+    
+    ul.horizontal
+      +inline-block
+      :font
+        :size 1.1em
+      a
+        :color white
+        
+  #footer
+    :background
+      :color transparent
+    :text
+      :align center
+      
+    ul.horizontal
+      +inline-block
+      
+  #main
+    +padding(!page_padding_top_bottom)
+    
+    .padding
+      > *
+        :margin
+          :left= !page_padding_left_right
+          :right= !page_padding_left_right
+          
+    h1
+      :font
+        :size 2.3em
+        :weight bold
+        
+      &.title
+        :margin
+          :left 0
+          :right 0
+          :bottom= !title_and_desc_spacing
+          
+    h2
+      :font
+        :size 1.8em
+        
+    p
+      &.description
+        :font
+          :size 1.3em
+        :margin
+          :left 0.1em
+          :right 0.1em
+          :bottom= !page_head_space_bottom
+        :color #666
+        

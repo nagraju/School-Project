@@ -1,0 +1,24 @@
+[submodule "vendor/plugins/jrails"]
+	path = vendor/plugins/jrails
+	url = git://github.com/aaronchi/jrails.git
+[submodule "vendor/plugins/validation_reflection"]
+	path = vendor/plugins/validation_reflection
+	url = git://github.com/redinger/validation_reflection.git
+[submodule "vendor/plugins/resource_fu"]
+	path = vendor/plugins/resource_fu
+	url = git://github.com/sneakin/resource_fu.git
+[submodule "vendor/plugins/rack-bug"]
+	path = vendor/plugins/rack-bug
+	url = git://github.com/timocratic/rack-bug.git
+[submodule "vendor/plugins/sprockets-rails"]
+	path = vendor/plugins/sprockets-rails
+	url = git://github.com/sstephenson/sprockets-rails.git
+[submodule "vendor/plugins/hoptoad_notifier"]
+	path = vendor/plugins/hoptoad_notifier
+	url = git://github.com/thoughtbot/hoptoad_notifier.git
+[submodule "vendor/plugins/ck_fu"]
+	path = vendor/plugins/ck_fu
+	url = git://github.com/r38y/ck_fu.git
+[submodule "vendor/plugins/authlogic_facebook_connect"]
+	path = vendor/plugins/authlogic_facebook_connect
+	url = git://github.com/kalasjocke/authlogic_facebook_connect.git

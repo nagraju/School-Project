@@ -26,8 +26,17 @@ defaults: &defaults
     
   api_keys:
     hoptoad: 3b2019ffdeb1cc9612be42adbc18b0a3
-    google_analytics: 
+    google_analytics: UA-7154429-1
     
+  authentication:
+    facebook_connect:
+      enabled: false
+      
+  debugging:
+    rack_bug:
+      enabled: false
+      password: M2M3t8gvam.
+      
   preferences:
     forms:
       error_messages: true
@@ -37,13 +46,20 @@ defaults: &defaults
       
 development:
   <<: *defaults
-  
+  debugging:
+    rack_bug:
+      enabled: false
+      
 test:
   <<: *defaults
   smtp_mail:
     domain: localhost:3000
+    user_name: mailer@newapp.com
+    password: 
     
 production:
   <<: *defaults
   smtp_mail:
     domain: localhost:3000
+    user_name: mailer@newapp.com
+    password: 

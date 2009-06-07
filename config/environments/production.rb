@@ -1,7 +1,10 @@
 # Settings specified here will take precedence over those in config/environment.rb
 
 # Production gems.
+
+# Analytics.
 config.gem 'newrelic_rpm'
+config.gem 'rubaidh-google_analytics',      :lib => 'rubaidh/google_analytics'
 
 # The production environment is meant for finished, "live" apps.
 # Code is not reloaded between requests
@@ -21,6 +24,9 @@ config.logger = Logger.new(config.log_path, 50, 1.megabyte)
 # Use a different cache store in production
 # config.cache_store = :mem_cache_store
 
+# Page cache storage location.
+config.action_controller.page_cache_directory = File.join(RAILS_ROOT, 'public', 'cache')
+
 # Enable serving of images, stylesheets, and javascripts from an asset server
 # config.action_controller.asset_host = "http://assets.example.com"
 
@@ -29,6 +35,3 @@ config.logger = Logger.new(config.log_path, 50, 1.megabyte)
 
 # Enable threaded mode
 # config.threadsafe!
-
-# TODO
-config.action_mailer.default_url_options = { :host => Settings.site.domain }

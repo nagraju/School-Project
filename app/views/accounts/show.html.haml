@@ -1,5 +1,7 @@
-%h1 My account
-
+= title do
+  My account
+= description ''
+  
 %dl
   %dt Email:
   %dd= h @account.email
@@ -7,7 +9,6 @@
   %dt Confirmed?
   %dd= h @account.confirmed?
   
-= link_to 'Edit', edit_account_path
-|
-= link_to 'Delete', delete_account_path
- 
+%ul.horizontal
+  %li= link_to 'Edit', edit_account_path
+  %li= link_to 'Delete', delete_account_path

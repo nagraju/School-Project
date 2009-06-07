@@ -1,8 +1,17 @@
 # Settings specified here will take precedence over those in config/environment.rb
 
 # Test gems.
-config.gem 'thoughtbot-shoulda', :lib => 'shoulda'
-config.gem 'notahat-machinist', :lib => 'machinist'
+
+# Functional.
+config.gem 'aslakhellesoy-cucumber',  :lib => 'cucumber'
+
+# Unit.
+config.gem 'thoughtbot-shoulda',      :lib => 'shoulda'
+#config.gem 'rspec',               :lib => false,        :version => '>= 1.2.6'
+#config.gem 'rspec-rails',         :lib => 'spec/rails', :version => '>= 1.2.6'
+
+# Fixtures.
+config.gem 'notahat-machinist',       :lib => 'machinist'
     
 # The test environment is used exclusively to run your application's
 # test suite.  You never need to work with it otherwise.  Remember that

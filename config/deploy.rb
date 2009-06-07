@@ -24,9 +24,20 @@ set :ssh_options, {
     :keys => [File.join(ENV['HOME'], '.ssh', 'id_rsa')],
     :username => user
   }
-default_run_options[:pty] = true
+set :default_run_options, {:pty => true}
 
 # Roles.
 role :app, domain
 role :web, domain
 role :db,  domain, :primary => true
+
+# Hooks.
+after 'deploy:symlink', 'deploy:update_crontab'
+
+# Tasks.
+namespace :deploy do
+  desc 'Update the crontab file'
+  task :update_crontab, :roles => :db do
+    run "cd #{deploy_to} && whenever --update-crontab #{application}"
+  end
+end

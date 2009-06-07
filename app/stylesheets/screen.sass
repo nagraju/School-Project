@@ -1,29 +1,29 @@
+@import application/base.sass
+
+// Compass.
 @import blueprint.sass
 @import blueprint/modules/scaffolding.sass
+@import blueprint/modules/debug.sass
 @import compass/reset.sass
+@import compass/utilities.sass
 
-@import reset.sass
-
-@import extensions/ck_fu.sass
-@import extensions/formtastic.sass
-@import extensions/formtastic_changes.sass
-
-@import application/colors.sass
-
-@import scaffold2.sass
-
-+blueprint
-
-// Remove the scaffolding when you're ready to start doing visual design.
-// Or leave it in if you're happy with how blueprint looks out-of-the-box
++blueprint-typography("body")
++blueprint-utilities
++blueprint-grid
+//+blueprint-interaction
++blueprint-form
++blueprint-debug
 +blueprint-scaffolding
 
-body
-  :padding 0
-  :margin 0
-  
-#main
-  :padding 1em 2em
+// Extensions.
+@import extensions/ck_fu.sass
+@import extensions/formtastic.sass
 
-#content
-  :padding 1em
+// Application.
+@import application/reset.sass
+@import application/mixins.sass
+@import application/colors.sass
+@import application/patterns.sass
+@import application/layout.sass
+@import application/forms.sass
+@import application/notifications.sass

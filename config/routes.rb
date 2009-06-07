@@ -12,8 +12,13 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
   
-  map.resource :contact_message, :path_prefix => 'help', :only => [:new, :create]
+  map.resource :contact, :path_prefix => 'help', :only => [:new, :create], :controller => 'help/contacts'
   
+  map.with_options(:controller => 'home', :path_prefix => 'about') do |home|
+    home.about    '',         :action => 'about',   :member => {:about => :get}
+    home.privacy  'privacy',  :action => 'privacy', :member => {:about => :get}
+    home.terms    'terms',    :action => 'terms',   :member => {:about => :get}
+  end
   map.root :controller => 'home'
   
   SprocketsApplication.routes(map)

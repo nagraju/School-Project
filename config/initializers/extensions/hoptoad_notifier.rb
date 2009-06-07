@@ -1,4 +1,4 @@
-if defined?(HoptoadNotifier)
+if defined?(HoptoadNotifier) && Settings.api_keys.hoptoad.present?
   HoptoadNotifier.configure do |config|
     config.api_key = Settings.api_keys.hoptoad
   end

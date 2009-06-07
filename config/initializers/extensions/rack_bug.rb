@@ -1,10 +1,13 @@
 require 'rack/bug'
 
-# Only enable Rack::Bug toolbar in development.
-if Rails.env.to_sym == :development
-  # Enable Rack::Bug toolbar.
-  if defined?(Rack::Bug)
+# Check if Rack::Bug toolbar should be enabled.
+if defined?(Rack::Bug) && Settings.debugging.rack_bug.enabled
+  # Enable Rack::Bug toolbar for localhost.
+  if Rails.env == :development
     ActionController::Dispatcher.middleware.use Rack::Bug,
-      :ip_masks   => [IPAddr.new('127.0.0.1')]#, :password   => '1234'
+      :ip_masks => [IPAddr.new('127.0.0.1'), IPAddr.new('::1')]
+  else
+    ActionController::Dispatcher.middleware.use Rack::Bug,
+      :password => Settings.debugging.rack_bug.password
   end
 end

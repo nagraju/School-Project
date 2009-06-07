@@ -11,32 +11,47 @@ Rails::Initializer.run do |config|
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
   
-  # Add additional load paths for your own custom dirs
-  # config.load_paths += %W( #{RAILS_ROOT}/extras )
-  
   # Specify gems that this application depends on and have them installed with rake gems:install
-  config.gem 'haml',                          :version => '>= 2.1.0'
-  config.gem 'sprockets'
-  config.gem 'authlogic'
-  config.gem 'settingslogic'
+  
+  # Frameworks + Templating.
+  config.gem 'haml-edge',                     :lib => 'haml',               :version => '>= 2.1.0'
+  config.gem 'chriseppstein-compass',         :lib => 'compass',            :version => '>= 0.6.5'
+  config.gem 'sprockets',                     :lib => false
+  config.gem 'RedCloth',                      :lib => false
+  
+  # Authentication + Authorization.
+  config.gem 'authlogic',                     :lib => false
   config.gem 'josevalim-auth_helpers',        :lib => 'auth_helpers'
+  config.gem 'be9-acl9',                      :lib => 'acl9'
+  config.gem 'mmangino-facebooker',           :lib => 'facebooker'
+  
+  # Controllers
   config.gem 'josevalim-inherited_resources', :lib => 'inherited_resources'
-  config.gem 'josevalim-simple_form',         :lib => 'simple_form'
+  
+  # Views + Forms.
   config.gem 'justinfrench-formtastic',       :lib => 'formtastic'
-  config.gem 'chriseppstein-compass',         :lib => 'compass', :version => '>= 0.6.5'
-  config.gem 'settingslogic'
-  config.gem 'will_paginate'
+  config.gem 'josevalim-simple_form',         :lib => 'simple_form'
+  config.gem 'mislav-will_paginate',          :lib => 'will_paginate'
+  
+  # Configuration.
+  config.gem 'settingslogic',                 :lib => 'settingslogic'
+  
+  # Cron.
+  config.gem 'javan-whenever',                :lib => false
+  
+  # IE
+  config.gem 'sant0sk1-rack-noie6',           :lib => 'noie6'
   
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
-  # config.plugins = [ :'authlogic', :all ]
+  # config.plugins = [:all]
   
   # Skip frameworks you're not going to use. To use Rails without a database,
   # you must remove the Active Record framework.
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
   
-  # Where to put the cached pages.
-  config.action_controller.page_cache_directory = File.join(RAILS_ROOT, 'public', 'cache')
+  # Add additional load paths for your own custom dirs
+  config.load_paths += [File.join(RAILS_ROOT, 'app', 'sweepers')]
   
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
