@@ -243,7 +243,15 @@ vendor
   If the app has frozen rails, those gems also go here, under vendor/rails/.
   This directory is in the load path.
   
-== Useful Gems/Plugins
+== Installed jQuery/JavaScript Extensions
+
+jquery-ui
+  http://jqueryui.com/
+  
+jquery.tools
+  http://flowplayer.org/tools
+  
+== Useful Rails Extensions (gems/plugins)
 
 searching
   http://github.com/thoughtbot/squirrel (search query DSL)
