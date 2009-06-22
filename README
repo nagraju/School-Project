@@ -243,7 +243,7 @@ vendor
   If the app has frozen rails, those gems also go here, under vendor/rails/.
   This directory is in the load path.
   
-== Installed jQuery/JavaScript Extensions
+== Default jQuery/JavaScript Extensions
 
 jquery-ui
   http://jqueryui.com/
@@ -251,14 +251,47 @@ jquery-ui
 jquery.tools
   http://flowplayer.org/tools
   
+== Default Rails Extensions (gems/plugins)
+
+See:
+  config/enviroment.rb
+  config/environments/cucumber.rb
+  config/environments/development.rb
+  config/environments/test.rb
+  config/environments/production.rb
+  vendor/plugins/...
+  
+== Useful JavaScript Extensions
+
+google analytics
+  http://github.com/christianhellsten/jquery-google-analytics/tree/master
+  
+dynamic timestamps
+  http://github.com/rmm5t/jquery-timeago
+  
+star-rating
+  http://github.com/raskchanky/star-rating
+  
+round corners
+  http://github.com/weepy/cornerz
+  
+table sort/filter
+  http://tablesorter.com
+  http://github.com/jbritten/jquery-tablesorter-filter
+  
+text truncator
+  http://github.com/henrik/jquery.truncator.js
+  
 == Useful Rails Extensions (gems/plugins)
 
 searching
   http://github.com/thoughtbot/squirrel (search query DSL)
   http://github.com/freelancing-god/thinking-sphinx (full-text search)
+  http://github.com/binarylogic/searchlogic
   
 tableless models
   http://github.com/kennethkalmer/activerecord-tableless-models
+  http://github.com/cherring/activerecord-tableless (new - and more maintained)
   
 feeds
   http://github.com/grosser/acts_as_feed
@@ -333,4 +366,12 @@ navigation
   
 embed flash
   http://github.com/marcandre/swf_fu
+  
+ajax file uploads
+  http://github.com/adamlogic/jaxy_file_uploads
+  http://uploadify.com/
+  
+analyze performance
+  http://github.com/wvanbergen/request-log-analyzer
+  http://github.com/giraffesoft/trample/tree/master
   

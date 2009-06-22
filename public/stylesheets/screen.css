@@ -942,7 +942,11 @@ body {
 
 form .error label {
   color: #c00; }
-form .error input[type='text'], form .error input[type='password'], form .error input[type='file'], form .error textarea, form .error select {
+form .error input[type='text'],
+form .error input[type='password'],
+form .error input[type='file'],
+form .error textarea,
+form .error select {
   border-top-color: #cc0000 !important; }
 form label {
   font-weight: bold;
@@ -983,7 +987,8 @@ form select {
     border: 1px solid #ccc;
     border-top: 2px solid #ccc;
     border-bottom: 2px solid #999; }
-form input[type='text'], form input[type='password'] {
+form input[type='text'],
+form input[type='password'] {
   width: auto;
   max-width: 20em; }
 form input[type='password'] {

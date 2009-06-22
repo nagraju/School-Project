@@ -33,9 +33,11 @@ defaults: &defaults
       enabled: false
       
   debugging:
+    hirb:
+      enabled: true
     rack_bug:
       enabled: false
-      password: M2M3t8gvam.
+      password: 
       
   preferences:
     forms:
@@ -47,6 +49,8 @@ defaults: &defaults
 development:
   <<: *defaults
   debugging:
+    hirb:
+      enabled: true
     rack_bug:
       enabled: false
       

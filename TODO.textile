@@ -1,4 +1,6 @@
 h1. TODO
 
-* Put Facebook-stuff into own branch.
+* Put Facebook-stuff in own branch.
+* Finalize "r_extensions", and add as dependency
+* Finalize "local_e", and add to "Useful extensions"
 * Fork: http://github.com/rpheath/google_ajax_libraries_api/

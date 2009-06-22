@@ -22,3 +22,6 @@
 [submodule "vendor/plugins/authlogic_facebook_connect"]
 	path = vendor/plugins/authlogic_facebook_connect
 	url = git://github.com/kalasjocke/authlogic_facebook_connect.git
+[submodule "vendor/plugins/safe_mass_assignment"]
+	path = vendor/plugins/safe_mass_assignment
+	url = git://github.com/jamis/safe_mass_assignment.git

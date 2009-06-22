@@ -6,16 +6,20 @@
 config.gem 'ruby-debug'
 config.gem 'josevalim-rails-footnotes',       :lib => 'rails-footnotes'
 config.gem 'internuity-quick_scopes',         :lib => 'quick_scopes'
+config.gem 'cldwalker-hirb',                  :lib => 'hirb'
 
 # Deployment.
 config.gem 'capistrano'
 #config.gem 'eric-gemist',                     :lib => 'gemist'
 
-# Generators.
-#config.gem 'grimen-dry_scaffold',             :lib => 'dry_scaffold'
+# Scaffolding (generators).
+config.gem 'grimen-dry_scaffold',             :lib => false
 
 # Optimization.
 #config.gem 'wvanbergen-request-log-analyzer', :lib => 'request-log-analyzer'
+
+# Documentation.
+config.gem 'bryanlarsen-railroad', :lib => 'railroad'
 
 # In the development environment your application's code is reloaded on
 # every request.  This slows down response time but is perfect for development
