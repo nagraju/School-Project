@@ -16,3 +16,6 @@ end
 require 'cucumber/rails/rspec'
 require 'webrat/core/matchers'
 require "#{Rails.root}/test/blueprints"
+
+# Make Shoulds-matchers accessible in your step definitions
+World(Shoulda::ActionController::Matchers)

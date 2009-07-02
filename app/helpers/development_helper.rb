@@ -22,4 +22,9 @@ module DevelopmentHelper
     end.compact
   end
   
+  def yaml_debugger_link
+    bookmarklet = %{javascript:(function(){var%20s=document.createElement('script');var%20t=new%20Date().getTime();s.setAttribute('type','text/javascript');s.setAttribute('class','ydebug');s.setAttribute('src','http://debug.yaml.de/debugger.js?d='+String(t));document.getElementsByTagName('head')[0].appendChild(s);})();}
+    ['YAML Debugger', bookmarklet]
+  end
+  
 end

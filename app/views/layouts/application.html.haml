@@ -1,19 +1,20 @@
 !!! 1.1
 %html{html_attributes}
   %head
-    = content_type_tag('content-type', 'text/html;charset=UTF-8')
-    = content_type_tag('content-script-type', 'text/javascript')
-    = content_type_tag('content-style-type', 'text/css')
-    
-    %title= "#{Settings.site.name} | #{controller.controller_name}: #{controller.action_name}"
+    = content_type_tag(:'content-type', 'text/html;charset=UTF-8')
+    = content_type_tag(:'content-script-type', 'text/javascript')
+    = content_type_tag(:'content-style-type', 'text/css')
     
     = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
-    = stylesheet_link_tag 'print.css', :media => 'print'
+    = stylesheet_link_tag 'print.css',  :media => 'print'
     /[if IE]
-      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+      = stylesheet_link_tag 'ie.css',   :media => 'screen, projection'
       
-    //= google_javascripts :jquery, :jqueryui
+    // Disabled: = google_javascripts :jquery, :jqueryui
     = sprockets_include_tag
+    = yield :head
+    
+    %title= "#{Settings.site.name} | #{controller.controller_name}: #{controller.action_name}"
     
   %body{body_attributes}
     = facebook_connect_initializers if Settings.authentication.facebook_connect.enabled
@@ -35,3 +36,5 @@
       #footer
         .padding
           = render '/shared/site_footer'
+          
+    = yield :foot

@@ -243,6 +243,7 @@ vendor
   If the app has frozen rails, those gems also go here, under vendor/rails/.
   This directory is in the load path.
   
+  
 == Default jQuery/JavaScript Extensions
 
 jquery-ui
@@ -250,6 +251,7 @@ jquery-ui
   
 jquery.tools
   http://flowplayer.org/tools
+  
   
 == Default Rails Extensions (gems/plugins)
 
@@ -260,6 +262,7 @@ See:
   config/environments/test.rb
   config/environments/production.rb
   vendor/plugins/...
+  
   
 == Useful JavaScript Extensions
 
@@ -281,6 +284,23 @@ table sort/filter
   
 text truncator
   http://github.com/henrik/jquery.truncator.js
+  
+google maps
+  http://code.google.com/p/jmaps
+  
+image loading
+  http://github.com/tuupola/jquery_lazyload
+  
+text replacement
+  http://github.com/sorccu/cufon (canvas/VML)
+  http://wiki.novemberborn.net/sifr3 (flash)
+  
+svg
+  http://github.com/DmitryBaranovskiy/raphael
+  
+feature detection
+  http://modernizr.com (html5)
+  
   
 == Useful Rails Extensions (gems/plugins)
 
@@ -331,6 +351,7 @@ background processing
   http://github.com/jnstq/job_fu
   http://github.com/purzelrakete/workling
   http://github.com/tra/spawn (simple)
+  http://github.com/tobi/delayed_job
   
 money/currency
   http://github.com/FooBarWidget/money
@@ -374,4 +395,10 @@ ajax file uploads
 analyze performance
   http://github.com/wvanbergen/request-log-analyzer
   http://github.com/giraffesoft/trample/tree/master
+  
+  
+== Other
+
+continuous integration server
+  http://github.com/integrity/integrity
   

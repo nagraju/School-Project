@@ -1,3 +1,3 @@
-if defined?(Hirb)
-  Hirb.enable if Settings.debugging.hirb.enabled
+if defined?(Hirb) && Settings.debugging.hirb.enabled
+  Hirb.enable
 end

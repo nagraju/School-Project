@@ -5,6 +5,7 @@ defaults: &defaults
     domain: newapp.com
     email:
       contact_form: support@newapp.com
+      no_reply: no_reply@newapp.com
       
   meta:
     default_title: 

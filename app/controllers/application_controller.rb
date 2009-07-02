@@ -4,6 +4,7 @@
 class ApplicationController < ActionController::Base
   include Accounts::Filters
   
+  # TODO: Move out to new branch
   before_filter :set_facebook_session
   helper_method :facebook_session
   
@@ -16,7 +17,8 @@ class ApplicationController < ActionController::Base
     
     # Skip layouts for AJAX calls + DRY up controller.
     def set_layout
-      (request.format == :js ? false : 'application') rescue 'application'
+      app_template = 'application'
+      (request.format == :js ? false : app_template) rescue app_template
     end
     
     # Store the requested path in session.

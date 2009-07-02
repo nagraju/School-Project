@@ -4,3 +4,4 @@ h1. TODO
 * Finalize "r_extensions", and add as dependency
 * Finalize "local_e", and add to "Useful extensions"
 * Fork: http://github.com/rpheath/google_ajax_libraries_api/
+* Replace sprockets with http://github.com/cjohansen/juicer (?)
