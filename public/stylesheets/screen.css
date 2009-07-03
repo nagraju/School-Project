@@ -969,7 +969,7 @@ form input[type='password'],
 form input[type='file'],
 form textarea,
 form select {
-  padding: 0.25em 0.25em 0.15em;
+  padding: 0.25em 0.25em 0.15em !important;
   color: #333;
   border: 1px solid #ddd;
   border-top: 2px solid #ddd;

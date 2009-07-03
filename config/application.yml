@@ -34,6 +34,10 @@ defaults: &defaults
       enabled: false
       
   debugging:
+    sanitize_email: &sanitize_email
+      recipients: test@newapp.com
+      bcc_recipients: test@newapp.com
+      cc_recipients: test@newapp.com
     hirb:
       enabled: true
     rack_bug:
@@ -50,6 +54,8 @@ defaults: &defaults
 development:
   <<: *defaults
   debugging:
+    sanitize_email:
+      <<: *sanitize_email
     hirb:
       enabled: true
     rack_bug:

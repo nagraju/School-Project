@@ -267,7 +267,7 @@ See:
 == Useful JavaScript Extensions
 
 google analytics
-  http://github.com/christianhellsten/jquery-google-analytics/tree/master
+  http://github.com/christianhellsten/jquery-google-analytics
   
 dynamic timestamps
   http://github.com/rmm5t/jquery-timeago
@@ -285,6 +285,9 @@ table sort/filter
 text truncator
   http://github.com/henrik/jquery.truncator.js
   
+tooltip
+  http://craigsworks.com/projects/qtip
+  
 google maps
   http://code.google.com/p/jmaps
   
@@ -300,6 +303,9 @@ svg
   
 feature detection
   http://modernizr.com (html5)
+  
+file select styling (browser-support)
+  http://www.appelsiini.net/projects/filestyle
   
   
 == Useful Rails Extensions (gems/plugins)
@@ -342,6 +348,7 @@ activity feed
   
 sitemap
   http://github.com/gravis/sitemap
+  http://github.com/adamsalter/sitemap_generator-plugin (rake)
   
 localization (extended)
   http://github.com/janne/model_translations
