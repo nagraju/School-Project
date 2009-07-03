@@ -21,7 +21,7 @@ SitemapGenerator::Sitemap.add_links do |sitemap|
   # add all individual articles
   # Article.find(:all).each do |a|
   #   sitemap.add article_path(a), :lastmod => a.updated_at
-  # end
+  # end'
   
   # add merchant path
   # sitemap.add '/purchase', :priority => 0.7, :host => "https://example.com"
