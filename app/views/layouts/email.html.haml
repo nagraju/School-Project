@@ -3,5 +3,16 @@
   %head
     = content_type_tag('content-type', 'text/html;charset=UTF-8')
   %body
-    = yield
+    #container
+      #header
+        .padding
+          = yield :header
+          
+      #content
+        .padding
+          = yield
+          
+      #footer
+        .padding
+          = yield :footer
     

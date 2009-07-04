@@ -35,10 +35,11 @@ module LayoutHelper
     content_tag(:p, description, :class => 'description')
   end
   
-  def html_attributes(lang = I18n.locale)
+  def html_attributes(lang = I18n.locale, strict_xml = true)
     attrs = html_attrs(lang) # HAML-helper
+    attrs.update!(:lang => nil) if options[:strict_xml]
     if Settings.authentication.facebook_connect
-      attrs.merge!(:'xmlns:fb' => 'http://www.facebook.com/2008/fbml') 
+      attrs.merge!(:'xmlns:fb' => 'http://www.facebook.com/2008/fbml')
     end
   end
   
