@@ -20,11 +20,11 @@ When /^I follow "([^\"]*)"$/ do |link|
 end
 
 When /^I fill in "([^\"]*)" with "([^\"]*)"$/ do |field, value|
-  fill_in(field, :with => value) 
+  fill_in(field, :with => value)
 end
 
 When /^I select "([^\"]*)" from "([^\"]*)"$/ do |value, field|
-  select(value, :from => field) 
+  select(value, :from => field)
 end
 
 # Use this step in conjunction with Rail's datetime_select helper. For example:
@@ -75,11 +75,11 @@ When /^I select "([^\"]*)" as the "([^\"]*)" date$/ do |date, date_label|
 end
 
 When /^I check "([^\"]*)"$/ do |field|
-  check(field) 
+  check(field)
 end
 
 When /^I uncheck "([^\"]*)"$/ do |field|
-  uncheck(field) 
+  uncheck(field)
 end
 
 When /^I choose "([^\"]*)"$/ do |field|
@@ -91,29 +91,36 @@ When /^I attach the file at "([^\"]*)" to "([^\"]*)"$/ do |path, field|
 end
 
 Then /^I should see "([^\"]*)"$/ do |text|
-  response.should contain(text)
+  # RSpec: response.should contain(text)
+  assert_match /#{text}/m, @response.body
 end
 
 Then /^I should not see "([^\"]*)"$/ do |text|
-  response.should_not contain(text)
+  # RSpec: response.should_not contain(text)
+  assert_no_match /#{text}/m, @response.body
 end
 
 Then /^the "([^\"]*)" field should contain "([^\"]*)"$/ do |field, value|
-  field_labeled(field).value.should =~ /#{value}/
+  # RSpec: field_labeled(field).value.should =~ /#{value}/
+  assert_match /#{value}/, field_labeled(field).value
 end
 
 Then /^the "([^\"]*)" field should not contain "([^\"]*)"$/ do |field, value|
-  field_labeled(field).value.should_not =~ /#{value}/
+  # RSpec: field_labeled(field).value.should_not =~ /#{value}/
+  assert_no_match /#{value}/, field_labeled(field).value
 end
     
 Then /^the "([^\"]*)" checkbox should be checked$/ do |label|
-  field_labeled(label).should be_checked
+  # RSpec: field_labeled(label).should be_checked
+  assert field_labeled(label).checked?
 end
 
 Then /^the "([^\"]*)" checkbox should not be checked$/ do |label|
-  field_labeled(label).should_not be_checked
+  # RSpec: field_labeled(label).should_not be_checked
+  assert !field_labeled(label).checked?
 end
 
 Then /^I should be on (.+)$/ do |page_name|
-  URI.parse(current_url).path.should == path_to(page_name)
+  # RSpec: URI.parse(current_url).path.should == path_to(page_name)
+  assert_equal path_to(page_name), URI.parse(current_url).path
 end

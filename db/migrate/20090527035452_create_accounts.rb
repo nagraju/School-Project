@@ -1,7 +1,7 @@
 class CreateAccounts < ActiveRecord::Migration
   def self.up
     create_table :accounts do |t|
-      #t.string   :login
+      t.string   :login
       t.string   :email
       t.string   :crypted_password
       t.string   :password_salt
@@ -21,8 +21,8 @@ class CreateAccounts < ActiveRecord::Migration
       t.string   :last_login_ip
     end
     
-    #add_index :accounts, :login, :unique => true
-    add_index :accounts, :email, :unique => true
+    add_index :accounts, :login,                :unique => true
+    add_index :accounts, :email,                :unique => true
     add_index :accounts, :persistence_token
     add_index :accounts, :last_request_at
   end

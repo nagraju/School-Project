@@ -35,12 +35,52 @@ module LayoutHelper
     content_tag(:p, description, :class => 'description')
   end
   
-  def html_attributes(lang = I18n.locale, strict_xml = true)
-    attrs = html_attrs(lang) # HAML-helper
-    attrs.update!(:lang => nil) if options[:strict_xml]
-    if Settings.authentication.facebook_connect
-      attrs.merge!(:'xmlns:fb' => 'http://www.facebook.com/2008/fbml')
+  def meta(options = {})
+    options.slice(:title, :description, :keywords).each do |type|
+      content_for(type, options[type]) if options[type]
     end
+  end
+  
+  def seo_title(string)
+    content_for(:title, string)
+  end
+  
+  def seo_description(string)
+    content_for(:description, string)
+  end
+  
+  def seo_keywords(string)
+    content_for(:keywords, string)
+  end
+  
+  def title_tag(default = Settings.meta.default_title)
+    content_tag(:title, @content_for_title || default)
+  end
+  
+  def description_tag(default = Settings.meta.default_description)
+    content = @content_for_description || default
+    tag(:meta, :name => 'description', :content => content) unless content.blank?
+  end
+  
+  def keywords_tag(default = Settings.meta.default_keywords)
+    content = @content_for_keywords || default
+    tag(:meta, :name => 'keywords', :content => content) unless content.blank?
+  end
+  
+  def content_type_tag(http_equiv, content)
+    tag(:meta, :'http-equiv' => http_equiv, :content => content)
+  end
+  
+  def html_attributes(doctype_base = :xhtml, lang = I18n.locale)
+    attrs = if doctype_base == :html
+      {:lang => lang}
+    else
+      {:xmlns => 'http://www.w3.org/1999/xhtml', :'xml:lang' => lang}
+    end
+    # TODO: Move to Facebook-branch
+    #if Settings.authentication.facebook_connect
+    #  attrs.merge!(:'xmlns:fb' => 'http://www.facebook.com/2008/fbml')
+    #end
   end
   
   def body_attributes
@@ -48,10 +88,6 @@ module LayoutHelper
       :id => "#{controller.controller_name}",
       :class => "#{controller.action_name}_#{controller.controller_name.singularize}"
     }
-  end
-  
-  def content_type_tag(http_equiv, content)
-    tag(:meta, :'http-equiv' => http_equiv, :content => content)
   end
   
   def capture_if_given(&block)

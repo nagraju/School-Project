@@ -1,70 +1,77 @@
 # ---------------------------------------------------
+#  Defaults
+# ---------------------------------------------------
+#
+defaults: &defaults
+  encoding: utf8
+  pool: 5
+  host: localhost
+  username: root
+  password: 
+  
+# ---------------------------------------------------
 #  SQLite 3.x
 # ---------------------------------------------------
 # 
 # Install:
-#   gem install sqlite3-ruby (not necessary on OS X Leopard)
+#   sudo gem install sqlite3-ruby (not necessary on OS X Leopard)
 #
-development:
+sqlite: &sqlite
+  <<: *defaults
   adapter: sqlite3
-  database: db/development.sqlite3
-  pool: 5
   timeout: 5000
   
-test: &test
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
-  
-production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+# ---------------------------------------------------
+#  PostgreSQL
+# ---------------------------------------------------
+#
+# Install:
+#   sudo gem install postgres
+#
+postgres: &postgres
+  <<: *defaults
+  adapter: postgresql
   
 # ---------------------------------------------------
 #  MySQL
 # ---------------------------------------------------
 #
 # Install, Linux:
-#   gem install mysql
+#   sudo gem install mysql
 #
 # Install, Mac OS X Leopard:
 #   sudo env ARCHFLAGS="-arch i386" gem install mysql -- --with-mysql-config=/usr/local/mysql/bin/mysql_config
 #       This sets the ARCHFLAGS environment variable to your native architecture
 #
-# Install, Windows:
-#   gem install mysql
-#       Choose the win32 build.
-#       Install MySQL and put its /bin directory on your path.
-#
-#development:
-#  adapter: mysql
-#  encoding: utf8
-#  database: newapp_development
-#  pool: 5
-#  username: root
-#  password:
-#  socket: /tmp/mysql.sock
-#  
-#test: &test
-#  adapter: mysql
-#  encoding: utf8
-#  database: newapp_test
-#  pool: 5
-#  username: root
-#  password:
-#  socket: /tmp/mysql.sock
-#
-#production:
-#  adapter: mysql
-#  encoding: utf8
-#  database: newapp_production
-#  pool: 5
-#  username: root
-#  password: 
-#  socket: /tmp/mysql.sock
+mysql: &mysql
+  <<: *defaults
+  adapter: mysql
+  socket: <%= ['mysql.sock', 'mysqld.sock'].collect { |s| (s = `locate #{s}`.strip).empty? ? nil : s }.compact.first %>
+  
+# ---------------------------------------------------
+#  Environments
+# ---------------------------------------------------
 
+development:
+  <<: *sqlite
+  database: db/development.sqlite3
+  #database: newapp_development
+  
+test:
+  <<: *sqlite
+  database: db/test.sqlite3
+  #database: newapp_test
+  
 cucumber:
   <<: *test
+  
+staging:
+  <<: *production
+  database: db/staging.sqlite3
+  #database: newapp_staging
+  
+production:
+  <<: *sqlite
+  database: db/production.sqlite3
+  #database: newapp_production
+  

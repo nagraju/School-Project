@@ -1,8 +1,10 @@
 module Accounts::Filters
   def self.included(base)
-    base.send :before_filter, :find_current_account
-    base.send :filter_parameter_logging, :password, :password_confirmation
-    base.send :helper_method, :admin?
+    base.class_eval do
+      before_filter :find_current_account
+      filter_parameter_logging :password, :password_confirmation
+      helper_method :admin?
+    end
   end
   
   protected

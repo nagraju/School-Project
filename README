@@ -244,6 +244,14 @@ vendor
   This directory is in the load path.
   
   
+== Article Resources
+
+Remove Git Submodule
+  http://www.hackido.com/2009/01/quick-tip-remove-git-submodule.html
+  
+Black Box Testing
+  http://www.mendable.com/rails-black-box-testing-complex-models/
+  
 == Default jQuery/JavaScript Extensions
 
 jquery-ui
@@ -282,6 +290,9 @@ table sort/filter
   http://tablesorter.com
   http://github.com/jbritten/jquery-tablesorter-filter
   
+text hyphenator
+  http://code.google.com/p/hyphenator/
+  
 text truncator
   http://github.com/henrik/jquery.truncator.js
   
@@ -307,9 +318,15 @@ feature detection
 file select styling (browser-support)
   http://www.appelsiini.net/projects/filestyle
   
+client-side search
+  http://rikrikrik.com/jquery/quicksearch
+  
   
 == Useful Rails Extensions (gems/plugins)
 
+authorization
+  http://github.com/makandra/aegis (simpler alternative to acl9)
+  
 searching
   http://github.com/thoughtbot/squirrel (search query DSL)
   http://github.com/freelancing-god/thinking-sphinx (full-text search)
@@ -321,6 +338,12 @@ tableless models
   
 feeds
   http://github.com/grosser/acts_as_feed
+  
+api
+  http://github.com/quantipay/authlogic_haapi (http authentication with api key)
+  
+subdomains
+  http://github.com/mbleigh/subdomain-fu
   
 state machine
   http://github.com/ryan-allen/workflow
@@ -353,12 +376,6 @@ sitemap
 localization (extended)
   http://github.com/janne/model_translations
   http://github.com/josevalim/localized_templates
-  
-background processing
-  http://github.com/jnstq/job_fu
-  http://github.com/purzelrakete/workling
-  http://github.com/tra/spawn (simple)
-  http://github.com/tobi/delayed_job
   
 money/currency
   http://github.com/FooBarWidget/money
@@ -399,13 +416,24 @@ ajax file uploads
   http://github.com/adamlogic/jaxy_file_uploads
   http://uploadify.com/
   
+html generating/building
+  http://github.com/judofyr/parkaby
+  
 analyze performance
   http://github.com/wvanbergen/request-log-analyzer
   http://github.com/giraffesoft/trample/tree/master
   
+background processing
+  http://github.com/jnstq/job_fu
+  http://github.com/purzelrakete/workling
+  http://github.com/tra/spawn (simple)
+  http://github.com/tobi/delayed_job
+  
+database backup
+  http://github.com/gravelpup/backup_fu (simple)
+  http://github.com/astrails/safe (advanced + flexible)
   
 == Other
 
-continuous integration server
-  http://github.com/integrity/integrity
-  
+rdoc browser
+  http://github.com/manalang/bdoc

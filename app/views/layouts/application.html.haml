@@ -1,24 +1,26 @@
 !!! 1.1
-%html{html_attributes}
+%html{html_attributes(:xhtml)}
   %head
-    = content_type_tag(:'content-type', 'text/html;charset=UTF-8')
-    = content_type_tag(:'content-script-type', 'text/javascript')
-    = content_type_tag(:'content-style-type', 'text/css')
+    = title_tag "#{Settings.site.name} | #{controller.controller_name}: #{controller.action_name}"
+    = description_tag
+    = keywords_tag
+    
+    = content_type_tag 'content-type', 'text/html;charset=UTF-8'
+    = content_type_tag 'content-script-type', 'text/javascript'
+    = content_type_tag 'content-style-type', 'text/css'
     
     = stylesheet_link_tag 'screen', :media => 'screen, projection'
     = stylesheet_link_tag 'print',  :media => 'print'
     /[if IE]
       = stylesheet_link_tag 'ie',   :media => 'screen, projection'
       
-    // Disabled optimized alternative: = google_javascripts :jquery, :jqueryui
+    - # Disabled optimized alternative:google_javascripts :jquery, :jqueryui
     = sprockets_include_tag
     = yield :head
     
-    %title= "#{Settings.site.name} | #{controller.controller_name}: #{controller.action_name}"
-    
   %body{body_attributes}
-    = facebook_connect_initializers if Settings.authentication.facebook_connect.enabled
-    = development_toolbar
+    - # TODO: Move to own branch: facebook_connect_initializers if Settings.authentication.facebook_connect.enabled
+    = development_toolbar unless Rails.env?(:production)
     
     #container
       #header

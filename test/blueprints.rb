@@ -1,0 +1,44 @@
+require 'machinist/active_record'
+# require 'machinist/object' # for non-active_record models.
+require 'sham'
+require 'forgery'
+
+# == USAGE:
+#    Post.make                                    # save with generated values
+#    Post.make(:title => "An explicit title")     # save with explicit value
+#    Post.make_unvalidated                        # save without validations
+#    Post.make_unsaved                            # don't save
+#
+
+# Setup fake data generators.
+Sham.login                  { Forgery(:internet).user_name }
+Sham.email                  { Forgery(:internet).email_address }
+Sham.password               { '123456' }
+Sham.ip                     { (1..4).collect{ |x| rand(256)}.join('.') } }
+# ---
+Sham.language               { Forgery(:personal).language } # TODO: "locale"-forgery
+Sham.time_zone              { 'UTC' }                       # TODO: "time_zone"-forgery
+# ---
+Sham.name                   { Forgery(:name).full_name }
+Sham.gender                 { Forgery(:personal).abbreviated_gender }
+Sham.website                { Forgery(:internet).domain_name }
+# ---
+Sham.street_address         { Forgery(:address).street_address }
+Sham.city                   { Forgery(:address).city }
+Sham.postal_code            { Forgery(:address).zip }
+Sham.country                { Forgery(:address).country }   # TODO: "country_abbrev"-forgery
+Sham.phone                  { Forgery(:address).phone }
+# ---
+Sham.title                  { Forgery(:lorem_ipsum).sentence }
+Sham.description            { Forgery(:lorem_ipsum).sentences(2) }
+Sham.body                   { Forgery(:lorem_ipsum).paragraphs(3) }
+# --- 
+Sham.date                   { Forgery(:basic).number(:at_most => 1000).days.from_now }
+Sham.created_at             { Sham.date }
+Sham.updated_at             { Sham.date }
+# ---
+
+# Load model blueprints.
+Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), 'blueprints', '**', '*.rb'))).uniq.each do |blueprint|
+  require blueprint
+end

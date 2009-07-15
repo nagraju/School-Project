@@ -15,18 +15,21 @@ Rails::Initializer.run do |config|
   
   # Frameworks + Templating.
   config.gem 'haml-edge',                     :lib => 'haml',               :version => '>= 2.1.0'
-  config.gem 'chriseppstein-compass',         :lib => 'compass',            :version => '>= 0.6.5'
+  config.gem 'chriseppstein-compass',         :lib => 'compass',            :version => '0.6.5'
   config.gem 'sprockets',                     :lib => false
   config.gem 'RedCloth',                      :lib => false
   
   # Authentication + Authorization.
-  config.gem 'authlogic',                     :lib => false
+  config.gem 'binarylogic-authlogic',         :lib => 'authlogic'
   config.gem 'josevalim-auth_helpers',        :lib => 'auth_helpers'
   config.gem 'be9-acl9',                      :lib => 'acl9'
   config.gem 'mmangino-facebooker',           :lib => 'facebooker'
   
-  # Controllers
+  # Controllers.
   config.gem 'josevalim-inherited_resources', :lib => 'inherited_resources'
+  
+  # Models.
+  config.gem 'norman-friendly_id',            :lib => 'friendly_id'
   
   # Views + Forms.
   config.gem 'justinfrench-formtastic',       :lib => 'formtastic'
@@ -34,9 +37,12 @@ Rails::Initializer.run do |config|
   config.gem 'mislav-will_paginate',          :lib => 'will_paginate'
   
   # Configuration.
-  config.gem 'settingslogic',                 :lib => 'settingslogic'
+  config.gem 'binarylogic-settingslogic',     :lib => 'settingslogic'
   
-  # Cron.
+  # Database Seeding.
+  config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper'
+  
+  # Crontab.
   config.gem 'javan-whenever',                :lib => false
   
   # IE
@@ -48,10 +54,15 @@ Rails::Initializer.run do |config|
   
   # Skip frameworks you're not going to use. To use Rails without a database,
   # you must remove the Active Record framework.
-  # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
+  # config.frameworks -= [:active_record, :active_resource, :action_mailer]
   
   # Add additional load paths for your own custom dirs
   config.load_paths += [File.join(RAILS_ROOT, 'app', 'sweepers')]
+  
+  # Cache storage locations.
+  config.action_controller.page_cache_directory = File.join(RAILS_ROOT, 'public', 'cache')
+  config.action_controller.cache_store = [:file_store, File.join(RAILS_ROOT, 'tmp', 'cache', 'fragments')]
+  #config.action_controller.cache_store = :mem_cache_store
   
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer

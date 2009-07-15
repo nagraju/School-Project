@@ -1,5 +1,3 @@
-require 'compass'
-
 if defined?(Compass)
   # If you have any compass plugins, require them here.
   Compass.configuration do |config|

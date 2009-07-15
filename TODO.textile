@@ -1,7 +1,25 @@
 h1. TODO
 
+h2. Next
+
+* Fix loading of the rake task "db:bootstrap" for the gem: Implement seed-data solution: http://github.com/sevenwire/bootstrapper
+
 * Put Facebook-stuff in own branch.
-* Finalize "r_extensions", and add as dependency
+* Write Cucumber/Shoulda-tests for accounts. Use: http://github.com/tsechingho/authlogic_bundle, http://itsignals.cascadia.com.au/?p=30
+
+h2. Priority
+
+* Nicer default template, dark backround and white content - like the Railscasts template.
+
+h2. Future
+
+* Rake-task for updating jQuery, etc....
 * Finalize "local_e", and add to "Useful extensions"
-* Fork: http://github.com/rpheath/google_ajax_libraries_api/
-* Replace sprockets with http://github.com/cjohansen/juicer (?)
+* Finalize "i18n_extensions", and add to "Useful extensions"
+* Finalize "r_extensions", and add as dependency
+* Replace sprockets with http://github.com/cjohansen/juicer (http://www.cjohansen.no/en/ruby/juicer_a_css_and_javascript_packaging_tool)
+
+h2. Maybe
+
+* Enhance/Fork: http://github.com/rpheath/google_ajax_libraries_api/
+* Implement subdomain handling for accounts, i.e. Account.find_by_submdomain(...):  http://www.robbyonrails.com/articles/2009/01/11/subdomain-accounts-with-ruby-on-rails-explained, http://github.com/mbleigh/subdomain-fu/tree/master

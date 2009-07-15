@@ -1,0 +1,77 @@
+# ---------------------------------------------------
+#  Defaults
+# ---------------------------------------------------
+#
+defaults: &defaults
+  encoding: utf8
+  pool: 5
+  host: localhost
+  username: #{user}
+  password: #{Capistrano::CLI.ui.ask('Database password: ')}
+  
+# ---------------------------------------------------
+#  SQLite 3.x
+# ---------------------------------------------------
+# 
+# Install:
+#   sudo gem install sqlite3-ruby (not necessary on OS X Leopard)
+#
+sqlite: &sqlite
+  <<: *defaults
+  adapter: sqlite3
+  timeout: 5000
+  
+# ---------------------------------------------------
+#  PostgreSQL
+# ---------------------------------------------------
+#
+# Install:
+#   sudo gem install postgres
+#
+postgres: &postgres
+  <<: *defaults
+  adapter: postgresql
+  
+# ---------------------------------------------------
+#  MySQL
+# ---------------------------------------------------
+#
+# Install, Linux:
+#   sudo gem install mysql
+#
+# Install, Mac OS X Leopard:
+#   sudo env ARCHFLAGS="-arch i386" gem install mysql -- --with-mysql-config=/usr/local/mysql/bin/mysql_config
+#       This sets the ARCHFLAGS environment variable to your native architecture
+#
+mysql: &mysql
+  <<: *defaults
+  adapter: mysql
+  socket: <%= ['mysql.sock', 'mysqld.sock'].collect { |s| (s = `locate #{s}`.strip).empty? ? nil : s }.compact.first %>
+  
+# ---------------------------------------------------
+#  Environments
+# ---------------------------------------------------
+
+development:
+  <<: *sqlite
+  database: db/development.sqlite3
+  #database: newapp_development
+  
+test:
+  <<: *sqlite
+  database: db/test.sqlite3
+  #database: #{application}_test
+  
+cucumber:
+  <<: *test
+  
+staging:
+  <<: *production
+  database: db/staging.sqlite3
+  #database: #{application}_staging
+  
+production:
+  <<: *sqlite
+  database: db/production.sqlite3
+  #database: #{application}_production
+  

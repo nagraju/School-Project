@@ -19,16 +19,15 @@ config.action_view.cache_template_loading            = true
 # config.log_level = :debug
 
 # Use a different logger for distributed setups
+# Log-rotate: Keep 50 old logfiles of maximum 1 MB each.
 config.logger = Logger.new(config.log_path, 50, 1.megabyte)
 
 # Use a different cache store in production
 # config.cache_store = :mem_cache_store
 
-# Page cache storage location.
-config.action_controller.page_cache_directory = File.join(RAILS_ROOT, 'public', 'cache')
-
 # Enable serving of images, stylesheets, and javascripts from an asset server
-# config.action_controller.asset_host = "http://assets.example.com"
+#config.action_controller.asset_host = "http://assets.#{::Settings.site.domain}" # TODO: before_initialize this
+config.action_controller.asset_host = "http://assets.newapp.com"
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false

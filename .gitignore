@@ -1,7 +1,10 @@
-*.sqlite3
-db/schema.rb
-tmp/*
+coverage
+doc/*
 log/*
 public/cache/*
-.DS_STORE
+tmp/*
+vendor/rails/*
+db/schema.rb
+*.sqlite3
 *.tmproj
+.DS_STORE

@@ -1,17 +1,8 @@
 :asset_root: public
+:source_files:
+  - app/javascripts/application.js
 :load_path:
   - app/javascripts
-  - vendor/sprockets/*/src
-  - vendor/plugins/*/javascripts
-:source_files:
-  - app/javascripts/jquery.js
-  - app/javascripts/jquery-ui.js
-  - app/javascripts/jrails.js
-  - app/javascripts/extensions/jquery.validate.js
-  - app/javascripts/extensions/jquery.tools.js
-  - app/javascripts/extensions/jquery.livequery.js
-  - app/javascripts/extensions/jquery.live_paginate.js
-  - app/javascripts/extensions/jform/jquery.autogrow.js
-  - app/javascripts/extensions/jform/jquery.autofocus.js
-  - app/javascripts/extensions/jform/jquery.input_hint.js
-  - app/javascripts/application.js
+  - app/javascripts/*
+  - vendor/javascripts
+  - vendor/javascripts/*

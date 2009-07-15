@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+
+if ARGV.size == 0
+  puts "Usage:"
+  puts "  ./script/submodule update name [origin=origin] [branch=master]"
+  puts "  ./script/submodule update all"
+else
+  case ARGV[0]
+  when /update/ then
+    # Get input arguments.
+    plugin_name = ARGV.shift
+    plugin_name = '*' if plugin_name == 'all' # Hack: * as input yields files in current directory...for some reason.
+  
+    search_path = File.expand_path(File.join(File.dirname(__FILE__), '..', 'vendor', 'plugins', plugin_name))
+  
+    if plugin_name == '*'
+      plugin_paths = Dir.glob(search_path)
+      plugin_branch = 'origin/master'
+    else
+      plugin_paths = [search_path]
+      plugin_branch = [ARGV.shift || 'origin', ARGV.shift || 'master'].compact.join('/')
+    end
+  
+    puts "================================"
+    puts " Update Submodule(s)"
+    puts "================================"
+    plugin_paths.each do |path|
+      FileUtils.cd(path) do |dir|
+        # Show info
+        puts "Plugin: #{File.basename(dir)}"
+        puts "Branch: #{plugin_branch}"
+        puts "..."
+        # Perform update
+        puts `git remote update`
+        puts `git merge #{plugin_branch}`
+        puts "--------------------------------"
+      end
+    end
+  else
+    puts "** No such command."
+  end
+end

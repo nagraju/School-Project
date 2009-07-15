@@ -21,17 +21,25 @@
 #
 
 class Account < ActiveRecord::Base
+  include AuthHelpers::Model::Confirmable
+  include AuthHelpers::Model::Recoverable
+  include AuthHelpers::Model::Updatable
+  #include AuthlogicExtensions::Model::OptionalLoginField
+  
   acts_as_authentic do |c|
-    c.perishable_token_valid_for = 5.days
+    c.perishable_token_valid_for 5.days
     
     # Use this if you have your accountable polymorphic association
     # a.validations_scope = :accountable_type
     
     # Disable require password confirmation and AuthHelpers handle it, since it
-    # adds email and password confirmation without validates length of passoword
+    # adds email and password confirmation without validates length of password
     # check.
-    #
     c.require_password_confirmation = false
+    
+    # Login/Username is optional, not required for account signup.
+    c.validate_login_field = false 
+    
     c.validates_length_of_email_field_options :within => 5..100, :allow_blank => true
     c.validates_length_of_password_field_options :within => 6..20, :allow_blank => true
     c.merge_validates_format_of_email_field_options :allow_blank => true
@@ -41,11 +49,4 @@ class Account < ActiveRecord::Base
   validates_presence_of :email
   validates_presence_of :password, :on => :create
   
-  # Use this if you have any association on this model and it will automatically
-  # add the association and accepted nested attributes.
-  # include AuthHelpers::Model::Associatable
-  
-  include AuthHelpers::Model::Confirmable
-  include AuthHelpers::Model::Recoverable
-  include AuthHelpers::Model::Updatable
 end

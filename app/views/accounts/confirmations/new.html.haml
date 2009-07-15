@@ -1,6 +1,6 @@
-= title do
+= heading do
   Resend confirmation instructions
-
+  
 - semantic_form_for(@account, :url => account_confirmation_url, :html => {:method => :post}) do |f|
   - flash_form_error(f)
   

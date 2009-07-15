@@ -1,2 +1,6 @@
+require File.join(Rails.root, 'lib', 'app')
+require File.join(Rails.root, 'lib', 'rails')
 require File.join(Rails.root, 'lib', 'core_ext', 'string')
 require File.join(Rails.root, 'lib', 'sprockets', 'concatenation')
+require File.join(Rails.root, 'lib', 'machinist', 'make_unvalidated')
+require File.join(Rails.root, 'lib', 'authlogic', 'optional_login_field')

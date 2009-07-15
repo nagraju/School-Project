@@ -16,9 +16,6 @@
 [submodule "vendor/plugins/hoptoad_notifier"]
 	path = vendor/plugins/hoptoad_notifier
 	url = git://github.com/thoughtbot/hoptoad_notifier.git
-[submodule "vendor/plugins/ck_fu"]
-	path = vendor/plugins/ck_fu
-	url = git://github.com/r38y/ck_fu.git
 [submodule "vendor/plugins/authlogic_facebook_connect"]
 	path = vendor/plugins/authlogic_facebook_connect
 	url = git://github.com/kalasjocke/authlogic_facebook_connect.git
@@ -34,3 +31,6 @@
 [submodule "vendor/plugins/sitemap_generator-plugin"]
 	path = vendor/plugins/sitemap_generator-plugin
 	url = git://github.com/adamsalter/sitemap_generator-plugin.git
+[submodule "vendor/plugins/cucumber_rails_debug"]
+	path = vendor/plugins/cucumber_rails_debug
+	url = git://github.com/mischa/cucumber_rails_debug.git

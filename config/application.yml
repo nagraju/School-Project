@@ -8,9 +8,9 @@ defaults: &defaults
       no_reply: no_reply@newapp.com
       
   meta:
-    default_title: 
-    default_keywords: 
-    default_description: 
+    default_title: Untitled
+    default_keywords: <No description>
+    default_description: <No keywords>
     
   localization:
     default_locale: en

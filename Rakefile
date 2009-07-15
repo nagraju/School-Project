@@ -8,3 +8,6 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 
 require 'tasks/rails'
+
+# TODO: Load gem rake tasks. Not being loaded the same way as plugins.
+# require 'bootstrapper/rake/tasks'

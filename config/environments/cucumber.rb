@@ -3,16 +3,17 @@
 # Cucumber gems.
 
 # Functional.
-config.gem 'cucumber',            :lib => false,        :version => '>= 0.3.9.4'
-config.gem 'webrat',              :lib => false,        :version => '>= 0.4.4'
+config.gem 'cucumber',                :lib => false,        :version => '>= 0.3.9.4'
+config.gem 'webrat',                  :lib => false,        :version => '>= 0.4.4'
 
 # Unit.
-config.gem 'thoughtbot-shoulda',  :lib => 'shoulda'
+config.gem 'thoughtbot-shoulda',      :lib => 'shoulda'
 #config.gem 'rspec',               :lib => false,        :version => '>= 1.2.6'
 #config.gem 'rspec-rails',         :lib => 'spec/rails', :version => '>= 1.2.6'
 
-# Fixtures.
+# Fixtures/Fake data.
 config.gem 'notahat-machinist',       :lib => 'machinist'
+config.gem 'sevenwire-forgery',       :lib => 'forgery'
 
 config.cache_classes = true # This must be true for Cucumber to operate correctly!
 
@@ -20,8 +21,8 @@ config.cache_classes = true # This must be true for Cucumber to operate correctl
 config.whiny_nils = true
 
 # Show full error reports and disable caching
-config.action_controller.consider_all_requests_local = true
-config.action_controller.perform_caching             = false
+config.action_controller.consider_all_requests_local  = true
+config.action_controller.perform_caching = false
 
 # Disable request forgery protection in test environment
 config.action_controller.allow_forgery_protection    = false
@@ -30,3 +31,5 @@ config.action_controller.allow_forgery_protection    = false
 # The :test delivery method accumulates sent emails in the
 # ActionMailer::Base.deliveries array.
 config.action_mailer.delivery_method = :test
+
+puts 'NOTE: For Cucumber step debugging, use step: "Then what"' if defined?(CucumberRailsDebug)
