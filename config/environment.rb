@@ -23,7 +23,6 @@ Rails::Initializer.run do |config|
   config.gem 'binarylogic-authlogic',         :lib => 'authlogic'
   config.gem 'josevalim-auth_helpers',        :lib => 'auth_helpers'
   config.gem 'be9-acl9',                      :lib => 'acl9'
-  config.gem 'mmangino-facebooker',           :lib => 'facebooker'
   
   # Controllers.
   config.gem 'josevalim-inherited_resources', :lib => 'inherited_resources'

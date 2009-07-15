@@ -17,7 +17,6 @@
 #  last_login_at        :datetime
 #  current_login_ip     :string(255)
 #  last_login_ip        :string(255)
-#  facebook_uid         :integer(8)
 #
 
 class Account < ActiveRecord::Base

@@ -6,10 +6,6 @@ class ApplicationController < ActionController::Base
   include Application::Filters
   include Accounts::Filters
   
-  # TODO: Move out to new branch
-  #before_filter :set_facebook_session
-  #helper_method :facebook_session
-  
   protected
     
     # Add new key only if flash is empty. Otherwise, refreshes it.

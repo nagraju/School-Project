@@ -15,10 +15,6 @@
   - f.buttons do
     = f.commit_button 'Login'
     
-- if Settings.authentication.facebook_connect.enabled
-  %p or login with Facebook:
-  %p= facebook_connect_button
-  
 %ul.horizontal
   %li= link_to 'Forgot your password?', new_account_password_path
   %li= link_to 'Resend confirmation instructions', new_account_confirmation_path

@@ -29,10 +29,6 @@ defaults: &defaults
     hoptoad: 3b2019ffdeb1cc9612be42adbc18b0a3
     google_analytics: UA-7154429-1
     
-  authentication:
-    facebook_connect:
-      enabled: false
-      
   debugging:
     sanitize_email: &sanitize_email
       recipients: test@newapp.com

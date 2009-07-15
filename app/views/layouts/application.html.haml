@@ -19,7 +19,6 @@
     = yield :head
     
   %body{body_attributes}
-    - # TODO: Move to own branch: facebook_connect_initializers if Settings.authentication.facebook_connect.enabled
     = development_toolbar unless Rails.env?(:production)
     
     #container

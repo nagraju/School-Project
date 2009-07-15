@@ -77,10 +77,6 @@ module LayoutHelper
     else
       {:xmlns => 'http://www.w3.org/1999/xhtml', :'xml:lang' => lang}
     end
-    # TODO: Move to Facebook-branch
-    #if Settings.authentication.facebook_connect
-    #  attrs.merge!(:'xmlns:fb' => 'http://www.facebook.com/2008/fbml')
-    #end
   end
   
   def body_attributes
