@@ -1,0 +1,42 @@
+=enhance_on_hover(!hidden_alpha = 0.1, !visible_alpha = 0.8)
+  :opacity= !hidden_alpha
+  
+  &:hover
+    :opacity= !visible_alpha
+
+#debug_toolbar
+  +enhance_on_hover
+  
+.debug_toolbar
+  :background black
+  :color white
+  :font
+    :size 0.9em
+    :family arial
+  :padding 0.4em 0 0.6em
+  :margin 0
+  :width 100%
+  :line-height 1em
+  :text-align center
+  :vertical-align top
+  
+  a
+    :color white
+    
+  &.development
+    :background green
+    
+  &.staging
+    :background blue
+    
+  &.production
+    :background red
+    
+#rack_bug_toolbar
+  :top auto !important
+  :bottom 0 !important
+  
+#footnotes_debug
+  :padding 1em
+  :background-color white
+  +enhance_on_hover

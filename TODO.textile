@@ -4,16 +4,14 @@ h2. Next
 
 * Fix loading of the rake task "db:bootstrap" for the gem: Implement seed-data solution: http://github.com/sevenwire/bootstrapper
 
-* Put Facebook-stuff in own branch.
 * Write Cucumber/Shoulda-tests for accounts. Use: http://github.com/tsechingho/authlogic_bundle, http://itsignals.cascadia.com.au/?p=30
 
 h2. Priority
 
-* Nicer default template, dark backround and white content - like the Railscasts template.
 
 h2. Future
 
-* Rake-task for updating jQuery, etc....
+* Rake-task for updating jQuery-libraries, etc....
 * Finalize "local_e", and add to "Useful extensions"
 * Finalize "i18n_extensions", and add to "Useful extensions"
 * Finalize "r_extensions", and add as dependency

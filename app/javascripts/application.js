@@ -12,8 +12,10 @@
 //= require <jquery.autogrow>
 //= require <jquery.input_hint>
 
-// == Dependencies: omponents
+// == Dependencies: Components
 // require <jquery.live_paginate>
+
+//= require <debug>
 
 // ---------------------------------------------------
 //  Initialize

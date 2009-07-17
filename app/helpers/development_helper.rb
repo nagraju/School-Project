@@ -1,21 +1,46 @@
 module DevelopmentHelper
   
-  def development_toolbar(options = {})
+  def debug_view(*args)
+    content_for(:debug, args.inspect)
+  end
+  
+  def debug_env?
+    Rails.env?(:development) || admin?
+  end
+  
+  def debug_toolbar(options = {})
     options.reverse_merge!(
-      :divider => '-----'
-    )
-    html = []
-    html << "*App:* #{Settings.site.name}"
-    html << "*Release:* #{App.deployed_revision} (#{App.deployed_revision})" if App.deployed_revision.present?
-    html << "*Env:* #{Rails.env.upcase}"
-    html << "*DB:* #{App.current_database}"
-    html << "*Tools:* #{bookmarklet_links.join(', ')}"
-    html << "*Resources:* #{resource_links.join(', ')}"
-    content_tag(:div,
-        html.join(" #{options[:divider]} ").textilize(:strip),
-        :id => 'development_toolbar',
-        :class => Rails.env
+        :divider => '&nbsp;' * 4,
+        :resources => false
       )
+      
+    content = []
+    content << "*App:* #{Settings.site.name}"
+    content << "*Release:* #{App.deployed_revision} (#{App.deployed_revision})" if App.deployed_revision.present?
+    content << "*Env:* #{Rails.env}"
+    content << "*DB:* #{App.current_database}"
+    content << "*Tools:* #{bookmarklet_links.join(', ')}"
+    content << "*Resources:* #{resource_links.join(', ')}" unless options[:resources]
+    
+    html = content_tag(:div,
+        content.join(" #{options[:divider]} ").textilize(:strip),
+        :id => 'app_info_toolbar',
+        :class => "debug_toolbar #{Rails.env}"
+      )
+    html << resources_toolbar(options) if options.delete(:resources)
+    html = content_tag(:div, html, :id => 'debug_toolbar')
+  end
+  
+  def resources_toolbar(options = {})
+    content = []
+    content << "#{resource_links.join(', ')}"
+    
+    html = content_tag(:div,
+        content.join(" #{options[:divider]} ").textilize(:strip),
+        :id => 'resources_toolbar',
+        :class => 'debug_toolbar'
+      )
+    html
   end
   
   def resource_links(options = {})
@@ -23,21 +48,33 @@ module DevelopmentHelper
     options[:only].collect!(&:to_sym)
     options[:except] ||= []
     options[:except].collect!(&:to_sym)
+    options[:identify_by] ||= :subclasses # or :files
+    options[:sort] ||= true
     
     if options[:only].blank?
-      model_file_names = Dir.glob(File.join(Rails.root, 'app', 'models', '**', '*.rb'))
-      model_names = model_file_names.collect { |file| File.basename(file, '.rb').pluralize.to_sym }
+      if options[:identify_by] == :files
+        model_file_names = Dir.glob(File.join(Rails.root, 'app', 'models', '**', '*.rb'))
+        model_names = model_file_names.collect { |file| File.basename(file, '.rb').pluralize.to_sym }
+      else
+        model_names = ActiveRecord::Base.send(:subclasses).collect {|sc| sc.name.split('::').last.tableize }
+      end
     else
       model_names = options[:only]
     end
+    
     model_names.delete(options[:except])
+    model_names.sort! if options[:sort]
+    # Skip non-resource-models. Is there a "better" way?
+    model_names &= ActionController::Routing.possible_controllers
+    
     model_names.collect do |name|
-      link_to(name.to_s.humanize, eval("#{name}_path")) rescue nil
+      link_to(name.to_s.humanize, url_for(:controller => "/#{name}", :action => 'index'))
     end.compact
   end
   
   def bookmarklet_links(*names)
     names = [:rack_bug, :firebug_lite, :dom_inspector, :selector_gadget, :yaml_debug, :design] if names.blank?
+    names.delete(:rack_bug) unless Settings.debugging.rack_bug.enabled
     names.collect do |name|
       link_to_bookmarklet(name)
     end

@@ -13,13 +13,15 @@
     = stylesheet_link_tag 'print',  :media => 'print'
     /[if IE]
       = stylesheet_link_tag 'ie',   :media => 'screen, projection'
-      
+    = stylesheet_link_tag 'debug', :media => 'screen, projection' if debug_env?
+    
     - # Disabled optimized alternative:google_javascripts :jquery, :jqueryui
     = sprockets_include_tag
     = yield :head
     
   %body{body_attributes}
-    = development_toolbar unless Rails.env?(:production)
+    = debug_toolbar(:resources => true) if debug_env?
+    = yield :debug if debug_env?
     
     #container
       #header

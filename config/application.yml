@@ -37,7 +37,7 @@ defaults: &defaults
     hirb:
       enabled: true
     rack_bug:
-      enabled: false
+      enabled: true
       password: 
       
   preferences:

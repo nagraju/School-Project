@@ -7,7 +7,7 @@
   - flash_form_error(f)
   
   - f.inputs do
-    = f.input :issue_type, :as => :select, :collection => ContactFormMessage.issue_types
+    = f.input :issue_type, :as => :select, :collection => ContactFormMessage.issue_types, :include_blank => false
     = f.input :message, :required => true, :as => :text, :rows => 6, :cols => 24
     = f.input :email, :required => true
     = f.input :name

@@ -1,7 +1,6 @@
 require 'rack/bug'
 
 if defined?(Rack::Bug) && Settings.debugging.rack_bug.enabled
-  
   if Rails.env.to_sym == :development
     # Enable for localhost only.
     ActionController::Dispatcher.middleware.use Rack::Bug,

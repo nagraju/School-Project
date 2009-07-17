@@ -1,0 +1,35 @@
+#debug_toolbar {
+  opacity: 0.1; }
+  #debug_toolbar:hover {
+    opacity: 0.8; }
+
+.debug_toolbar {
+  background: black;
+  color: white;
+  font-size: 0.9em;
+  font-family: arial;
+  padding: 0.4em 0 0.6em;
+  margin: 0;
+  width: 100%;
+  line-height: 1em;
+  text-align: center;
+  vertical-align: top; }
+  .debug_toolbar a {
+    color: white; }
+  .debug_toolbar.development {
+    background: green; }
+  .debug_toolbar.staging {
+    background: blue; }
+  .debug_toolbar.production {
+    background: red; }
+
+#rack_bug_toolbar {
+  top: auto !important;
+  bottom: 0 !important; }
+
+#footnotes_debug {
+  padding: 1em;
+  background-color: white;
+  opacity: 0.1; }
+  #footnotes_debug:hover {
+    opacity: 0.8; }

@@ -1,10 +1,17 @@
 module App
   
+  def current_database_adapter
+    db_adapter = ActiveRecord::Base::configurations[Rails.env]['adapter']
+  end
+  
   def current_database
-    if ActiveRecord::Base.connection.respond_to?(:current_database)
-      ActiveRecord::Base.connection.current_database
+    db_connection = ActiveRecord::Base.connection
+    db_name = ActiveRecord::Base::configurations[Rails.env]['database']
+    
+    if db_connection.respond_to?(:current_database)
+      (db_connection.current_database || db_name)
     else
-      ActiveRecord::Base::configurations[Rails.env][:database]
+      db_name
     end
   end
   

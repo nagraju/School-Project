@@ -1,3 +1,7 @@
 if defined?(Rack::NoIE6)
-  ActionController::Dispatcher.middleware.use Rack::NoIE6 #, :minimum => 6.0, :redirect => 'http://google.com/chrome/'
+  begin
+    ActionController::Dispatcher.middleware.insert_after 'Rack::Bug', Rack::NoIE6
+    #, :minimum => 6.0, :redirect => 'http://google.com/chrome/'
+  rescue
+  end
 end
