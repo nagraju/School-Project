@@ -1,13 +1,13 @@
 !!! 1.1
 %html{html_attributes(:xhtml)}
   %head
-    = title_tag "#{Settings.site.name} | #{controller.controller_name}: #{controller.action_name}"
-    = description_tag
-    = keywords_tag
+    = meta_tag :title, "#{Settings.site.name} | #{controller.controller_name}: #{controller.action_name}"
+    = meta_tag :description
+    = meta_tag :keywords
     
-    = content_type_tag 'content-type', 'text/html;charset=UTF-8'
-    = content_type_tag 'content-script-type', 'text/javascript'
-    = content_type_tag 'content-style-type', 'text/css'
+    = content_type_tag :'content-type', 'text/html;charset=UTF-8'
+    = content_type_tag :'content-script-type', 'text/javascript'
+    = content_type_tag :'content-style-type', 'text/css'
     
     = stylesheet_link_tag 'screen', :media => 'screen, projection'
     = stylesheet_link_tag 'print',  :media => 'print'
@@ -15,8 +15,8 @@
       = stylesheet_link_tag 'ie',   :media => 'screen, projection'
     = stylesheet_link_tag 'debug', :media => 'screen, projection' if debug_env?
     
-    - # Disabled optimized alternative:google_javascripts :jquery, :jqueryui
     = sprockets_include_tag
+    
     = yield :head
     
   %body{body_attributes}

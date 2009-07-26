@@ -30,6 +30,8 @@ defaults: &defaults
     google_analytics: UA-7154429-1
     
   debugging:
+    hoptoad:
+      track_404s: false
     sanitize_email: &sanitize_email
       recipients: test@newapp.com
       bcc_recipients: test@newapp.com

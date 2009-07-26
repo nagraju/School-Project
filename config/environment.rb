@@ -14,8 +14,8 @@ Rails::Initializer.run do |config|
   # Specify gems that this application depends on and have them installed with rake gems:install
   
   # Frameworks + Templating.
-  config.gem 'haml-edge',                     :lib => 'haml',               :version => '>= 2.1.0'
-  config.gem 'chriseppstein-compass',         :lib => 'compass',            :version => '0.6.5'
+  config.gem 'haml',                          :lib => 'haml',               :version => '>= 2.1.0'
+  config.gem 'chriseppstein-compass',         :lib => 'compass',            :version => '>= 0.6.5'
   config.gem 'sprockets',                     :lib => false
   config.gem 'RedCloth',                      :lib => false
   

@@ -22,7 +22,11 @@
   
   a
     :color white
+    :text-decoration none
     
+    &:hover
+      :text-decoration underline
+      
   &.development
     :background green
     
@@ -31,6 +35,28 @@
     
   &.production
     :background red
+    
+#resources_toolbar
+  :background-color #000
+  :font
+    :size 0.9em
+    
+  .namespace
+    :color #222
+    :font
+      :weight bold
+      
+  .controller
+    :color white !important
+    
+  .base
+    :font
+      :weight bold
+        
+#resource_actions_toolbar
+  :background-color #111
+  :font
+    :size 0.8em
     
 #rack_bug_toolbar
   :top auto !important

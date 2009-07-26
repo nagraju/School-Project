@@ -1,5 +1,9 @@
 = title do
   Resend confirmation instructions
+= description do
+  Enter the email address you used when creating your account. Then, hit the
+  %strong "Resend confirmation code"
+  button and we will send you an email with a new confirmation code.
   
 - semantic_form_for(@account, :url => account_confirmation_url, :html => {:method => :post}) do |f|
   - flash_form_error(f)

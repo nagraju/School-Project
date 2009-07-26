@@ -3,7 +3,7 @@ module Accounts::Filters
     base.class_eval do
       before_filter :find_current_account
       filter_parameter_logging :password, :password_confirmation
-      helper_method :admin?
+      helper_method :current_account, :admin?
     end
   end
   

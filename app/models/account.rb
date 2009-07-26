@@ -26,7 +26,8 @@ class Account < ActiveRecord::Base
   #include AuthlogicExtensions::Model::OptionalLoginField
   
   acts_as_authentic do |c|
-    c.perishable_token_valid_for 5.days
+    c.login_field = :email
+    c.perishable_token_valid_for = 5.days
     
     # Use this if you have your accountable polymorphic association
     # a.validations_scope = :accountable_type
@@ -39,8 +40,20 @@ class Account < ActiveRecord::Base
     # Login/Username is optional, not required for account signup.
     c.validate_login_field = false 
     
-    c.validates_length_of_email_field_options :within => 5..100, :allow_blank => true
-    c.validates_length_of_password_field_options :within => 6..20, :allow_blank => true
+    c.validates_length_of_email_field_options = {
+        :within => 5..100,
+        :allow_blank => true
+      }
+    c.validates_length_of_password_field_options = {
+        :within => 6..20,
+        :allow_blank => true,
+        :if => :require_password?
+      }
+    # TODO:
+    #c.merge_validates_confirmation_of_password_field_options = {
+    #    :on => :update,
+    #    :if => (self.password_salt_field ? "#{self.password_salt_field}_changed?".to_sym : nil)
+    #  }
     c.merge_validates_format_of_email_field_options :allow_blank => true
   end
   

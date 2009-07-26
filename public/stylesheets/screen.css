@@ -1052,17 +1052,22 @@ form .boolean label {
   background: #E5ECF9;
   background-color: transparent;
   margin: 2px;
-  padding: 0; }
+  padding: 0;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
   #page_flash {
     display: block; }
   #page_flash .padding {
     padding: 1em; }
-  #page_flash .padding > p {
-    font-weight: bold;
-    font-size: 1em;
-    color: #fff;
-    padding: 0.5em 0.9em;
-    margin: 0; }
+  #page_flash .padding {
+    padding: 0 !important;
+    margin: 0 !important; }
+    #page_flash .padding > p {
+      font-weight: bold;
+      font-size: 1em;
+      color: #fff;
+      padding: 0.5em 0.9em;
+      margin: 0; }
   #page_flash.notice_flash p {
     background-color: #0b0; }
   #page_flash.warn_flash p {
@@ -1087,7 +1092,7 @@ form .boolean label {
   padding: 0;
   margin: 0;
   background-color: #f3f3f3;
-  border: 1px solid #e3e3e3 !important; }
+  border-bottom: 1px solid #e3e3e3 !important; }
   #errorExplanation {
     display: block; }
   #errorExplanation h2 {

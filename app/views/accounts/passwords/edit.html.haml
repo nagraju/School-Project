@@ -1,5 +1,6 @@
 = title do
   New password
+= description
 
 - semantic_form_for(@account, :url => account_password_url, :html => {:method => :put}) do |f|
   - flash_form_error(f)

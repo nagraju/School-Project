@@ -329,7 +329,8 @@ authorization
   
 searching
   http://github.com/thoughtbot/squirrel (search query DSL)
-  http://github.com/freelancing-god/thinking-sphinx (full-text search)
+  http://github.com/freelancing-god/thinking-sphinx (full-text search - sphinx)
+  http://github.com/outoftime/sunspot (full-text search - solr)
   http://github.com/binarylogic/searchlogic
   
 tableless models

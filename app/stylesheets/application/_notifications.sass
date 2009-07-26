@@ -8,11 +8,16 @@
 #page_flash
   +clearfix
   +box_style
-  
+  :margin
+    :top 0 !important
+    :bottom 0 !important
+    
   .padding
     > p
       +flash_heading
       :margin 0
+    :padding 0 !important
+    :margin 0 !important
     
   &.notice_flash
     p
@@ -47,7 +52,7 @@
   :padding 0
   :margin 0
   :background-color #f3f3f3
-  :border 1px solid #e3e3e3 !important
+  :border-bottom 1px solid #e3e3e3 !important
   
   h2
     +flash_heading

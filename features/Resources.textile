@@ -1,0 +1,23 @@
+h1. Cucumber Help
+
+h2. Articles
+
+* http://www.pathf.com/blogs/2009/07/a-real-testing-example/
+* http://www.pathf.com/blogs/2009/07/real-testing-example-part-two/
+* http://themomorohoax.com/2009/04/22/8-tips-for-testing-rails-apps-with-cucumber
+* http://blog.michaelgreenly.com/2009/03/rails-authentication.html
+* http://groups.google.com/group/authlogic/browse_thread/thread/49d3b45eb4880e75
+* http://itsignals.cascadia.com.au/?p=30
+* http://handyrailstips.com/tips/6-testing-your-mailers-using-cucumber-and-email-spec
+
+h2. Source Code
+
+* http://github.com/tsechingho/authlogic_bundle
+
+h2. Screencast
+
+* http://www.slideshare.net/railsconf/quality-code-with-cucumber-presentation
+
+h2. Gems/Plugins
+
+* git://github.com/richdownie/watircuke.git

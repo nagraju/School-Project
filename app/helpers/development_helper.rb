@@ -11,29 +11,32 @@ module DevelopmentHelper
   def debug_toolbar(options = {})
     options.reverse_merge!(
         :divider => '&nbsp;' * 4,
-        :resources => false
+        :resources => true,
+        :resource_actions => true
       )
-      
+    
+    skip_controllers = %w(sprockets)
+    
     content = []
-    content << "*App:* #{Settings.site.name}"
+    content << "*App:* #{link_to(Settings.site.name, root_url)}"
     content << "*Release:* #{App.deployed_revision} (#{App.deployed_revision})" if App.deployed_revision.present?
     content << "*Env:* #{Rails.env}"
     content << "*DB:* #{App.current_database}"
-    content << "*Tools:* #{bookmarklet_links.join(', ')}"
-    content << "*Resources:* #{resource_links.join(', ')}" unless options[:resources]
+    content << "*Tools:* #{bookmarklet_links.join(' . ')}"
     
     html = content_tag(:div,
         content.join(" #{options[:divider]} ").textilize(:strip),
         :id => 'app_info_toolbar',
         :class => "debug_toolbar #{Rails.env}"
       )
-    html << resources_toolbar(options) if options.delete(:resources)
+    html << resources_toolbar(options.merge(:except => skip_controllers)) if options.delete(:resources)
+    html << resource_actions_toolbar(options) if options.delete(:resource_actions)
     html = content_tag(:div, html, :id => 'debug_toolbar')
   end
   
   def resources_toolbar(options = {})
     content = []
-    content << "#{resource_links.join(', ')}"
+    content << "#{resource_links(options).join('   .   '.gsub(' ', '&nbsp;'))}"
     
     html = content_tag(:div,
         content.join(" #{options[:divider]} ").textilize(:strip),
@@ -43,33 +46,95 @@ module DevelopmentHelper
     html
   end
   
-  def resource_links(options = {})
-    options[:only] ||= []
-    options[:only].collect!(&:to_sym)
-    options[:except] ||= []
-    options[:except].collect!(&:to_sym)
-    options[:identify_by] ||= :subclasses # or :files
-    options[:sort] ||= true
+  def resource_actions_toolbar(options = {})
+    content = []
+    content << "#{resource_views_links(params[:controller]).join(' . ')}"
     
-    if options[:only].blank?
-      if options[:identify_by] == :files
-        model_file_names = Dir.glob(File.join(Rails.root, 'app', 'models', '**', '*.rb'))
-        model_names = model_file_names.collect { |file| File.basename(file, '.rb').pluralize.to_sym }
-      else
-        model_names = ActiveRecord::Base.send(:subclasses).collect {|sc| sc.name.split('::').last.tableize }
-      end
-    else
-      model_names = options[:only]
+    html = content_tag(:div,
+        content.join(" #{options[:divider]} ").textilize(:strip),
+        :id => 'resource_actions_toolbar',
+        :class => 'debug_toolbar'
+      )
+    html
+  end
+  
+  def resource_links(options = {})
+    options.reverse_merge!(
+        :only => [],
+        :except => [],
+        :sort => true # not working with hash
+      )
+    [:only, :except].each { |key| options[key].collect!(&:to_sym) }
+    
+    controllers = controllers_with_actions(options).keys
+    controllers.sort! if options[:sort]
+    
+    namespaces ||= {}
+    controllers.each do |controller|
+      controller_path = controller.split('/')
+      controller_base = controller_path.shift
+      controller_tail = controller_path.collect! { |d| d }.join('/')
+      namespaces[controller_base] ||= []
+      namespaces[controller_base] << controller_tail unless controller_tail.blank?
     end
     
-    model_names.delete(options[:except])
-    model_names.sort! if options[:sort]
-    # Skip non-resource-models. Is there a "better" way?
-    model_names &= ActionController::Routing.possible_controllers
-    
-    model_names.collect do |name|
-      link_to(name.to_s.humanize, url_for(:controller => "/#{name}", :action => 'index'))
+    namespaces.collect do |base_controller, controllers|
+      next unless File.exist?(File.join(Rails.root, 'app', 'views', base_controller))
+      html = []
+      html << (link_to(base_controller.gsub('/', '::'),
+          url_for(
+              :controller => "/#{base_controller}",
+              :action => controllers_with_actions[base_controller].first
+            ),
+          :class => 'namespace base controller') rescue content_tag(:span, base_controller, :class => 'namespace'))
+      html << controllers.collect do |controller|
+        link_to(controller,
+          url_for(
+            :controller => "/#{base_controller}/#{controller}",
+            :action => controllers_with_actions["#{base_controller}/#{controller}"].first
+          ),
+          :class => 'controller'
+        ) rescue content_tag(:span, controller)
+      end.join(', ') unless controllers.blank?
+      
+      html.join(' :: ')
     end.compact
+  end
+  
+  def resource_views_links(controller, options = {})
+    options.reverse_merge!(
+        :only => [],
+        :except => [],
+        :sort => true
+      )
+    [:only, :except].each { |key| options[key] ||= []; options[key].collect!(&:to_sym) }
+    
+    view_file_names = Dir.glob(File.join(Rails.root, 'app', 'views', controller, '*.html.haml'))
+    actions = view_file_names.collect! do |file|
+      file = File.basename(file, '.html.haml')
+      file unless file.match(/^_+/) # ignore paritals
+    end
+    
+    actions.compact.collect do |action|
+      link_to(action.humanize, url_for(:controller => "/#{controller}", :action => action))
+    end
+  end
+  
+  def controllers_with_actions(options = {})
+    options.reverse_merge!(
+        :only => [],
+        :except => []
+      )
+    @controllers_with_actions ||= begin
+      controllers_with_actions = ActionController::Routing::Routes.routes.inject({}) do |controller_actions, route|
+        (controller_actions[route.requirements[:controller]] ||= []) << route.requirements[:action]
+        controller_actions
+      end
+      controllers_with_actions.slice!(options[:only]) if options[:only].present?
+      controllers_with_actions.delete(options[:except]) if options[:except].present?
+      controllers_with_actions.delete(nil) # remove the nil key that appears for some reason
+      controllers_with_actions
+    end
   end
   
   def bookmarklet_links(*names)
