@@ -12,12 +12,7 @@ Cucumber::Rails.use_transactional_fixtures
 # e.g. rescue_action_in_public, rescue_responses, or rescue_from.
 Cucumber::Rails.bypass_rescue
 
-require 'webrat'
-require 'webrat/core/matchers'
-Webrat.configure do |config|
-  config.mode = :rails
-end
-
+require File.join(File.dirname(__FILE__), 'webrat')
 require File.join(RAILS_ROOT, 'test', 'blueprints')
 
 # Make Shoulds-matchers accessible in your step definitions.

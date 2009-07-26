@@ -1,9 +1,7 @@
 ENV['RAILS_ENV'] = 'test'
 require 'test_help'
-require 'machinist'
-require 'sham'
-require File.expand_path(File.join(File.dirname(__FILE__), '..', 'config', 'environment'))
-require File.expand_path(File.join(File.dirname(__FILE__), 'blueprints'))
+require Rails.root.join('config', 'environment')
+require Rails.root.join('test', 'blueprints')
 
 class ActiveSupport::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method

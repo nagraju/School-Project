@@ -1,10 +1,14 @@
 = title do
   My account
-= description ''
+= description do
+  My account details.
   
 %dl
+  %dt Username:
+  %dd= h @account.login
+  
   %dt Email:
-  %dd= h @account.email
+  %dd= secure_mail_to(@account.email)
   
   %dt Confirmed?
   %dd= h @account.confirmed?

@@ -23,11 +23,9 @@ class Account < ActiveRecord::Base
   include AuthHelpers::Model::Confirmable
   include AuthHelpers::Model::Recoverable
   include AuthHelpers::Model::Updatable
-  #include AuthlogicExtensions::Model::OptionalLoginField
   
   acts_as_authentic do |c|
-    c.login_field = :email
-    c.perishable_token_valid_for = 5.days
+    c.perishable_token_valid_for 5.days
     
     # Use this if you have your accountable polymorphic association
     # a.validations_scope = :accountable_type
@@ -40,10 +38,14 @@ class Account < ActiveRecord::Base
     # Login/Username is optional, not required for account signup.
     c.validate_login_field = false 
     
+    # E-mail validations.
     c.validates_length_of_email_field_options = {
         :within => 5..100,
         :allow_blank => true
       }
+    c.merge_validates_format_of_email_field_options :allow_blank => true
+    
+     # Password validations.
     c.validates_length_of_password_field_options = {
         :within => 6..20,
         :allow_blank => true,
@@ -54,11 +56,15 @@ class Account < ActiveRecord::Base
     #    :on => :update,
     #    :if => (self.password_salt_field ? "#{self.password_salt_field}_changed?".to_sym : nil)
     #  }
-    c.merge_validates_format_of_email_field_options :allow_blank => true
   end
   
   # Add presence validations since we added allow blank to validates length of
   validates_presence_of :email
   validates_presence_of :password, :on => :create
+  #validates_uniqueness_of :login, :on => :update, :case_sensitive => false
+  
+  def self.find_by_username_or_email(login)
+    find_by_login(login) || find_by_email(login)
+  end
   
 end

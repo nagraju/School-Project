@@ -1,3 +1,4 @@
+require 'machinist'
 require 'machinist/active_record'
 # require 'machinist/object' # for non-active_record models.
 require 'sham'
@@ -14,7 +15,7 @@ require 'forgery'
 Sham.login                  { Forgery(:internet).user_name }
 Sham.email                  { Forgery(:internet).email_address }
 Sham.password               { '123456' }
-Sham.ip                     { (1..4).collect{ |x| rand(256)}.join('.') } }
+Sham.ip                     { (1..4).collect { |x| rand(256) }.join('.') }
 # ---
 Sham.language               { Forgery(:personal).language } # TODO: "locale"-forgery
 Sham.time_zone              { 'UTC' }                       # TODO: "time_zone"-forgery
@@ -39,6 +40,6 @@ Sham.updated_at             { Sham.date }
 # ---
 
 # Load model blueprints.
-Dir.glob(File.expand_path(File.join(File.dirname(__FILE__), 'blueprints', '**', '*.rb'))).uniq.each do |blueprint|
+Dir.glob(Rails.root.join('test', 'blueprints', '**', '*.rb')).uniq.each do |blueprint|
   require blueprint
 end

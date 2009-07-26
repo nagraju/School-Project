@@ -23,6 +23,7 @@ config.gem 'grimen-dry_scaffold',             :lib => false
 config.gem 'bryanlarsen-railroad',            :lib => 'railroad'
 
 # Fake data.
+config.gem 'notahat-machinist',               :lib => 'machinist'
 config.gem 'sevenwire-forgery',               :lib => 'forgery'
 
 # In the development environment your application's code is reloaded on

@@ -11,7 +11,7 @@
     = f.input :password_confirmation, :label => 'Confirm Password', :hint => ''
     
   - f.buttons do
-    = f.commit_button 'Update my password'
+    = f.commit_button 'Update my password', :button_html => {:disable_with => I18n.t('formtastic.processing')}
     
 %ul.horizontal
   %li= link_to 'Login', new_account_session_path

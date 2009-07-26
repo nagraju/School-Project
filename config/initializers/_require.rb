@@ -1,6 +1,6 @@
-require File.join(Rails.root, 'lib', 'app')
-require File.join(Rails.root, 'lib', 'rails')
-require File.join(Rails.root, 'lib', 'core_ext', 'string')
-require File.join(Rails.root, 'lib', 'sprockets', 'concatenation')
-require File.join(Rails.root, 'lib', 'machinist', 'make_unvalidated')
-require File.join(Rails.root, 'lib', 'authlogic', 'optional_login_field')
+# Be sure to restart your server when you modify this file.
+require Rails.root.join('lib', 'app')
+require Rails.root.join('lib', 'rails')
+require Rails.root.join('lib', 'core_ext', 'string')
+require Rails.root.join('lib', 'sprockets', 'concatenation')
+require Rails.root.join('lib', 'machinist', 'make_unvalidated')

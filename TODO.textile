@@ -2,15 +2,18 @@ h1. TODO
 
 h2. Next
 
-* Fix loading of the rake task "db:bootstrap" for the gem: Implement seed-data solution: http://github.com/sevenwire/bootstrapper
-
+* Odd errors for confirmation/password_reset
+* Make it possible to change e-mail
 * Write Cucumber/Shoulda-tests for accounts. Use: http://github.com/tsechingho/authlogic_bundle, http://itsignals.cascadia.com.au/?p=30
 
 h2. Priority
 
+* Patch: Full I18n-support in José's AuthHelpers, not all messages are I18nized
+* Learn from José's helpers? http://pastie.org/557958
 
 h2. Future
 
+* Make Rake-task db:bootstrap loadable from gem
 * Rake-task for updating jQuery-libraries, etc....
 * Finalize "local_e", and add to "Useful extensions"
 * Finalize "i18n_extensions", and add to "Useful extensions"

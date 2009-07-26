@@ -13,7 +13,7 @@
     = f.input :password_confirmation, :required => true, :label => 'Confirm Password', :hint => ''
     
   - f.buttons do
-    = f.commit_button 'Create my account'
+    = f.commit_button 'Create my account', :button_html => {:disable_with => I18n.t('formtastic.processing')}
     
 - content_for :page_notice do
   = succeed '.' do

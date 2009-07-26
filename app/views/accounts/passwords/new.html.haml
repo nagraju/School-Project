@@ -12,7 +12,7 @@
     = f.input :email, :label => 'E-mail', :hint => ''
   
   - f.buttons do
-    = f.commit_button 'Send instructions'
+    = f.commit_button 'Send instructions', :button_html => {:disable_with => I18n.t('formtastic.processing')}
     
 %ul.horizontal
   %li= link_to 'Cancel', :back

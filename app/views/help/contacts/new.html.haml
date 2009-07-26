@@ -14,4 +14,4 @@
     = f.input :nickname, :wrapper_html => {:style => 'display:none;'}
     
   - f.buttons do
-    = f.commit_button 'Send'
+    = f.commit_button 'Send', :button_html => {:disable_with => I18n.t('formtastic.processing')}

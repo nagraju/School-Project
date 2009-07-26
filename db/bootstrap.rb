@@ -1,4 +1,5 @@
-require File.join(RAILS_ROOT, 'test', 'blueprints')
+require Rails.root.join('test', 'blueprints')
+
 #
 # == USAGE:
 #    rake db:bootstrap

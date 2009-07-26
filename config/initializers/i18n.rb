@@ -1,9 +1,11 @@
+# Be sure to restart your server when you modify this file.
+
 # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
 
 # Tell the I18n library where to find your translations.
 I18n.load_path = [
-    Dir.glob(File.join(Rails.root, 'app',    'locales', '*.{rb,yml}')),
-    Dir.glob(File.join(Rails.root, 'config', 'locales', '*.{rb,yml}'))
+    Dir.glob(Rails.root.join('app',    'locales', '*.{rb,yml}')),
+    Dir.glob(Rails.root.join('config', 'locales', '*.{rb,yml}'))
   ].flatten
 
 # Tell the supported locales. This is the one of additional setting by Ruby-Locale for Ruby on Rails.

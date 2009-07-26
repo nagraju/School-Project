@@ -8,12 +8,12 @@
   - flash_form_error(f)
   
   - f.inputs do
-    = f.input :email, :required => true, :label => 'E-mail', :hint => ''
+    = f.input :login, :required => true, :label => 'E-mail', :hint => ''
     = f.input :password, :required => true, :label => 'Password', :hint => ''
     = f.input :remember_me, :as => :boolean
     
   - f.buttons do
-    = f.commit_button 'Login'
+    = f.commit_button 'Login', :button_html => {:disable_with => I18n.t('formtastic.processing')}
     
 %ul.horizontal
   %li= link_to 'Forgot your password?', new_account_password_path

@@ -26,7 +26,7 @@ config.logger = Logger.new(config.log_path, 3, 1.megabyte)
 # config.cache_store = :mem_cache_store
 
 # Page cache storage location.
-config.action_controller.page_cache_directory = File.join(RAILS_ROOT, 'public', 'cache')
+config.action_controller.page_cache_directory = Rails.root.join('public', 'cache')
 
 # Enable serving of images, stylesheets, and javascripts from an asset server
 # config.action_controller.asset_host = "http://assets.example.com"

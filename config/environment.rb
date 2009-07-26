@@ -14,8 +14,8 @@ Rails::Initializer.run do |config|
   # Specify gems that this application depends on and have them installed with rake gems:install
   
   # Frameworks + Templating.
-  config.gem 'haml',                          :lib => 'haml',               :version => '>= 2.1.0'
-  config.gem 'chriseppstein-compass',         :lib => 'compass',            :version => '>= 0.6.5'
+  config.gem 'haml'
+  config.gem 'chriseppstein-compass',         :lib => 'compass'
   config.gem 'sprockets',                     :lib => false
   config.gem 'RedCloth',                      :lib => false
   
@@ -56,12 +56,12 @@ Rails::Initializer.run do |config|
   # config.frameworks -= [:active_record, :active_resource, :action_mailer]
   
   # Add additional load paths for your own custom dirs
-  config.load_paths += [File.join(RAILS_ROOT, 'app', 'sweepers')]
+  config.load_paths += [Rails.root.join('app', 'sweepers')]
   
   # Cache storage locations.
-  config.action_controller.page_cache_directory = File.join(RAILS_ROOT, 'public', 'cache')
-  config.action_controller.cache_store = [:file_store, File.join(RAILS_ROOT, 'tmp', 'cache', 'fragments')]
-  #config.action_controller.cache_store = :mem_cache_store
+  config.action_controller.page_cache_directory = Rails.root.join('public', 'cache')
+  config.action_controller.cache_store = [:file_store, Rails.root.join('tmp', 'cache', 'fragments')]
+  # config.action_controller.cache_store = :mem_cache_store
   
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer

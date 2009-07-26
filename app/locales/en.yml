@@ -28,6 +28,7 @@ en:
     save: "Save"
     submit: "Submit"
     required: "Required"
+    processing: "Please wait..."
     
   simple_form:
     models:
