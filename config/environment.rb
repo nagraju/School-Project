@@ -1,7 +1,7 @@
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.3' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -13,36 +13,45 @@ Rails::Initializer.run do |config|
   
   # Specify gems that this application depends on and have them installed with rake gems:install
   
-  # Frameworks + Templating.
+  # Authentication + Authorization.
+  config.gem 'binarylogic-authlogic',         :lib => 'authlogic'
+  config.gem 'josevalim-auth_helpers',        :lib => 'auth_helpers'
+  
+  # Models.
+  config.gem 'norman-friendly_id',            :lib => 'friendly_id'
+  
+  # Views: Frameworks + Templating.
   config.gem 'haml'
   config.gem 'chriseppstein-compass',         :lib => 'compass'
   config.gem 'sprockets',                     :lib => false
   config.gem 'RedCloth',                      :lib => false
   
-  # Authentication + Authorization.
-  config.gem 'binarylogic-authlogic',         :lib => 'authlogic'
-  config.gem 'josevalim-auth_helpers',        :lib => 'auth_helpers'
-  config.gem 'be9-acl9',                      :lib => 'acl9'
+  # Views: Forms.
+  config.gem 'justinfrench-formtastic',       :lib => 'formtastic'
+  config.gem 'josevalim-simple_form',         :lib => 'simple_form'
+  
+  # Views: 
+  config.gem 'mislav-will_paginate',          :lib => 'will_paginate'
   
   # Controllers.
   config.gem 'josevalim-inherited_resources', :lib => 'inherited_resources'
-  
-  # Models.
-  config.gem 'norman-friendly_id',            :lib => 'friendly_id'
-  
-  # Views + Forms.
-  config.gem 'justinfrench-formtastic',       :lib => 'formtastic'
-  config.gem 'josevalim-simple_form',         :lib => 'simple_form'
   config.gem 'mislav-will_paginate',          :lib => 'will_paginate'
   
   # Configuration.
   config.gem 'binarylogic-settingslogic',     :lib => 'settingslogic'
   
   # Database Seeding.
-  config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper'
+  # TODO: Pull latest version, and uncomment again.
+  #config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper'
+  
+  # E-mails.
+  config.gem 'JasonKing-inline_attachment',   :lib => 'inline_attachment'
   
   # Crontab.
   config.gem 'javan-whenever',                :lib => false
+  
+  # Domains.
+  config.gem 'mbleigh-subdomain-fu',          :lib => 'subdomain-fu'
   
   # IE
   config.gem 'sant0sk1-rack-noie6',           :lib => 'noie6'
@@ -56,7 +65,7 @@ Rails::Initializer.run do |config|
   # config.frameworks -= [:active_record, :active_resource, :action_mailer]
   
   # Add additional load paths for your own custom dirs
-  config.load_paths += [Rails.root.join('app', 'sweepers')]
+  # config.load_paths += [Rails.root.join('app', 'sweepers')]
   
   # Cache storage locations.
   config.action_controller.page_cache_directory = Rails.root.join('public', 'cache')

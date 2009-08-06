@@ -26,7 +26,7 @@ config.logger = Logger.new(config.log_path, 50, 1.megabyte)
 # config.cache_store = :mem_cache_store
 
 # Enable serving of images, stylesheets, and javascripts from an asset server
-# config.action_controller.asset_host = "http://assets.#{::Settings.site.domain}" # TODO: before_initialize this
+# config.action_controller.asset_host = "http://assets%d.#{Settings.site.domain}" # TODO: before_initialize this
 # config.action_controller.asset_host = "http://assets.newapp.com"
 
 # Disable delivery errors, bad email addresses will be ignored

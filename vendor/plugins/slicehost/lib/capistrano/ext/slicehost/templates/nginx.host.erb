@@ -1,0 +1,40 @@
+server {
+  listen        80;
+  server_name   <%= domain %>;
+  
+  root    <%= current_path %>/public;
+  
+  client_max_body_size      10m;
+  client_body_buffer_size   128k;
+  
+  access_log <%= nginx_path %>/logs/<%= domain %>.access.log;
+  error_log <%= nginx_path %>/logs/<%= domain %>.error.log;
+  
+  passenger_enabled on;
+  
+  if (-f $document_root/system/maintenance.html) {
+    rewrite ^(.*)$ /system/maintenance.html break;
+  }
+  
+  error_page   500 502 503 504  /50x.html;
+  location = /50x.html {
+    root   <%= current_path %>/public;
+  }
+}
+
+# HTTPS
+#
+#server {
+#  listen       443;
+#  server_name  <%= domain %>;
+
+#  ssl                  on;
+#  ssl_certificate      cert.pem;
+#  ssl_certificate_key  cert.key;
+
+#  ssl_session_timeout  5m;
+
+#  ssl_protocols                SSLv2 SSLv3 TLSv1;
+#  ssl_ciphers                  ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP;
+#  ssl_prefer_server_ciphers    on;
+#}

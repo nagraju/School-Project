@@ -1,7 +1,7 @@
 = title do
   Resend confirmation instructions
 = description do
-  Enter the email address you used when creating your account. Then, hit the
+  Enter the e-mail address you used when creating your account. Then, hit the
   %strong "Resend confirmation code"
   button and we will send you an email with a new confirmation code.
   
@@ -9,7 +9,7 @@
   - flash_form_error(f)
   
   - f.inputs do
-    = f.input :email, :label => 'E-mail', :hint => ''
+    = f.input :email, :label => 'E-mail', :hint => 'The e-mail address you used when creating your account.'
   
   - f.buttons do
     = f.commit_button 'Resend confirmation code', :button_html => {:disable_with => I18n.t('formtastic.processing')}

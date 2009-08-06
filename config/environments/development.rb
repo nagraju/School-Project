@@ -22,9 +22,12 @@ config.gem 'grimen-dry_scaffold',             :lib => false
 # Documentation.
 config.gem 'bryanlarsen-railroad',            :lib => 'railroad'
 
-# Fake data.
+# Data generation.
 config.gem 'notahat-machinist',               :lib => 'machinist'
 config.gem 'sevenwire-forgery',               :lib => 'forgery'
+
+# E-mails.
+config.gem 'cwninja-inaction_mailer',         :lib => 'inaction_mailer/force_load'
 
 # In the development environment your application's code is reloaded on
 # every request.  This slows down response time but is perfect for development

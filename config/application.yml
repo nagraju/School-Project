@@ -7,6 +7,13 @@ defaults: &defaults
       contact_form: support@newapp.com
       no_reply: no_reply@newapp.com
       
+  security:
+    enabled: true
+    environments:
+      - staging
+    login: "admin"
+    password: "1234"
+    
   meta:
     default_title: Untitled
     default_keywords: <No description>

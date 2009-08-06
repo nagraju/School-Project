@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   
-  # Account routes
+  # /account/...
   map.resource :account, :path_names => {:new => :signup}, :member => {:delete => :get} do |account|
     account.resource :password, :only => [:new, :edit, :create, :update], :controller => 'accounts/passwords'
     account.resource :confirmation, :only => [:new, :show, :create], :controller => 'accounts/confirmations'
@@ -12,14 +12,24 @@ ActionController::Routing::Routes.draw do |map|
     end
   end
   
+  # /help/...
+  map.with_options(:controller => 'home', :path_prefix => 'help') do |help|
+    help.faq      'faq',      :action => 'faq',     :member => {:about => :get}
+  end
   map.resource :contact, :path_prefix => 'help', :only => [:new, :create], :controller => 'help/contacts'
   
+  # /...
   map.with_options(:controller => 'home', :path_prefix => 'about') do |home|
     home.about    '',         :action => 'about',   :member => {:about => :get}
     home.privacy  'privacy',  :action => 'privacy', :member => {:about => :get}
     home.terms    'terms',    :action => 'terms',   :member => {:about => :get}
   end
   map.root :controller => 'home'
+  
+  # /admin/...
+  map.namespace(:admin) do |admin|
+    # Admin-routes - if any - goes here.
+  end
   
   SprocketsApplication.routes(map)
   
@@ -37,15 +47,15 @@ ActionController::Routing::Routes.draw do |map|
   #   map.resources :products
   
   # Sample resource route with options:
-  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+  #   map.resources :products, :member => {:short => :get, :toggle => :post}, :collection => {:sold => :get}
   
   # Sample resource route with sub-resources:
-  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
+  #   map.resources :products, :has_many => [:comments, :sales], :has_one => :seller
   
   # Sample resource route with more complex sub-resources
   #   map.resources :products do |products|
   #     products.resources :comments
-  #     products.resources :sales, :collection => { :recent => :get }
+  #     products.resources :sales, :collection => {:recent => :get}
   #   end
   
   # Sample resource route within a namespace:

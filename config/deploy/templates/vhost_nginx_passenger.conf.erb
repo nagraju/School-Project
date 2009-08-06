@@ -1,0 +1,73 @@
+# www.jobbix.se => jobbix.se.
+server {
+  listen        80;
+  server_name   www.<%= domain %>;
+  rewrite ^/(.*) http://<%= domain %>/$1 permanent;
+}
+
+# jobbix.se.
+server {
+  listen        80;
+  server_name   <%= domain %>;
+  
+  # Application public root path.
+  root        /home/deployer/apps/<%= application %>/production/current/public;
+  
+  # Log locations.
+  access_log  /home/deployer/apps/<%= application %>/production/shared/log/nginx_access.log;
+  error_log   /home/deployer/apps/<%= application %>/production/shared/log/nginx_error.log;
+  
+  # Enable Passenger, and specify Rails environment.
+  passenger_enabled     on;
+  rails_env             production;
+  
+  # Max size for file uploads.
+  client_max_body_size      10M;
+  client_body_buffer_size   128k;
+  
+  location ~* ^.+.(css|js|gif|jp?g|png|ico|pdf|flv|swf)\?[0-9]+$ {
+    expires      max;
+    access_log   off;
+    break;
+  }
+  error_page 500 502 503 504 /500.html;
+}
+
+#  staging.jobbix.se (staging subdomain).
+server {
+  listen        80;
+  server_name   staging.<%= domain %>;
+  
+  # Application public root path.
+  root        /home/deployer/apps/<%= application %>/staging/current/public;
+  
+  # Enable Passenger, and specify Rails environment.
+  passenger_enabled     on;
+  rails_env             staging;
+  
+  # Log locations.
+  access_log  /home/deployer/apps/<%= application %>/staging/shared/log/nginx_access.log;
+  error_log   /home/deployer/apps/<%= application %>/staging/shared/log/nginx_error.log;
+}
+
+#  assets.jobbix.se (staging subdomain).
+server {
+  listen        80;
+  server_name   assets.<%= domain %>;
+  # server_name assets1.<%= domain %> assets2.<%= domain %> assets3.<%= domain %> assets4.<%= domain %>;
+  
+  # Application public root path.
+  root        /home/deployer/apps/<%= application %>/production/current/public;
+  
+  # Enable Passenger, and specify Rails environment.
+  passenger_enabled     on;
+  rails_env             production;
+  
+  # Log locations.
+  access_log  /home/deployer/apps/<%= application %>/production/shared/log/nginx_access.log;
+  error_log   /home/deployer/apps/<%= application %>/production/shared/log/nginx_error.log;
+  
+  access_log  off;
+  expires     max;
+  add_header  Cache-Control public;
+}

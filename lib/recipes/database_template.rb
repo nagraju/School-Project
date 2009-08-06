@@ -84,6 +84,8 @@
 # This is why I use the Capistrano::CLI utility.
 #
 
+require 'erb'
+
 unless Capistrano::Configuration.respond_to?(:instance)
   abort 'This extension requires Capistrano 2'
 end
@@ -108,7 +110,7 @@ Capistrano::Configuration.instance.load do
       when running deploy:setup for all stages one by one.
     DESC
     task :setup, :roles => :db, :except => {:no_release => true} do
-      location = File.join(fetch(:db_template_dir, File.join('config', 'deploy')), 'database.yml.erb')
+      location = File.join(fetch(:db_template_dir, File.join('config', 'deploy', 'templates')), 'database.yml.erb')
       template = File.read(location)
       
       config = ERB.new(template)

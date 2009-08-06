@@ -6,8 +6,8 @@ defaults: &defaults
   encoding: utf8
   pool: 5
   host: localhost
-  username: #{user}
-  password: #{Capistrano::CLI.ui.ask('Database password: ')}
+  username: <%= user %>
+  password: <%= Capistrano::CLI.ui.ask('Database password: ') %>
   
 # ---------------------------------------------------
 #  SQLite 3.x
@@ -60,7 +60,7 @@ development:
 test:
   <<: *sqlite
   database: db/test.sqlite3
-  #database: #{application}_test
+  #database: <%= application %>_test
   
 cucumber:
   <<: *test
@@ -68,10 +68,10 @@ cucumber:
 staging:
   <<: *production
   database: db/staging.sqlite3
-  #database: #{application}_staging
+  #database: <%= application %>_staging
   
 production:
   <<: *sqlite
   database: db/production.sqlite3
-  #database: #{application}_production
+  #database: <%= application %>_production
   

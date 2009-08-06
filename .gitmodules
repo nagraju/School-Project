@@ -31,3 +31,9 @@
 [submodule "vendor/plugins/cucumber_rails_debug"]
 	path = vendor/plugins/cucumber_rails_debug
 	url = git://github.com/mischa/cucumber_rails_debug.git
+[submodule "vendor/plugins/default_values"]
+	path = vendor/plugins/default_values
+	url = git://github.com/rubaidh/default_values.git
+[submodule "vendor/javascripts/chroma_hash"]
+	path = vendor/javascripts/chroma_hash
+	url = git://github.com/mattt/Chroma-Hash.git

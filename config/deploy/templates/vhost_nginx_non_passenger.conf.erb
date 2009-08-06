@@ -1,3 +1,9 @@
+# www.jobbix.se => jobbix.se.
+server {
+  listen      80;
+  server_name www.<%= domain %>;
+  rewrite ^/(.*) http://<%= domain %>/$1 permanent;
+}
 
 # App cluster: Load balancing servers.
 upstream app {
@@ -55,33 +61,32 @@ server {
   }
   
   # Render cached pages if they exists, or redirect to the app cluster.
-  location / {
-    # TODO: Test if this works as expected with moved cache.
-    # posts         => cache/posts/index.html
-    # posts/1.html  => cache/posts/1.html
-    # posts/1       => cache/posts/1.html
-    try_files /cache$uri/index.html /cache$uri.html $uri @app;
-    
-    # Without moved cache (default)
-    # try_files $uri/index.html $uri.html $uri @app;
-  }
+  # location / {
+  #   # posts         => cache/posts/index.html
+  #   # posts/1.html  => cache/posts/1.html
+  #   # posts/1       => cache/posts/1.html
+  #   # try_files /cache$uri/index.html /cache$uri.html $uri @app;
+  #   
+  #   # Without moved cache (default)
+  #   try_files $uri/index.html $uri.html $uri @app;
+  # }
   
   # App cluster.
-  location @app {
-    proxy_pass        http://app;
-    # Forward headers for proxy pass.
-    proxy_set_header  X-Real-IP $remote_addr;
-    proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header  Host $http_host;
-    proxy_redirect    off;
-  }
+  # location @app {
+  #   proxy_pass        http://app;
+  #   # Forward headers for proxy pass.
+  #   proxy_set_header  X-Real-IP $remote_addr;
+  #   proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+  #   proxy_set_header  Host $http_host;
+  #   proxy_redirect    off;
+  # }
   
   # All server errors => 500.
   error_page 500 502 503 504 /500.html;
-  #error_page 500 502 503 504 /maintenance.html; 
-  location = /500.html {
-    root /home/deployer/apps/newapp/current/public;
-  }
+  # error_page 500 502 503 504 /maintenance.html; 
+  # location = /500.html {
+  #   root /home/deployer/apps/newapp/current/public;
+  # }
 }
 
 # www.newapp.com => newapp.com.

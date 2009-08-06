@@ -1,16 +1,6 @@
 class HomeController < InheritedResources::Base
-  actions :index, :about, :privacy, :terms
+  actions :index, :about, :privacy, :terms, :faq
   
   def index
   end
-  
-  def about
-  end
-  
-  def privacy
-  end
-  
-  def terms
-  end
-  
 end

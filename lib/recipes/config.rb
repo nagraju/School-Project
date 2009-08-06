@@ -10,9 +10,4 @@ Capistrano::Configuration.instance.load do
     symlinks.each { |from, to| run "ln -nfs #{shared_path}/#{from} #{release_path}/#{to}" }
   end
   
-  desc "Symlink virtual host."
-  task :symlink_vhost, :roles => :app do
-    run "ln -nfs /opt/nginx/sites-enabled/#{application} #{release_path}/config/vhost.nginx.conf"
-  end
-  
 end

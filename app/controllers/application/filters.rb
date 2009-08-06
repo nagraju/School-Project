@@ -4,6 +4,7 @@ module Application::Filters
       protect_from_forgery # See ActionController::RequestForgeryProtection for details.
       helper :all # Include all helpers, all the time.
       layout :set_layout
+      before_filter :verify_site_access
     end
   end
   
@@ -30,6 +31,18 @@ module Application::Filters
     def redirect_back_or_to(url)
       redirect_to session[:return_to] || url
       session[:return_to] = nil
+    end
+    
+    def verify_site_access
+      # Make non-production environments hidden for public.
+      if Settings.security.enabled && Settings.security.environments.present?
+        if Settings.security.environments.any? { |env| Rails.env?(env.to_sym) rescue false }
+          authenticate_or_request_with_http_basic do |login, password|
+            login == Settings.security.login &&
+            password == Settings.security.password
+          end
+        end
+      end
     end
     
 end

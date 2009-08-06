@@ -285,6 +285,7 @@ star-rating
   
 round corners
   http://github.com/weepy/cornerz
+  http://www.ruzee.com/content/liquid-canvas
   
 table sort/filter
   http://tablesorter.com
@@ -321,6 +322,9 @@ file select styling (browser-support)
 client-side search
   http://rikrikrik.com/jquery/quicksearch
   
+pop menu
+  http://github.com/seaofclouds/pop
+  
   
 == Useful Rails Extensions (gems/plugins)
 
@@ -328,10 +332,10 @@ authorization
   http://github.com/makandra/aegis (simpler alternative to acl9)
   
 searching
-  http://github.com/thoughtbot/squirrel (search query DSL)
+  http://github.com/thoughtbot/squirrel (search query DSL #1)
+  http://github.com/binarylogic/searchlogic (search query DSL #2)
   http://github.com/freelancing-god/thinking-sphinx (full-text search - sphinx)
   http://github.com/outoftime/sunspot (full-text search - solr)
-  http://github.com/binarylogic/searchlogic
   
 tableless models
   http://github.com/kennethkalmer/activerecord-tableless-models
@@ -369,10 +373,6 @@ file attachments
 activity feed
   http://github.com/TheBreeze/shadow (straightforward)
   http://github.com/giraffesoft/timeline_fu (general solution)
-  
-sitemap
-  http://github.com/gravis/sitemap
-  http://github.com/adamsalter/sitemap_generator-plugin (rake)
   
 localization (extended)
   http://github.com/janne/model_translations
@@ -422,7 +422,7 @@ html generating/building
   
 analyze performance
   http://github.com/wvanbergen/request-log-analyzer
-  http://github.com/giraffesoft/trample/tree/master
+  http://github.com/giraffesoft/trample
   
 background processing
   http://github.com/jnstq/job_fu
@@ -438,3 +438,4 @@ database backup
 
 rdoc browser
   http://github.com/manalang/bdoc
+  

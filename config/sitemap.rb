@@ -1,4 +1,4 @@
-# Set the host name for URL creation
+# Set the host name for URL creation.
 SitemapGenerator::Sitemap.default_host = Settings.site.domain
 
 SitemapGenerator::Sitemap.add_links do |sitemap|

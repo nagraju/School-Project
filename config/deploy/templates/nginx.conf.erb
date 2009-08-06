@@ -1,21 +1,21 @@
-# user and group to run as
-user              deployer deployer;
+# User and group to run as.
+user              <%= user %> <%= user %>;
 
-# number of nginx workers
+# Number of nginx workers.
 worker_processes  4;
 
-# pid of nginx master process
-pid         /var/run/nginx.pid;
+# PID of Nginx master process
+pid   /var/run/nginx.pid;
 
-# Number of worker connections. 1024 is a good default
+# Number of worker connections. 1024 is a good default.
 events {
   worker_connections  1024;
 }
 
-# start the http module where we config http access.
+# Start the http module where we config http access.
 http {
-  passenger_root                    /usr/lib/ruby/gems/1.8/gems/passenger-2.2.4;
-  passenger_ruby                    /usr/bin/ruby1.8;
+  passenger_root                    /usr/lib/ruby/gems/1.8/gems/passenger-<%= passenger_version %>;
+  passenger_ruby                    /usr/bin/ruby;
   passenger_max_pool_size           8;
   passenger_max_instances_per_app   1;
   # The maximum number of seconds that an application instance may be idle.
@@ -31,17 +31,17 @@ http {
   default_type  application/octet-stream;
   
   log_format  main  '$remote_addr - $remote_user [$time_local] $request '
-  '"$status" $body_bytes_sent "$http_referer" '
-  '"$http_user_agent" "$http_x_forwarded_for"';
-  
+    '"$status" $body_bytes_sent "$http_referer" '
+    '"$http_user_agent" "$http_x_forwarded_for"';
+    
   # Global log paths.
   access_log  /var/log/nginx/access.log  main;
   error_log   /var/log/nginx/error.log   debug;
   
   # Good default values.
-  sendfile    on;
-  tcp_nopush  on;
-  tcp_nodelay off;
+  sendfile      on;
+  tcp_nopush    on;
+  tcp_nodelay   off;
   
   #keepalive_timeout  0;
   keepalive_timeout  65;

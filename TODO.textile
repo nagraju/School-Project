@@ -2,8 +2,9 @@ h1. TODO
 
 h2. Next
 
-* Odd errors for confirmation/password_reset
-* Make it possible to change e-mail
+* Finish Capistrano/Slicehost recipes
+* Implement similar pattern but for one DB? (User <=> Account): http://www.elctech.com/tutorials/splitting-up-rails-models-to-different-databases
+* I18n-translations missing for confirmation/password_reset *strange*
 * Write Cucumber/Shoulda-tests for accounts. Use: http://github.com/tsechingho/authlogic_bundle, http://itsignals.cascadia.com.au/?p=30
 
 h2. Priority

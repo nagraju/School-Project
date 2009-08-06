@@ -9,10 +9,10 @@
   - flash_form_error(f)
   
   - f.inputs do
-    = f.input :email, :label => 'E-mail', :hint => ''
+    = f.input :email, :label => 'E-mail', :hint => 'The email address you used when creating your account.'
   
   - f.buttons do
-    = f.commit_button 'Send instructions', :button_html => {:disable_with => I18n.t('formtastic.processing')}
+    = f.commit_button 'Send me instructions', :button_html => {:disable_with => I18n.t('formtastic.processing')}
     
 %ul.horizontal
   %li= link_to 'Cancel', :back

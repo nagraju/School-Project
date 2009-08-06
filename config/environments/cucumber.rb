@@ -3,17 +3,20 @@
 # Cucumber gems.
 
 # Functional.
-config.gem 'cucumber',                :lib => false,        :version => '>= 0.3.9.4'
-config.gem 'webrat',                  :lib => false,        :version => '>= 0.4.4'
+config.gem 'cucumber',                        :lib => false,        :version => '>= 0.3.9.4'
+config.gem 'webrat',                          :lib => false,        :version => '>= 0.4.4'
 
 # Unit.
-config.gem 'thoughtbot-shoulda',      :lib => 'shoulda'
-#config.gem 'rspec',               :lib => false,        :version => '>= 1.2.6'
-#config.gem 'rspec-rails',         :lib => 'spec/rails', :version => '>= 1.2.6'
+config.gem 'thoughtbot-shoulda',              :lib => 'shoulda'
+#config.gem 'rspec',                          :lib => false,        :version => '>= 1.2.6'
+#config.gem 'rspec-rails',                    :lib => 'spec/rails', :version => '>= 1.2.6'
 
-# Fixtures/Fake data.
-config.gem 'notahat-machinist',       :lib => 'machinist'
-config.gem 'sevenwire-forgery',       :lib => 'forgery'
+# Data generation.
+config.gem 'notahat-machinist',               :lib => 'machinist'
+config.gem 'sevenwire-forgery',               :lib => 'forgery'
+
+# E-mails.
+config.gem 'cwninja-inaction_mailer',         :lib => 'inaction_mailer/force_load'
 
 config.cache_classes = true # This must be true for Cucumber to operate correctly!
 
