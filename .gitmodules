@@ -37,3 +37,6 @@
 [submodule "vendor/javascripts/chroma_hash"]
 	path = vendor/javascripts/chroma_hash
 	url = git://github.com/mattt/Chroma-Hash.git
+[submodule "vendor/plugins/delayed_job"]
+	path = vendor/plugins/delayed_job
+	url = git://github.com/collectiveidea/delayed_job.git

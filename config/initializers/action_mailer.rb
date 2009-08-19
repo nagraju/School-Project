@@ -13,5 +13,5 @@ ActionMailer::Base.smtp_settings = {
     :user_name            => Settings.smtp_mail.user_name,
     :password             => Settings.smtp_mail.password
   }
-subdomain = Rails.env.to_sym == :production ? '' : "#{Rails.env}."
+subdomain = 'staging' if Rails.env?(:staging)
 ActionMailer::Base.default_url_options = {:host => "#{subdomain}#{Settings.smtp_mail.domain}"}

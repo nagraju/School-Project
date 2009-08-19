@@ -22,6 +22,8 @@
 
 class Account < ActiveRecord::Base
   
+  has_many :roles
+  
   acts_as_authentic do |c|
     c.perishable_token_valid_for 5.days
     
@@ -46,8 +48,7 @@ class Account < ActiveRecord::Base
      # Password validations.
     c.validates_length_of_password_field_options = {
         :within => 6..20,
-        :allow_blank => true,
-        :if => :require_password?
+        :allow_blank => false #, :if => :require_password?
       }
   end
   
@@ -57,15 +58,25 @@ class Account < ActiveRecord::Base
   # Add presence validations since we added allow blank to validates length of
   validates_presence_of   :email
   validates_presence_of   :password, :on => :create
-  validates_uniqueness_of :login, :on => :update,
-    :case_sensitive => false,
-    :allow_blank => true
+  validates_uniqueness_of :login, :on => :update, :case_sensitive => false, :allow_blank => true
     
   # default_values  :name => "foo"
+  
+  after_create :set_roles
   
   # Login using either username/login, or e-mail.
   def self.find_by_username_or_email(login)
     find_by_login(login) || find_by_email(login)
+  end
+  
+  # The necessary method for the plugin to find out about the role symbols
+  # Roles returns e.g. [:admin]
+  def role_symbols
+    (roles || []).map { |role| role.title.to_sym }
+  end
+  
+  def set_roles
+    self.roles.create(:title => 'user')
   end
   
   include AuthHelpers::Model::Confirmable

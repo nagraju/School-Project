@@ -1,4 +1,4 @@
-Given /^"(.*)" a logged in user$/ do |name|
+Given /^I'm a logged in user "([^\"]*)"$/ do |name|
   Given "\"#{name}\" a confirmed user with password \"secret\""
   When "I go to the login page"
   And "I fill in \"login\" with \"sharon\""
@@ -8,13 +8,12 @@ Given /^"(.*)" a logged in user$/ do |name|
 end
  
 Given /^I should see a login form$/ do
-  response.should contain("Login")
-  response.should contain("Password")
-  response.should contain("Remember me")
-  response.should contain("Open ID")
+  assert_contain 'E-mail'
+  assert_contain 'Password'
+  assert_contain 'Remember me'
 end
- 
-When /^I open the homepage in a new window$/ do
-  new_window = ::Webrat.session_class.new(self)
-  new_window.visit root_path
+
+Then /^I should see the login form$/ do
+  assert_contain 'E-mail'
+  assert_contain 'Password'
 end

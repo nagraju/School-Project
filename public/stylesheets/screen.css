@@ -1068,11 +1068,11 @@ form .boolean label {
       color: #fff;
       padding: 0.5em 0.9em;
       margin: 0; }
-  #page_flash.notice_flash p {
+  #page_flash.notice .message {
     background-color: #0b0; }
-  #page_flash.warn_flash p {
+  #page_flash.warn .message {
     background-color: #000; }
-  #page_flash.error_flash p {
+  #page_flash.error .message {
     background-color: #c00; }
 
 #page_notice {

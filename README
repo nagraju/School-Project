@@ -325,6 +325,15 @@ client-side search
 pop menu
   http://github.com/seaofclouds/pop
   
+textfield grow (better than jgrow)
+  http://www.unwrongest.com/projects/elastic/
+  
+textfield limit
+  http://www.unwrongest.com/projects/limit/
+  
+form validation
+  http://www.unwrongest.com/projects/valid8/
+  
   
 == Useful Rails Extensions (gems/plugins)
 
@@ -433,6 +442,10 @@ background processing
 database backup
   http://github.com/gravelpup/backup_fu (simple)
   http://github.com/astrails/safe (advanced + flexible)
+  
+active_record versioning
+  http://github.com/laserlemon/vestal_versions
+  
   
 == Other
 

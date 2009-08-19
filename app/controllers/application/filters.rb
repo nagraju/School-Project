@@ -5,12 +5,28 @@ module Application::Filters
       helper :all # Include all helpers, all the time.
       layout :set_layout
       before_filter :verify_site_access
+      before_filter :set_current_user_for_model_security# unless defined?(Authorization)
     end
   end
   
   DEFAULT_APP_LAYOUT = 'application'.freeze
   
   protected
+    
+    # Authorization: Model securty.
+    def set_current_user_for_model_security
+      Authorization.current_user = self.current_account
+    end
+    
+    # Authorization: Permission denied.
+    def permission_denied
+      respond_to do |format|
+        flash[:error] = I18n.t('users.flashs.errors.not_allowed')
+        format.html { redirect_to(:back) rescue redirect_to(root_path) }
+        format.xml  { head :unauthorized }
+        format.js   { head :unauthorized }
+      end
+    end
     
     # Skip layouts for AJAX calls + DRY up controller.
     def set_layout

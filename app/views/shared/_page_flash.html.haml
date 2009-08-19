@@ -1,19 +1,19 @@
 - if @content_for_flash.present?
-  #page_flash
+  #page_flash{:class => "#{'error' if @content_for_flash =~ /error/}"}
     .padding
       = yield :flash
     
 - elsif flash[:error]
-  #page_flash.error_flash
+  #page_flash.error
     .padding
-      %p= flash[:error]
+      %p.message= flash[:error]
     
 - elsif flash[:warn]
-  #page_flash.warn_flash
+  #page_flash.warn
     .padding
-      %p= flash[:warn]
+      %p.message= flash[:warn]
     
 - elsif flash[:notice]
-  #page_flash.notice_flash
+  #page_flash.notice
     .padding
-      %p= flash[:notice]
+      %p.message= flash[:notice]

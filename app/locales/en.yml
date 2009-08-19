@@ -1,4 +1,9 @@
 en:
+  users:
+    flashs:
+      errors:
+        not_allowed: "Sorry, you don't go permissions to do that. Forgot to login?"
+        
   authlogic:
     models:
       user_session: "User Session"
@@ -54,12 +59,14 @@ en:
     errors:
       models:
         account:
-          already_confirmed: "was already confirmed"
-          not_found: "could not be found. Are you sure you gave the right e-mail address?"
-          perishable_token:
-            invalid_confirmation: "is invalid. Are you sure you copied the right link from your e-mail?"
-            invalid_reset_password: "is invalid. Are you sure you copied the right link from your e-mail?"
-            
+          attributes:
+            email:
+              not_found: "could not be found. Are you sure you gave the right e-mail address?"
+              already_confirmed: "is already confirmed"
+            perishable_token:
+              invalid_confirmation: "is invalid. Are you sure you copied the right link from your e-mail?"
+              invalid_reset_password: "is invalid. Are you sure you copied the right link from your e-mail?"
+              
   flash:
     actions:
       create:
@@ -84,11 +91,11 @@ en:
           notice: "Bye! We hope to see you again soon."
       confirmations:
         show:
-          notice: "Your account was successfully confirmed."
+          notice: "Your account is now activated. Just login to get started."
         create:
           notice: "We sent instructions for you to confirm your account. Please check your inbox."
       passwords:
         create:
           notice: "We sent instructions for you to reset your password. Please check your inbox."
         update:
-          notice: "Your password was successfully reset."
+          notice: "Your password was successfully updated."

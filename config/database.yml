@@ -63,7 +63,7 @@ test:
   #database: newapp_test
   
 cucumber:
-  <<: *test
+  test
   
 staging:
   <<: *production

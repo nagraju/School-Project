@@ -5,11 +5,11 @@
   
 %dl
   %dt Username:
-  %dd= h @account.login
+  %dd= h @account.login || 'None'
   
   %dt E-mail:
   %dd= secure_mail_to(@account.email)
   
 %ul.horizontal
-  %li= link_to 'Edit', edit_account_path
-  %li= link_to 'Delete', delete_account_path
+  %li= link_to 'Edit', edit_account_path if permitted_to?(:edit, @account)
+  %li= link_to 'Delete', delete_account_path if permitted_to?(:delete, @account)

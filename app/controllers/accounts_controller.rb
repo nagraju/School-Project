@@ -1,4 +1,6 @@
 class AccountsController < InheritedResources::Base
+  filter_access_to :all
+    
   before_filter :require_account,  :only => [:show, :edit, :update, :delete, :destroy]
   before_filter :require_no_account, :only => [:new, :create]
   
@@ -14,7 +16,7 @@ class AccountsController < InheritedResources::Base
   end
   
   def destroy
-    destroy!{ root_url }
+    destroy! { root_url }
     current_account_session.destroy
   end
   alias :delete :show

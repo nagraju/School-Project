@@ -6,72 +6,74 @@ Feature: Authentication
   Background:
     Given locale is "en"
     
-  Scenario: Display login form to anonymous users
-    # Given I'm a anonymous user "jonas"
-    Given "jonas" is an anonymous user
+  @account @authentication
+  Scenario: Display a login form to anonymous users
+    Given I'm an anonymous user
     When I go to the login page
     Then I should see a login form
     
-  Scenario: Redirect to account page when user is logged in
-    # Given I'm a anonymous user "jonas"
-    Given "jonas" a logged in user
-    When I go to the login page
-    Then I should be logged in
-    When I follow "Logout"
-    Then I should be logged out
-    
+  #Scenario: Redirect to account page when user is logged in
+  #  Given I'm a confirmed user "jonas" with email "jonas@example.com"
+  #  When I go to the login page
+  #  And I fill in "E-mail" with "jonas@example.com"
+  #  And I fill in "Password" with "123456"
+  #  And I press "Login"
+  #  Then I should be logged in
+  #  When I follow "Logout"
+  #  Then I should be logged out
+  
+  @account @authentication
   Scenario: Not allow login of an unconfirmed user
-    # Given I'm a anonymous user "jonas"
-    Given "jonas" a notified but unconfirmed user
+    Given I'm an anonymous user
     When I go to the login page
-    And I fill in "Login" with "jonas"
-    And I fill in "Password" with "secret"
+    And I fill in "E-mail" with "jonas@example.com"
+    And I fill in "Password" with "123456"
     And I press "Login"
     Then I should not be logged in
-    And I should see "Your account is not active"
+    And I should see "Login is not valid"
     
+  @account @authentication
   Scenario: Allow login of a user with valid credentials
-    # Given I'm a confirmed user "jonas" with password "secret"
-    Given "jonas" a confirmed user with password "secret"
+    Given I'm a confirmed user "jonas"
     When I go to the login page
-    And I fill in "Login" with "jonas"
-    And I fill in "Password" with "secret"
+    And I fill in "E-mail" with "jonas@example.com"
+    And I fill in "Password" with "123456"
     And I press "Login"
     Then I should be logged in
     When I follow "Logout"
     Then I should be logged out
     
-  Scenario Outline: Not allow login of a user with bad credentials
-    # Given I'm a confirmed user "jonas" with password "secret"
-    Given "jonas" a confirmed user with password "secret"
+  @account @authentication
+  Scenario Outline: Not allow login of a user with invalid credentials
+    Given I'm a confirmed user "jonas" with password "123456"
     When I go to the login page
-    And I fill in "Login" with "<login>"
+    And I fill in "E-mail" with "<login>"
     And I fill in "Password" with "<password>"
     And I press "Login"
     Then I should not be logged in
     And I should see "<error_message>"
     
     Examples:
-      | login   | password   | error_message                                      |
-      |         |            | You did not provide any details for authentication |
-      |         |  secret    | Login can not be blank                             |
-      |         | bad_secret | Login can not be blank                             |
-      | unknown |            | Password can not be blank                          |
-      | unknown |  secret    | Login is not valid                                 |
-      | unknown | bad_secret | Login is not valid                                 |
-      | jonas   |            | Password can not be blank                          |
-      | jonas   | bad_secret | Password is not valid                              |
+      | login             | password | error_message                                      |
+      |                   |          | You did not provide any details for authentication |
+      |                   | 123456   | can not be blank                                   |
+      |                   | 123      | can not be blank                                   |
+      | unknown           |          | can not be blank                                   |
+      | unknown           | 123456   | is not valid                                       |
+      | unknown           | 123      | is not valid                                       |
+      | jonasexample.com  |          | can not be blank                                   |
+      | jonas@example.com | 123      | is not valid                                       |
       
+  @account @authentication
   Scenario: Allow a confirmed user to login and be remembered
-    # Given I'm a confirmed user "jonas" with password "secret"
-    Given "jonas" a confirmed user with password "secret"
+    Given I'm a confirmed user "jonas"
     When I go to the login page
-    And I fill in "Login" with "jonas"
-    And I fill in "Password" with "secret"
+    And I fill in "E-mail" with "jonas@example.com"
+    And I fill in "Password" with "123456"
     And I check "Remember me"
     And I press "Login"
     Then I should be logged in
-    When I open the homepage in a new window
+    When I open the home page in a seperate window
     Then I should be logged in
     When I follow "Logout"
     Then I should be logged out

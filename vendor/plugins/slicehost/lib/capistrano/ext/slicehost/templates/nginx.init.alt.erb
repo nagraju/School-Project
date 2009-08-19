@@ -1,19 +1,11 @@
 #! /bin/sh
 
-### BEGIN INIT INFO
-# Provides:          nginx
-# Required-Start:    $all
-# Required-Stop:     $all
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: starts the nginx web server
-# Description:       starts nginx using start-stop-daemon
-### END INIT INFO
+# http://saturnboy.com/tag/nginx/
 
 PATH=/opt/nginx/sbin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/opt/nginx/sbin/nginx
 NAME=nginx
-DESC=nginx
+DAEMON=/opt/nginx/sbin/nginx
+PID_FILE=/opt/nginx/logs/nginx.pid
 
 test -x $DAEMON || exit 0
 
@@ -24,82 +16,63 @@ fi
 
 set -e
 
-fucntion find_pid_file() {
-  PID_FILE = `locate nginx.pid | cat`
-}
-
-function nginx_reload() {
-  FILE=find_pid_file()
-  if [ -e $FILE ]; then
-    echo "Reloading NGINX..."
-    PID=`cat /opt/local/logs/nginx.pid`
-    sudo kill -HUP $PID
+function nginx_start() {
+  if [ -e $DAEMON ]; then
+    echo "Starting $NAME..."
+    sudo $DAEMON
   else
-    echo "Nginx pid file not found"
+    echo "$NAME pid file ($PID_FILE) not found"
     return 0
   fi
 }
- 
+
 function nginx_stop() {
-  FILE=find_pid_file()
-  if [ -e $FILE ]; then
-    echo "Stopping NGINX..."
-    PID=`cat $FILE`
+  if [ -e $PID_FILE ]; then
+    echo "Stopping $NAME..."
+    PID=`cat $PID_FILE`
     sudo kill -INT $PID
   else
-    echo "Nginx pid file not found"
+    echo "$NAME pid file ($PID_FILE) not found"
     return 0
   fi
 }
  
 function nginx_restart() {
-  FILE=find_pid_file()
-  if [ -e $FILE ]; then
-    echo "Stopping NGINX..."
-    PID=`cat /opt/local/logs/nginx.pid`
-    sudo kill -INT $PID
+  if [ -e $PID_FILE ]; then
+    nginx_stop();
     sleep 1
-    echo "Starting NGINX..."
-    sudo nginx
+    nginx_start();
   else
-    echo "Nginx pid file not found"
+    echo "$NAME pid file ($PID_FILE) not found"
+    return 0
+  fi
+}
+
+function nginx_reload() {
+  if [ -e $PID_FILE ]; then
+    echo "Not supported"
+  else
+    echo "$NAME pid file ($PID_FILE) not found"
     return 0
   fi
 }
 
 case "$1" in
   start)
-        echo -n "Starting $DESC: "
-        start-stop-daemon --start --quiet --pidfile /opt/nginx/logs/$NAME.pid \
-                --exec $DAEMON -- $DAEMON_OPTS
-        echo "$NAME."
+        nginx_start();
         ;;
   stop)
-        echo -n "Stopping $DESC: "
-        start-stop-daemon --stop --quiet --pidfile /opt/nginx/logs/$NAME.pid \
-                --exec $DAEMON
-        echo "$NAME."
+        nginx_stop();
         ;;
-  restart|force-reload)
-        echo -n "Restarting $DESC: "
-        start-stop-daemon --stop --quiet --pidfile \
-                /opt/nginx/logs/$NAME.pid --exec $DAEMON
-        sleep 1
-        start-stop-daemon --start --quiet --pidfile \
-                /opt/nginx/logs/$NAME.pid --exec $DAEMON -- $DAEMON_OPTS
-        echo "$NAME."
+  restart|force-reload|reload)
+        nginx_restart();
         ;;
-  reload)
-          echo -n "Reloading $DESC configuration: "
-          start-stop-daemon --stop --signal HUP --quiet --pidfile     /opt/nginx/logs/$NAME.pid \
-              --exec $DAEMON 
-          echo "$NAME."
-          ;;
       *)
-            N=/etc/init.d/$NAME
-            echo "Usage: $N {start|stop|restart|reload|force-reload}" >&2
-            exit 1   
-            ;;
+        N=/etc/init.d/$NAME
+        echo "Usage: $N {start|stop|restart|reload|force-reload}"
+        exit 1   
+        ;;
     esac
-
+    
     exit 0
+    

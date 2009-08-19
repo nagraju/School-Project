@@ -3,20 +3,22 @@
 # Test gems.
 
 # Functional.
-config.gem 'aslakhellesoy-cucumber',              :lib => 'cucumber'
+config.gem 'aslakhellesoy-cucumber',          :lib => 'cucumber',     :version => '>= 0.3.9'
+config.gem 'webrat',                          :lib => false,          :version => '>= 0.4.4'
 
 # Unit.
-config.gem 'thoughtbot-shoulda',                  :lib => 'shoulda'
-config.gem 'thumblemonks-shoulda_action_mailer',  :lib => false
-#config.gem 'rspec',                              :lib => false,        :version => '>= 1.2.6'
-#config.gem 'rspec-rails',                        :lib => 'spec/rails', :version => '>= 1.2.6'
+config.gem 'thoughtbot-shoulda',              :lib => 'shoulda'
+config.gem 'rspec',                           :lib => false,          :version => '>= 1.2.7'
+config.gem 'rspec-rails',                     :lib => 'spec/rails',   :version => '>= 1.2.7'
+config.gem "remarkable_rails",                :lib => false,          :version => '>= 3.1.8'
 
 # Data generation.
-config.gem 'notahat-machinist',                   :lib => 'machinist'
-config.gem 'sevenwire-forgery',                   :lib => 'forgery'
+config.gem 'notahat-machinist',               :lib => 'machinist'
+config.gem 'sevenwire-forgery',               :lib => 'forgery'
 
 # E-mails.
-config.gem 'cwninja-inaction_mailer',             :lib => 'inaction_mailer/force_load'
+#config.gem 'cwninja-inaction_mailer',         :lib => 'inaction_mailer/force_load'
+config.gem 'bmabey-email_spec',               :lib => 'email_spec',   :version => '>= 0.3.0'
 
 # The test environment is used exclusively to run your application's
 # test suite.  You never need to work with it otherwise.  Remember that

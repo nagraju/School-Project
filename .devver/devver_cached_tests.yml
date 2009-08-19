@@ -1,0 +1,4 @@
+--- 
+spec/models/account_spec.rb: 
+- !ruby/object:Devver::Messages::SpecFileRequest 
+  file: spec/models/account_spec.rb

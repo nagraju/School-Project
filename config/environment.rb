@@ -14,31 +14,31 @@ Rails::Initializer.run do |config|
   # Specify gems that this application depends on and have them installed with rake gems:install
   
   # Authentication + Authorization.
-  config.gem 'binarylogic-authlogic',         :lib => 'authlogic'
-  config.gem 'josevalim-auth_helpers',        :lib => 'auth_helpers'
-  
+  config.gem 'binarylogic-authlogic',           :lib => 'authlogic'
+  # config.gem 'josevalim-auth_helpers',          :lib => 'auth_helpers'  # Using submodule/plugin
+  config.gem 'stffn-declarative_authorization', :lib => 'declarative_authorization'
   # Models.
-  config.gem 'norman-friendly_id',            :lib => 'friendly_id'
+  config.gem 'norman-friendly_id',              :lib => 'friendly_id'
   
   # Views: Frameworks + Templating.
   config.gem 'haml'
-  config.gem 'chriseppstein-compass',         :lib => 'compass'
-  config.gem 'sprockets',                     :lib => false
-  config.gem 'RedCloth',                      :lib => false
+  config.gem 'chriseppstein-compass',           :lib => 'compass'
+  config.gem 'sprockets',                       :lib => false
+  config.gem 'RedCloth',                        :lib => false
   
   # Views: Forms.
-  config.gem 'justinfrench-formtastic',       :lib => 'formtastic'
-  config.gem 'josevalim-simple_form',         :lib => 'simple_form'
+  config.gem 'justinfrench-formtastic',         :lib => 'formtastic'
+  config.gem 'josevalim-simple_form',           :lib => 'simple_form'
   
   # Views: 
-  config.gem 'mislav-will_paginate',          :lib => 'will_paginate'
+  config.gem 'mislav-will_paginate',            :lib => 'will_paginate'
   
   # Controllers.
-  config.gem 'josevalim-inherited_resources', :lib => 'inherited_resources'
-  config.gem 'mislav-will_paginate',          :lib => 'will_paginate'
+  config.gem 'josevalim-inherited_resources',   :lib => 'inherited_resources'
+  config.gem 'mislav-will_paginate',            :lib => 'will_paginate'
   
   # Configuration.
-  config.gem 'binarylogic-settingslogic',     :lib => 'settingslogic'
+  config.gem 'binarylogic-settingslogic',       :lib => 'settingslogic'
   
   # Database Seeding.
   # TODO: Pull latest version, and uncomment again.
@@ -49,6 +49,9 @@ Rails::Initializer.run do |config|
   
   # Crontab.
   config.gem 'javan-whenever',                :lib => false
+  
+  # Job queue
+  # config.gem 'collectiveidea-delayed_job',    :lib => 'delayed_job'   # Using submodule/plugin
   
   # Domains.
   config.gem 'mbleigh-subdomain-fu',          :lib => 'subdomain-fu'
@@ -65,7 +68,7 @@ Rails::Initializer.run do |config|
   # config.frameworks -= [:active_record, :active_resource, :action_mailer]
   
   # Add additional load paths for your own custom dirs
-  # config.load_paths += [Rails.root.join('app', 'sweepers')]
+  config.load_paths += [Rails.root.join('lib', 'middleware')]
   
   # Cache storage locations.
   config.action_controller.page_cache_directory = Rails.root.join('public', 'cache')

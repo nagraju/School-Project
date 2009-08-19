@@ -1,4 +1,5 @@
 module Accounts::Filters
+  
   def self.included(base)
     base.class_eval do
       before_filter :find_current_account
@@ -17,6 +18,7 @@ module Accounts::Filters
       @current_account ||= current_account_session && current_account_session.account
     end
     alias :current_account :find_current_account
+    alias :current_user :find_current_account # Required by "declarative_authorization".
     
     def require_account
       unless find_current_account

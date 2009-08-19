@@ -12,7 +12,9 @@ class Accounts::SessionsController < InheritedResources::Base
   end
   
   def destroy
-    destroy! { root_url }
+    destroy! do |success, failure|
+      redirect_to root_url
+    end rescue redirect_to(root_url)
   end
   
   protected

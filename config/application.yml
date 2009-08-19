@@ -58,6 +58,13 @@ defaults: &defaults
       
 development:
   <<: *defaults
+  site:
+    name: NewApp
+    devname: newapp
+    domain: newapp.com
+    email:
+      contact_form: support@newapp.com
+      no_reply: no_reply@newapp.com
   debugging:
     sanitize_email:
       <<: *sanitize_email
@@ -69,7 +76,7 @@ development:
 test:
   <<: *defaults
   smtp_mail:
-    domain: localhost:3000
+    domain: app.local
     user_name: mailer@newapp.com
     password: 
     
