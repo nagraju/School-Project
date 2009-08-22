@@ -873,6 +873,55 @@ html[xmlns] form.formtastic fieldset {
 body {
   font-family: Arial; }
 
+.button.super.green {
+  border-color: #749a02; }
+.button.super.blue {
+  border-color: #007d9a; }
+.button.super.red {
+  border-color: #872300; }
+.button.super.magenta {
+  border-color: #630030; }
+.button.super.orange {
+  border-color: #d45500; }
+.button.super.yellow {
+  border-color: #fc9200; }
+.button.green {
+  background-color: #91bd09; }
+  .button.green:visited {
+    background-color: #91bd09; }
+  .button.green:hover {
+    background-color: #749a02; }
+.button.blue {
+  background-color: #2daebf; }
+  .button.blue:visited {
+    background-color: #2daebf; }
+  .button.blue:hover {
+    background-color: #007d9a; }
+.button.red {
+  background-color: #e33100; }
+  .button.red:visited {
+    background-color: #e33100; }
+  .button.red:hover {
+    background-color: #872300; }
+.button.magenta {
+  background-color: #a9014b; }
+  .button.magenta:visited {
+    background-color: #a9014b; }
+  .button.magenta:hover {
+    background-color: #630030; }
+.button.orange {
+  background-color: #ff5c00; }
+  .button.orange:visited {
+    background-color: #ff5c00; }
+  .button.orange:hover {
+    background-color: #d45500; }
+.button.yellow {
+  background-color: #ffb515; }
+  .button.yellow:visited {
+    background-color: #ffb515; }
+  .button.yellow:hover {
+    background-color: #fc9200; }
+
 ul.horizontal {
   margin: 0;
   padding: 0;
@@ -1111,3 +1160,89 @@ form .boolean label {
     #errorExplanation ul li {
       list-style: square;
       color: #666; }
+
+.button {
+  background: #222 url(/images/buttons/overlay-light.png) repeat-x;
+  display: inline-block;
+  padding: 5px 10px 6px;
+  color: #fff;
+  text-decoration: none;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+  position: relative;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1;
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+  margin-bottom: 0; }
+  .button.inverted {
+    background-color: #ccc;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    color: #555;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.5); }
+    .button.inverted:visited {
+      background-color: #ccc;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+      color: #555;
+      text-shadow: 0 1px 1px rgba(255,255,255,0.5); }
+    .button.inverted:hover {
+      background-color: #bbb;
+      color: #444; }
+  .button:visited {
+    background: #222 url(/images/buttons/overlay-light.png) repeat-x;
+    display: inline-block;
+    padding: 5px 10px 6px;
+    color: #fff;
+    text-decoration: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    position: relative;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25); }
+  .button:hover {
+    background-color: #111;
+    color: #fff; }
+  .button:active {
+    top: 1px; }
+  .button.small {
+    font-size: 11px; }
+    .button.small:visited {
+      font-size: 11px; }
+  .button.large {
+    font-size: 14px;
+    padding: 8px 14px 9px; }
+    .button.large:visited {
+      font-size: 14px;
+      padding: 8px 14px 9px; }
+  .button.super {
+    background-color: #222;
+    background-image: url(/images/buttons/overlay-dark.png);
+    font-size: 11px;
+    padding: 0;
+    border: 1px solid #222;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px; }
+    .button.super span {
+      display: block;
+      padding: 5px 10px 7px;
+      -webkit-border-radius: 13px;
+      -moz-border-radius: 13px; }
+
+body.ff3 button.button.medium {
+  padding: 3px 10px 4px; }
+body.ff3 button.button.large {
+  padding: 6px 10px 7px; }

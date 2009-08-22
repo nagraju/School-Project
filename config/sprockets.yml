@@ -3,6 +3,6 @@
   - app/javascripts/application.js
 :load_path:
   - app/javascripts
-  - app/javascripts/*
+  - app/javascripts/**/*
   - vendor/javascripts
-  - vendor/javascripts/*
+  - vendor/javascripts/**/*

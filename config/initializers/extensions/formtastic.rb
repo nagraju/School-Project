@@ -40,5 +40,5 @@ if defined?(Formtastic)
   # Specifies if labels/hints for input fields automatically be looked up using I18n.
   # Default value: false. Overridden for specific fields by setting value to true,
   # i.e. :label => true, or :hint => true (or opposite depending on initialized value)
-  # Formtastic::SemanticFormBuilder.i18n_lookups_by_default = false
+  # Formtastic::SemanticFormBuilder.i18n_lookups_by_default = true
 end

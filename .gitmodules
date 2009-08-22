@@ -28,15 +28,12 @@
 [submodule "vendor/plugins/sitemap_generator-plugin"]
 	path = vendor/plugins/sitemap_generator-plugin
 	url = git://github.com/adamsalter/sitemap_generator-plugin.git
-[submodule "vendor/plugins/cucumber_rails_debug"]
-	path = vendor/plugins/cucumber_rails_debug
-	url = git://github.com/mischa/cucumber_rails_debug.git
 [submodule "vendor/plugins/default_values"]
 	path = vendor/plugins/default_values
 	url = git://github.com/rubaidh/default_values.git
-[submodule "vendor/javascripts/chroma_hash"]
-	path = vendor/javascripts/chroma_hash
-	url = git://github.com/mattt/Chroma-Hash.git
 [submodule "vendor/plugins/delayed_job"]
 	path = vendor/plugins/delayed_job
 	url = git://github.com/collectiveidea/delayed_job.git
+[submodule "vendor/plugins/delayed_job_mailer"]
+	path = vendor/plugins/delayed_job_mailer
+	url = git://github.com/andersondias/delayed_job_mailer.git

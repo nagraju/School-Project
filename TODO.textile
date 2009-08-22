@@ -2,18 +2,17 @@ h1. TODO
 
 h2. Next
 
-* Finish Capistrano/Slicehost recipes
+* Fork and apply changes to Slicehost cap recipes
 * Implement similar pattern but for one DB? (User <=> Account): http://www.elctech.com/tutorials/splitting-up-rails-models-to-different-databases
-* I18n-translations missing for confirmation/password_reset *strange*
-* Write Cucumber/Shoulda-tests for accounts. Use: http://github.com/tsechingho/authlogic_bundle, http://itsignals.cascadia.com.au/?p=30
 
 h2. Priority
 
-* Patch: Full I18n-support in José's AuthHelpers, not all messages are I18nized
-* Learn from José's helpers? http://pastie.org/557958
+* I18nize the forms as soon as a new Formtastic version comes out as gem.
+* Facebook Connect integration
 
 h2. Future
 
+* Learn from José's helpers? http://pastie.org/557958
 * Make Rake-task db:bootstrap loadable from gem
 * Rake-task for updating jQuery-libraries, etc....
 * Finalize "local_e", and add to "Useful extensions"
@@ -23,5 +22,6 @@ h2. Future
 
 h2. Maybe
 
+* Add Formtastic-I18n-ish method for more general purposes (terms_of_service, etc.)
 * Enhance/Fork: http://github.com/rpheath/google_ajax_libraries_api/
-* Implement subdomain handling for accounts, i.e. Account.find_by_submdomain(...):  http://www.robbyonrails.com/articles/2009/01/11/subdomain-accounts-with-ruby-on-rails-explained, http://github.com/mbleigh/subdomain-fu/tree/master
+* Implement subdomain handling for accounts, i.e. Account.find_by_subdomain(...):  http://www.robbyonrails.com/articles/2009/01/11/subdomain-accounts-with-ruby-on-rails-explained

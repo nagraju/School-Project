@@ -8,7 +8,8 @@ authorization do
   
   role :user do
     includes :guest
-    has_permission_on :accounts, :to => [:manage, :read]
+    has_permission_on :accounts, :to => :manage
+    has_permission_on :profile, :to => :manage
   end
   
   role :admin do

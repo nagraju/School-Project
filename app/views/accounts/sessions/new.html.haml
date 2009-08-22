@@ -13,7 +13,7 @@
     = f.input :remember_me, :as => :boolean
     
   - f.buttons do
-    = f.commit_button 'Login', :button_html => {:disable_with => I18n.t('formtastic.processing')}
+    = submit_button(f, 'Login')
     
 %ul.horizontal
   %li= link_to 'Forgot your password?', new_account_password_path

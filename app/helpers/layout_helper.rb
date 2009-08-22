@@ -13,6 +13,7 @@ module LayoutHelper
       end
     end
     title ||= capture_if_given(&block)
+    title = t('.title') if title.blank? # I18n
     title = title.textilize(:strip => true) if options[:textile]
     #meta(:title, description) if options.delete(:meta)
     
@@ -32,6 +33,7 @@ module LayoutHelper
       end
     end
     description ||= capture_if_given(&block)
+    description = t('.description') if description.blank? # I18n
     description += options[:end_with] if options[:end_with] && description[-1,1] != options[:end_with]
     description = description.textilize(:strip => true) if options[:textile]
     #meta(:description, description) if options.delete(:meta)
@@ -52,6 +54,7 @@ module LayoutHelper
       end
     end
     keywords ||= capture_if_given(&block)
+    keywords = t('.keywords') if keywords.blank? # I18n
     meta(:description, description) if options.delete(:meta)
     
     # no view output

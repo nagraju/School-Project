@@ -63,7 +63,7 @@ Feature: Registration
     Given I'm an unconfirmed user "jonas"
     When I go to the account confirmation page with invalid token
     Then I should have an unsuccessful activation
-    And I should be on re-send account confirmation page
+    And I should be on the re-send account confirmation page
     
   # TODO: Activation notification, activation form (set password, etc.), ...
   #   

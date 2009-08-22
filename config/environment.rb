@@ -42,7 +42,7 @@ Rails::Initializer.run do |config|
   
   # Database Seeding.
   # TODO: Pull latest version, and uncomment again.
-  #config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper'
+  # config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper'
   
   # E-mails.
   config.gem 'JasonKing-inline_attachment',   :lib => 'inline_attachment'

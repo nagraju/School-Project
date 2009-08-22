@@ -1,5 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   
+  # Aliases
+  map.login 'login', :controller => 'accounts/sessions', :action => 'new', :conditions => {:method => :get}
+  map.login 'signup', :controller => 'accounts', :action => 'new', :conditions => {:method => :get}
+  
   # /account/...
   map.resource :account, :path_names => {:new => :signup}, :member => {:delete => :get} do |account|
     account.resource :password, :only => [:new, :edit, :create, :update], :controller => 'accounts/passwords'

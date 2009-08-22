@@ -252,6 +252,10 @@ Remove Git Submodule
 Black Box Testing
   http://www.mendable.com/rails-black-box-testing-complex-models/
   
+Database Indexing
+  http://robots.thoughtbot.com/post/163627511/a-grand-piano-for-your-violin
+  
+  
 == Default jQuery/JavaScript Extensions
 
 jquery-ui
@@ -259,6 +263,30 @@ jquery-ui
   
 jquery.tools
   http://flowplayer.org/tools
+  
+pop menu
+  http://github.com/seaofclouds/pop
+  
+textfield grow
+  http://www.unwrongest.com/projects/elastic/
+  
+textfield limit
+  http://www.unwrongest.com/projects/limit/
+  
+dynamic timestamps
+  http://github.com/rmm5t/jquery-timeago
+  
+tooltip
+  http://craigsworks.com/projects/qtip
+  
+image loading
+  http://github.com/tuupola/jquery_lazyload
+  
+text hyphenator
+  http://code.google.com/p/hyphenator/
+  
+text truncator
+  http://github.com/derrick/jquery.truncator.js
   
   
 == Default Rails Extensions (gems/plugins)
@@ -271,14 +299,20 @@ See:
   config/environments/production.rb
   vendor/plugins/...
   
+authorization
+  http://github.com/stffn/declarative_authorization
+  
+model attribute defaults
+  http://github.com/rubaidh/default_values
+  
+subdomains
+  http://github.com/mbleigh/subdomain-fu
+  
   
 == Useful JavaScript Extensions
 
 google analytics
   http://github.com/christianhellsten/jquery-google-analytics
-  
-dynamic timestamps
-  http://github.com/rmm5t/jquery-timeago
   
 star-rating
   http://github.com/raskchanky/star-rating
@@ -291,24 +325,18 @@ table sort/filter
   http://tablesorter.com
   http://github.com/jbritten/jquery-tablesorter-filter
   
-text hyphenator
-  http://code.google.com/p/hyphenator/
+client-side search
+  http://rikrikrik.com/jquery/quicksearch
   
-text truncator
-  http://github.com/henrik/jquery.truncator.js
-  
-tooltip
-  http://craigsworks.com/projects/qtip
-  
-google maps
-  http://code.google.com/p/jmaps
-  
-image loading
-  http://github.com/tuupola/jquery_lazyload
+keyboard shortcuts
+  http://rikrikrik.com/jquery/shortkeys/
   
 text replacement
   http://github.com/sorccu/cufon (canvas/VML)
   http://wiki.novemberborn.net/sifr3 (flash)
+  
+google maps
+  http://code.google.com/p/jmaps
   
 svg
   http://github.com/DmitryBaranovskiy/raphael
@@ -319,27 +347,12 @@ feature detection
 file select styling (browser-support)
   http://www.appelsiini.net/projects/filestyle
   
-client-side search
-  http://rikrikrik.com/jquery/quicksearch
-  
-pop menu
-  http://github.com/seaofclouds/pop
-  
-textfield grow (better than jgrow)
-  http://www.unwrongest.com/projects/elastic/
-  
-textfield limit
-  http://www.unwrongest.com/projects/limit/
-  
 form validation
   http://www.unwrongest.com/projects/valid8/
   
   
 == Useful Rails Extensions (gems/plugins)
 
-authorization
-  http://github.com/makandra/aegis (simpler alternative to acl9)
-  
 searching
   http://github.com/thoughtbot/squirrel (search query DSL #1)
   http://github.com/binarylogic/searchlogic (search query DSL #2)
@@ -356,9 +369,6 @@ feeds
 api
   http://github.com/quantipay/authlogic_haapi (http authentication with api key)
   
-subdomains
-  http://github.com/mbleigh/subdomain-fu
-  
 state machine
   http://github.com/ryan-allen/workflow
   http://github.com/pluginaweek/state_machine
@@ -373,9 +383,6 @@ model recommendation
   http://github.com/maccman/acts_as_recommendable
   http://github.com/wolframarnold/acts_as_most_popular
   
-model attribute defaults
-  http://github.com/rubaidh/default_values
-  
 file attachments
   http://github.com/thoughtbot/paperclip
   
@@ -386,6 +393,7 @@ activity feed
 localization (extended)
   http://github.com/janne/model_translations
   http://github.com/josevalim/localized_templates
+  http://github.com/raul/translate_routes
   
 money/currency
   http://github.com/FooBarWidget/money
@@ -406,9 +414,6 @@ activerecord optimization
 auto complete
   http://github.com/chris/auto_complete_jquery
   http://github.com/evilmarty/jrails_auto_complete
-  
-lightbox
-  http://github.com/defunkt/facebox
   
 infinite page
   http://github.com/Ouziel/infinite_page (pagination extension)
@@ -445,6 +450,9 @@ database backup
   
 active_record versioning
   http://github.com/laserlemon/vestal_versions
+  
+A/B-testing
+  http://www.bingocardcreator.com/abingo/
   
   
 == Other

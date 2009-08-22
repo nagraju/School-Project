@@ -116,7 +116,7 @@ module DevelopmentHelper
     end
     
     actions.compact.collect do |action|
-      link_to(action.humanize, url_for(:controller => "/#{controller}", :action => action))
+      link_to(action, url_for(:controller => "/#{controller}", :action => action))
     end
   end
   

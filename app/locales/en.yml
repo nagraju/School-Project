@@ -1,4 +1,9 @@
 en:
+  accounts:
+    sessions:
+      new:
+        title: Login
+        description: Login to your account.
   users:
     flashs:
       errors:
@@ -6,11 +11,15 @@ en:
         
   authlogic:
     models:
-      user_session: "User Session"
+      account: "Account"
+      account_session: "Account Session"
     attributes:
-      user_session:
+      account:
         login: "Login"
-        email: "Email"
+        email: "E-mail"
+      account_session:
+        login: "Login"
+        email: "E-mail"
         password: "Password"
         remember_me: "Remember me"
     error_messages:

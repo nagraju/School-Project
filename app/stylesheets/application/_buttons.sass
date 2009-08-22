@@ -1,0 +1,116 @@
+// TODO: Compassize markup
+
+.button
+  background: #222 url(/images/buttons/overlay-light.png) repeat-x
+  display: inline-block
+  padding: 5px 10px 6px
+  color: #fff
+  text-decoration: none
+  -moz-border-radius: 5px
+  -webkit-border-radius: 5px
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25)
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25)
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.25)
+  border-bottom: 1px solid rgba(0,0,0,0.25)
+  position: relative
+  cursor: pointer
+  
+  font-size: 13px
+  font-weight: bold
+  line-height: 1
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.25)
+  margin-bottom: 0
+  
+  &.inverted
+    background-color: #ccc
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
+    color: #555
+    text-shadow: 0 1px 1px rgba(255,255,255,0.5)
+    
+    &:visited
+      background-color: #ccc
+      -moz-box-shadow: none
+      -webkit-box-shadow: none
+      color: #555
+      text-shadow: 0 1px 1px rgba(255,255,255,0.5)
+      
+    &:hover
+      background-color: #bbb
+      color: #444
+      
+  &:visited
+    background: #222 url(/images/buttons/overlay-light.png) repeat-x
+    display: inline-block
+    padding: 5px 10px 6px
+    color: #fff
+    text-decoration: none
+    -moz-border-radius: 5px
+    -webkit-border-radius: 5px
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.25)
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.25)
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25)
+    border-bottom: 1px solid rgba(0,0,0,0.25)
+    position: relative
+    cursor: pointer
+    
+    font-size: 13px
+    font-weight: bold
+    line-height: 1
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25)
+    
+  &:hover
+    background-color: #111
+    color: #fff
+    
+  &:active
+    top: 1px
+    
+  &.small
+    font-size: 11px
+    // padding: 
+    
+    &:visited
+      font-size: 11px
+      // padding: 
+      
+  &.medium
+    // (inherited)
+    
+  &.large
+    font-size: 14px
+    padding: 8px 14px 9px
+    
+    &:visited
+      font-size: 14px
+      padding: 8px 14px 9px
+      
+  &.super
+    background-color: #222
+    background-image: url(/images/buttons/overlay-dark.png)
+    font-size: 11px
+    padding: 0
+    border: 1px solid #222
+    -webkit-border-radius: 13px
+    -moz-border-radius: 13px
+    
+    span
+      display: block
+      padding: 5px 10px 7px
+      -webkit-border-radius: 13px
+      -moz-border-radius: 13px
+      //border-top: 1px solid rgba(255,255,255,.15)
+      
+    // TODO: Add sizes: small, medium, large
+    
+// Firefox 3+ (buttons and links not styled the same way)
+body.ff3
+  button
+    &.button
+      &.small
+        // (inherited)
+      &.medium
+        padding: 3px 10px 4px
+      &.large
+        padding: 6px 10px 7px
+        

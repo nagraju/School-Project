@@ -8,28 +8,40 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
     
-    when /home page/i
+    when /the home page/i
       root_path
       
-    when /login page/i
+    when /the logout page/i
+      destroy_account_session_path
+      
+    when /the login page/i
       new_account_session_path
       
-    when /registration page/
+    when /the registration page/
       new_account_path
       
-    when /password reset page/
+    when /the password reset page/
       new_account_password_path
       
-    when /password reset page with invalid token/
+    when /password reset email link/
+      edit_account_password_path
+      
+    when /the password reset page with invalid token/
       edit_account_password_path(:account => {:perishable_token => 'invalid_token'})
       
-    when /re-send account confirmation page/
+    when /the re-send account confirmation page/
       new_account_confirmation_path
       
-    when /account confirmation page with invalid token/
+    when /account confirmation email link/
+      account_confirmation_path
+      
+    when /the account confirmation page with invalid token/
       account_confirmation_path(:account => {:perishable_token => 'invalid_token'})
       
-    when /account page/
+    when /the delete account page/
+      delete_account_path
+      
+    when /the account page/
       account_path
       
     # Add more mappings here.

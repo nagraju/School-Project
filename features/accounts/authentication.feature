@@ -10,7 +10,7 @@ Feature: Authentication
   Scenario: Display a login form to anonymous users
     Given I'm an anonymous user
     When I go to the login page
-    Then I should see a login form
+    Then I should see the login form
     
   #Scenario: Redirect to account page when user is logged in
   #  Given I'm a confirmed user "jonas" with email "jonas@example.com"

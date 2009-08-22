@@ -21,14 +21,13 @@
 #
 
 class Account < ActiveRecord::Base
-  
-  has_many :roles
+  # using_access_control
   
   acts_as_authentic do |c|
     c.perishable_token_valid_for 5.days
     
     # Use this if you have your accountable polymorphic association
-    # a.validations_scope = :accountable_type
+    # c.validations_scope = :accountable_type
     
     # Disable require password confirmation and AuthHelpers handle it, since it
     # adds email and password confirmation without validates length of password
@@ -48,21 +47,26 @@ class Account < ActiveRecord::Base
      # Password validations.
     c.validates_length_of_password_field_options = {
         :within => 6..20,
-        :allow_blank => false #, :if => :require_password?
+        :allow_blank => false,
+        :if => :has_no_credentials?
       }
   end
   
+  has_many :roles, :dependent => :delete_all
+  has_one :profile, :dependent => :destroy
+  
   # Un-protect login field.
   attr_accessible :login
+  accepts_nested_attributes_for :profile, :allow_destroy => false
   
   # Add presence validations since we added allow blank to validates length of
   validates_presence_of   :email
-  validates_presence_of   :password, :on => :create
+  validates_presence_of   :password, :on => :create #:if => :has_no_credentials?
   validates_uniqueness_of :login, :on => :update, :case_sensitive => false, :allow_blank => true
-    
-  # default_values  :name => "foo"
   
-  after_create :set_roles
+  # default_values  :time_zone => 'UTC', :locale => 'en'
+  
+  after_create :bootstrap!
   
   # Login using either username/login, or e-mail.
   def self.find_by_username_or_email(login)
@@ -71,16 +75,28 @@ class Account < ActiveRecord::Base
   
   # The necessary method for the plugin to find out about the role symbols
   # Roles returns e.g. [:admin]
-  def role_symbols
-    (roles || []).map { |role| role.title.to_sym }
+  def role_list
+    @role_list ||= (roles || []).collect { |role| role.title.to_sym }
   end
+  alias :role_symbols :role_list
   
-  def set_roles
-    self.roles.create(:title => 'user')
+  def has_role?(title)
+    self.role_list.include?(:admin) || self.role_list.include?(title.to_sym)
   end
   
   include AuthHelpers::Model::Confirmable
   include AuthHelpers::Model::Recoverable
   include AuthHelpers::Model::Updatable
   
+  protected
+    
+    def has_no_credentials?
+      self.crypted_password.blank?
+    end
+    
+    def bootstrap!
+      self.roles.create(:title => 'user')
+      self.profile ||= Profile.create
+    end
+    
 end

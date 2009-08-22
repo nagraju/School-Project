@@ -7,7 +7,7 @@ class Accounts::SessionsController < InheritedResources::Base
   
   def create
     create! do |success, failure|
-      success.html { redirect_back_or_to root_url }
+      success.html { redirect_back_or_to account_url }
     end
   end
   

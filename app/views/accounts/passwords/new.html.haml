@@ -12,7 +12,7 @@
     = f.input :email, :label => 'E-mail', :hint => 'The email address you used when creating your account.'
   
   - f.buttons do
-    = f.commit_button 'Send me instructions', :button_html => {:disable_with => I18n.t('formtastic.processing')}
-
+    = submit_button(f, 'Send me instructions')
+    
 %ul.horizontal
   %li= link_to 'Cancel', :back

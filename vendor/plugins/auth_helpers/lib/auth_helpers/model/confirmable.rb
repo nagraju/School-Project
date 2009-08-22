@@ -32,7 +32,7 @@ module AuthHelpers
         self.confirmed_at = nil
         self.confirmation_sent_at = Time.now.utc
         self.save(false)
-        if AuthHelpers::Notifier.respond_to?(:send_later)
+        if AuthHelpers::Notifier.respond_to?(:send_later) && [:cucumber, :test].all? { |env| Rails.env.to_sym != env }
           AuthHelpers::Notifier.send_later(:"deliver_#{on}_confirmation", self)
         else
           AuthHelpers::Notifier.send(:"deliver_#{on}_confirmation", self)

@@ -37,7 +37,7 @@ module AuthHelpers
             recoverable.errors.add(:email, :not_found, options)
           else
             recoverable.reset_perishable_token!
-            if AuthHelpers::Notifier.respond_to?(:send_later)
+            if AuthHelpers::Notifier.respond_to?(:send_later) && [:cucumber, :test].all? { |env| Rails.env.to_sym != env }
               AuthHelpers::Notifier.send_later(:deliver_reset_password, recoverable)
             else
               AuthHelpers::Notifier.send(:deliver_reset_password, recoverable)

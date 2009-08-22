@@ -13,14 +13,14 @@ module AuthHelpers
       end
 
       def update_attributes(options)
+        # Don't change the e-mail if it's the same.
         options.delete(:email)              if options[:email] == self.email
-        options.delete(:email_confirmation) if options[:email_confirmation].blank?
 
+        # TODO: Choose correct validations
         options.delete(:password)              if options[:password].blank? || self.valid_password?(options[:password])
         options.delete(:password_confirmation) if options[:password_confirmation].blank?
 
         # Force confirmations (if confirmation is nil, it won't validate, it has to be at least blank)
-        options[:email_confirmation]    ||= '' if options[:email]
         options[:password_confirmation] ||= '' if options[:password]
 
         if super(options)

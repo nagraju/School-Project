@@ -12,7 +12,7 @@
     = f.input :email, :label => 'E-mail', :hint => 'The e-mail address you used when creating your account.'
   
   - f.buttons do
-    = f.commit_button 'Resend confirmation code', :button_html => {:disable_with => I18n.t('formtastic.processing')}
+    = submit_button(f, 'Resend confirmation code')
     
 %ul.horizontal
   %li= link_to 'Login', new_account_session_path

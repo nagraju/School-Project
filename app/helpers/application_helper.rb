@@ -6,4 +6,13 @@ module ApplicationHelper
     mail_to email, name, :encode => 'javascript'
   end
   
+  def timestamp(datetime = Time.now, timeago = false)
+    if timeago
+      datetime = datetime.time_ago_in_words(timeago.is_a?(DateTime) ? timeago : Time.now)
+    else
+      datetime = datetime.to_s(:long)
+    end
+    content_tag(:abbr, datetime, :title => datetime.iso8601.to_s)
+  end
+  
 end
