@@ -6,6 +6,7 @@ module Application::Filters
       layout :set_layout
       before_filter :verify_site_access
       before_filter :set_current_user_for_model_security# unless defined?(Authorization)
+      before_filter :set_pagination_defaults
     end
   end
   
@@ -59,6 +60,12 @@ module Application::Filters
           end
         end
       end
+    end
+    
+    def set_pagination_defaults
+      @@page = (params[:page] || 1).to_i
+      @@page = 1 if @@page < 1
+      @@per_page = (params[:per_page] || Settings.views.pagination.per_page).to_i
     end
     
 end

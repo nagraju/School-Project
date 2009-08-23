@@ -16,4 +16,15 @@ class String
   end
   def textilize!(options = {}); self.replace self.textilize(options); end
   
+  def strip_html
+    strip_tags(self)
+  end
+  def strip_html!; self.replace self.strip_html; end
+  alias :strip_tags :strip_html
+  alias :strip_tags! :strip_html!
+  
+  def ago
+    "%s %s" % [self, ::I18n.t('datetime.distance_in_words.ago', :default => 'ago')]
+  end
+  
 end

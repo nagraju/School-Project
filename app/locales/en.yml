@@ -1,4 +1,8 @@
 en:
+  pagination:
+    previous: '&laquo; Previous'
+    next: 'Next &raquo'
+    
   accounts:
     sessions:
       new:

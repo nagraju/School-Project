@@ -55,6 +55,8 @@ class Account < ActiveRecord::Base
   has_many :roles, :dependent => :delete_all
   has_one :profile, :dependent => :destroy
   
+  # has_friendly_id :login, :use_slug => true, :strip_diacritics => true
+  
   # Un-protect login field.
   attr_accessible :login
   accepts_nested_attributes_for :profile, :allow_destroy => false

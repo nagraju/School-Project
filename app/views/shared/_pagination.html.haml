@@ -1,0 +1,2 @@
+- if collection.present? && collection.respond_to?(:total_pages) && collection.total_pages > 1
+  = will_paginate collection, :class => "pagination #{options[:class]}", :prev_label => t('pagination.previous'), :next_label => t('pagination.next')

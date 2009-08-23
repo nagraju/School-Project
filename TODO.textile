@@ -17,7 +17,6 @@ h2. Future
 * Rake-task for updating jQuery-libraries, etc....
 * Finalize "local_e", and add to "Useful extensions"
 * Finalize "i18n_extensions", and add to "Useful extensions"
-* Finalize "r_extensions", and add as dependency
 * Replace sprockets with http://github.com/cjohansen/juicer (http://www.cjohansen.no/en/ruby/juicer_a_css_and_javascript_packaging_tool)
 
 h2. Maybe
