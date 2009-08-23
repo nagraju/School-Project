@@ -1028,6 +1028,11 @@ body {
       margin-bottom: 1.5em;
       color: #666; }
 
+form legend span {
+  font-size: 1.3em;
+  color: #aaa; }
+form .inputs {
+  padding-top: 1.5em !important; }
 form .error label {
   color: #c00; }
 form .error input[type='text'],
