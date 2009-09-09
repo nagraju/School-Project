@@ -3,8 +3,7 @@ class CreateProfiles < ActiveRecord::Migration
     create_table :profiles do |t|
       t.references  :account
       
-      t.string      :first_name
-      t.string      :last_name
+      t.string      :real_name
       t.boolean     :gender
       
       #t.string      :website

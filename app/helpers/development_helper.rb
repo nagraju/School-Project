@@ -22,7 +22,7 @@ module DevelopmentHelper
     content << "*Release:* #{App.deployed_revision} (#{App.deployed_revision})" if App.deployed_revision.present?
     content << "*Env:* #{Rails.env}"
     content << "*DB:* #{App.current_database}"
-    content << "*Tools:* #{bookmarklet_links.join(' . ')}"
+    content << "*Tools:* #{internet_connection? ? bookmarklet_links.join(' . ') : 'No internet'}"
     
     html = content_tag(:div,
         content.join(" #{options[:divider]} ").textilize(:strip),
@@ -138,7 +138,7 @@ module DevelopmentHelper
   end
   
   def bookmarklet_links(*names)
-    names = [:rack_bug, :firebug_lite, :dom_inspector, :selector_gadget, :yaml_debug, :design] if names.blank?
+    names = [:rack_bug, :firebug_lite, :dom_inspector, :selector_gadget, :yaml_debug, :design, :sprite_me] if names.blank?
     names.delete(:rack_bug) unless Settings.debugging.rack_bug.enabled
     names.collect do |name|
       link_to_bookmarklet(name)
@@ -151,32 +151,32 @@ module DevelopmentHelper
       label, bookmarklet_js = case name.to_sym
       when :rack_bug then
         ['Rack::Bug',
-        %{javascript:(function(){
+          %{javascript:(function(){
           var%20script=document.createElement('script');
           script.src='/__rack_bug__/bookmarklet.js';
           document.getElementsByTagName('head')[0].appendChild(script);
           })()}]
-      when :firebug_lite then
+      when :firebug_lite
         # Source: http://getfirebug.com/lite.html
         ['Firebug Lite',
-        %{javascript:var%20firebug=document.createElement('script');
+          %{javascript:var%20firebug=document.createElement('script');
           firebug.setAttribute('src','http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js');
           document.body.appendChild(firebug);
           (function(){if(window.firebug.version){firebug.init();}else{setTimeout(arguments.callee);}})();
           void(firebug);}]
-      when :dom_inspector then
+      when :dom_inspector
         # Source: http://slayeroffice.com/tools/modi/v2.0/modi_help.html
         ['DOM Inspector',
-        %{javascript:prefFile='';
+          %{javascript:prefFile='';
           void(z=document.body.appendChild(document.createElement('script')));
           void(z.language='javascript');
           void(z.type='text/javascript');
           void(z.src='http://slayeroffice.com/tools/modi/v2.0/modi_v2.0.js');
           void(z.id='modi');}]
-      when :selector_gadget then
+      when :selector_gadget
         # Source: http://selectorgadget.com
         ['SelectorGadget',
-        %{javascript:(function(){
+          %{javascript:(function(){
           var%20s=document.createElement('div');
           s.innerHTML='Loading...';
           s.style.color='black';
@@ -192,26 +192,53 @@ module DevelopmentHelper
           s.setAttribute('type','text/javascript');
           s.setAttribute('src','http://www.selectorgadget.com/unstable/lib/selectorgadget_edge.js?raw=true');
           document.body.appendChild(s);})();}]
-      when :yaml_debug then
+      when :yaml_debug
         # Source: http://debug.yaml.de
         ['YAML Debugger',
-        %{javascript:(function(){var%20s=document.createElement('script');var%20t=new%20Date().getTime();
+          %{javascript:(function(){var%20s=document.createElement('script');var%20t=new%20Date().getTime();
           s.setAttribute('type','text/javascript');s.setAttribute('class','ydebug');
           s.setAttribute('src','http://debug.yaml.de/debugger.js?d='+String(t));
           document.getElementsByTagName('head')[0].appendChild(s);})();}]
-      when :design then
+      when :design
         # Source: http://www.sprymedia.co.uk/article/Design
         ['Design Kit',
-        %{javascript:function%20fnStartDesign(sUrl)%20{var%20nScript%20=%20document.createElement('script');
+          %{javascript:function%20fnStartDesign(sUrl)%20{var%20nScript%20=%20document.createElement('script');
           nScript.setAttribute('language','JavaScript');
           nScript.setAttribute('src',sUrl);
           document.body.appendChild(nScript);}
           fnStartDesign('http://www.sprymedia.co.uk/design/design/media/js/design-loader.js');}]
+      when :sprite_me
+        ['SpriteMe',
+          %{javascript:(function(){
+          spritemejs=document.createElement('SCRIPT');
+          spritemejs.type='text/javascript';
+          spritemejs.src='http://stevesouders.com/spriteme/spriteme.js';
+          document.getElementsByTagName('head')[0].appendChild(spritemejs);
+          })();}]
+      when :jash
+        ['Jash',
+          %{javascript:(function(){
+            document.body.appendChild(document.createElement('script')).src='http://www.billyreisinger.com/jash/source/latest/Jash.js';
+          })();}]
       end
       link_to(label, bookmarklet_js)
     rescue
       logger.debug("** Warning: Bookmarklet with name '#{name}' not found.")
       nil
+    end
+  end
+  
+  def internet_connection?
+    test_site_url = 'http://google.com'
+    uri = URI(test_site_url)
+    begin
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.open_timeout = 5
+      http.start
+      http.finish
+      return true
+    rescue Timeout::Error, SocketError
+      false
     end
   end
   

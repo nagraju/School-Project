@@ -37,3 +37,9 @@
 [submodule "vendor/plugins/delayed_job_mailer"]
 	path = vendor/plugins/delayed_job_mailer
 	url = git://github.com/andersondias/delayed_job_mailer.git
+[submodule "vendor/plugins/i18n-js"]
+	path = vendor/plugins/i18n-js
+	url = git://github.com/fnando/i18n-js.git
+[submodule "vendor/plugins/bootstrapper"]
+	path = vendor/plugins/bootstrapper
+	url = git://github.com/sevenwire/bootstrapper.git

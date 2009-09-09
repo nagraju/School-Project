@@ -126,6 +126,18 @@ module LayoutHelper
     tag(:meta, :'http-equiv' => http_equiv, :content => content)
   end
   
+  def sitemap_tag(title = 'Sitemap', href = 'sitemap.xml')
+    tag(:link, :type => 'application/xml', :rel => 'alternate', :title => title, :href => href)
+  end
+  
+  def atom_feed_tag(title, href)
+    tag(:link, :type => 'application/rss+xml', :rel => 'alternate', :title => title, :href => href)
+  end
+  
+  def rss_feed_tag(title, href)
+    tag(:link, :type => 'application/atom+xml', :rel => 'alternate', :title => title, :href => href)
+  end
+  
   def html_attributes(doctype_base = :xhtml, lang = I18n.locale)
     attrs = if doctype_base == :html
       {:lang => lang}

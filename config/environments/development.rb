@@ -4,7 +4,7 @@
 
 # Debugging.
 config.gem 'ruby-debug'
-config.gem 'josevalim-rails-footnotes',       :lib => 'rails-footnotes'
+#config.gem 'josevalim-rails-footnotes',       :lib => 'rails-footnotes'
 config.gem 'internuity-quick_scopes',         :lib => 'quick_scopes'
 config.gem 'cldwalker-hirb',                  :lib => 'hirb'
 

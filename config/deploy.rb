@@ -79,6 +79,8 @@ end
 #after 'deploy:update_code', 'deploy:restart'
 #after 'deploy:update_code', 'deploy:cleanup'
 
+before 'deploy', 'deploy:check_revision'
+
 # Tasks.
 namespace :deploy do
   [:start, :stop, :restart].each do |command|

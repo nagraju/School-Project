@@ -2,21 +2,21 @@
 
 module CucumberRailsDebug
   def where
-    puts "#{@request.env['SERVER_NAME']}#{@request.env['REQUEST_URI']}" 
+    puts "#{@request.env['SERVER_NAME']}#{@request.env['REQUEST_URI']}"
   end
   
   def how
-    puts @request.parameters.inspect 
+    puts @request.parameters.inspect
   end
   
   def html
-    puts @response.body.gsub("\n", "\n            ")
+    puts @response.body.gsub('\n', "\n#{' ' * 12}")
   end
   
-  def display(decoration="\n#{'*' * 80}\n\n")
+  def display(decoration = "\n#{'*' * 80}\n\n")
     puts decoration
     yield
-    puts decoration 
+    puts decoration
   end
 end
 

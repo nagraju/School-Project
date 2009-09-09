@@ -246,6 +246,9 @@ vendor
   
 == Article Resources
 
+Patch Rails
+  http://accidentaltechnologist.com/ruby/patching-ruby-on-rails-refresher/
+  
 Remove Git Submodule
   http://www.hackido.com/2009/01/quick-tip-remove-git-submodule.html
   
@@ -255,6 +258,11 @@ Black Box Testing
 Database Indexing
   http://robots.thoughtbot.com/post/163627511/a-grand-piano-for-your-violin
   
+API Protection & Analytics
+  http://apigee.com/
+  
+Metaprogramming Toolbox (for plugins)
+  http://weare.buildingsky.net/2009/08/25/rubys-metaprogramming-toolbox
   
 == Default jQuery/JavaScript Extensions
 

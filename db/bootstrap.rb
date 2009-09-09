@@ -11,8 +11,6 @@ require Rails.root.join('test', 'blueprints')
 #  For All
 # ---------------------------------------------------
 Bootstrapper.for :all do |b|
-  b.run :admin_accounts
-  
   # b.run :some_bootstrapper                # run/re-use another named bootstrapper within the current one
   # b.truncate_tables :accounts, :posts     # clear specified model database tables
   # b.fixtures :accounts, :posts            # load fixtures into database for specified models
@@ -23,26 +21,33 @@ end
 #  By Environments
 # ---------------------------------------------------
 Bootstrapper.for :production do |b|
-  b.run :all
+  b.run :admin_accounts
+  b.run :cleanup_confirmations
 end
 
 Bootstrapper.for :staging do |b|
-  b.run :all
   b.run :development
 end
 
 Bootstrapper.for :test do |b|
-  b.run :all
+  b.run :admin_accounts
+  b.run :cleanup_confirmations
 end
 
 Bootstrapper.for :development do |b|
-  b.run :all
-  50.times { Account.make }
+  b.run :admin_accounts
+  50.times { Account.make_unvalidated } # FIXME: Get this to work without make_unvalidated?
+  b.run :cleanup_confirmations
 end
 
 # ---------------------------------------------------
 #  By Model or Context
 # ---------------------------------------------------
 Bootstrapper.for :admin_accounts do |b|
-  Account.make(:admin)
+  Account.make_unvalidated(:admin)
+end
+
+Bootstrapper.for :cleanup_confirmations do |b|
+  # Delete confiramtion e-mails, not needed for bootstrapping.
+  Delayed::Job.delete_all
 end

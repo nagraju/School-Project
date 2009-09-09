@@ -7,7 +7,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.string    :crypted_password
       t.string    :password_salt
       t.string    :persistence_token,   :null => false
-      t.string    :single_access_token, :null => false
+      t.string    :single_access_token
       t.string    :perishable_token,    :null => false
       t.datetime  :confirmed_at
       t.datetime  :confirmation_sent_at

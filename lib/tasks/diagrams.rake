@@ -1,5 +1,7 @@
 namespace :doc do
   namespace :diagram do
+    FileUtils.mkdir(Rails.root.join('doc')) unless File.exists?(Rails.root.join('doc'))
+    
     task :models do
       `railroad -i -l -a -m -M | dot -Tsvg | sed 's/font-size:14.00/font-size:11.00/g' > doc/models.svg`
     end

@@ -68,4 +68,8 @@ module Application::Filters
       @@per_page = (params[:per_page] || Settings.views.pagination.per_page).to_i
     end
     
+    def pagination_defaults
+      {:page => @@page, :per_page => @@per_page}
+    end
+    
 end

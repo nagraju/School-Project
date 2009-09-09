@@ -16,6 +16,9 @@ config.gem "remarkable_rails",                :lib => false,          :version =
 config.gem 'notahat-machinist',               :lib => 'machinist'
 config.gem 'sevenwire-forgery',               :lib => 'forgery'
 
+# Mocking/Stubbing.
+config.gem 'rr',                              :lib => false,          :version => '>= 0.10.0'
+
 # E-mails.
 #config.gem 'cwninja-inaction_mailer',         :lib => 'inaction_mailer/force_load'
 config.gem 'bmabey-email_spec',               :lib => 'email_spec',   :version => '>= 0.3.0'

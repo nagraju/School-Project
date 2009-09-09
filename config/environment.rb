@@ -1,7 +1,7 @@
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.3' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -17,6 +17,7 @@ Rails::Initializer.run do |config|
   config.gem 'binarylogic-authlogic',           :lib => 'authlogic'
   # config.gem 'josevalim-auth_helpers',          :lib => 'auth_helpers'  # Using submodule/plugin
   config.gem 'stffn-declarative_authorization', :lib => 'declarative_authorization'
+  
   # Models.
   config.gem 'norman-friendly_id',              :lib => 'friendly_id'
   
@@ -42,10 +43,12 @@ Rails::Initializer.run do |config|
   
   # Database Seeding.
   # TODO: Pull latest version, and uncomment again.
-  # config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper'
+  # config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper'  # Using submodule/plugin
   
   # E-mails.
   config.gem 'JasonKing-inline_attachment',   :lib => 'inline_attachment'
+  #config.gem 'grimen-awesome_email',          :lib => 'awesome_email'
+  config.gem 'awesome_email',          :lib => 'awesome_email'
   
   # Crontab.
   config.gem 'javan-whenever',                :lib => false

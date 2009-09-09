@@ -4,6 +4,10 @@ require 'machinist/active_record'
 require 'sham'
 require 'forgery'
 
+Dir.glob(Rails.root.join('lib', 'machinist', '*.rb')).uniq.each do |file|
+  require file
+end
+
 # == USAGE:
 #    Post.make                                    # save with generated values
 #    Post.make(:title => "An explicit title")     # save with explicit value
@@ -21,7 +25,7 @@ Sham.language               { Forgery(:personal).language } # TODO: "locale"-for
 Sham.time_zone              { 'UTC' }                       # TODO: "time_zone"-forgery
 # ---
 Sham.name                   { Forgery(:name).full_name }
-Sham.gender                 { Forgery(:personal).abbreviated_gender }
+Sham.gender(:unique => false) { Forgery(:personal).abbreviated_gender }
 Sham.website                { Forgery(:internet).domain_name }
 # ---
 Sham.street_address         { Forgery(:address).street_address }
@@ -30,9 +34,10 @@ Sham.postal_code            { Forgery(:address).zip }
 Sham.country                { Forgery(:address).country }   # TODO: "country_abbrev"-forgery
 Sham.phone                  { Forgery(:address).phone }
 # ---
-Sham.title                  { Forgery(:lorem_ipsum).sentence }
-Sham.description            { Forgery(:lorem_ipsum).sentences(2) }
-Sham.body                   { Forgery(:lorem_ipsum).paragraphs(3) }
+Sham.title(:unique => false)  { Forgery(:lorem_ipsum).sentence }
+Sham.description(:unique => false)  { Forgery(:lorem_ipsum).sentences(2) }
+Sham.body(:unique => false) { Forgery(:lorem_ipsum).paragraphs(rand(8) + 1) }
+Sham.comment(:unique => false) { Forgery(:lorem_ipsum).paragraphs(rand(4) + 1) }
 # --- 
 Sham.date                   { Forgery(:basic).number(:at_most => 1000).days.from_now }
 Sham.created_at             { Sham.date }

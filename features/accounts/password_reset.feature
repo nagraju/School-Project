@@ -72,8 +72,8 @@ Feature: Password Reset
     
     Examples: incomplete password reset inputs
       | password | confirmation | error_message              |
-      |          |              | is too short               | # BUG: Empty paswords should not be ignored
-      |          | 123456       | is too short               | # BUG: Empty paswords should not be ignored
+      |          |              | is too short               |
+      |          | 123456       | is too short               |
       | 123456   |              | doesn't match confirmation |
       | 123456   | 123          | doesn't match confirmation |
       

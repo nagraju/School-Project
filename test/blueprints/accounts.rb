@@ -10,12 +10,16 @@ Account.blueprint do
   last_login_ip         { Sham.ip }
   last_login_at         { Sham.date }
   last_request_at       { Time.now }
+  
+  profile               { Profile.make }
 end
 
 Account.blueprint :admin do
   email                 { "admin@#{Settings.site.domain}" }
   password              { '123456' }
   password_confirmation { '123456' }
+  
+  profile               { Profile.make(:admin) }
 end
 
 Account.blueprint :unconfirmed do

@@ -8,9 +8,13 @@ class ActiveRecord::Base
   
   module ClassMethods
     
-    # def per_page
-    #   Settings.views.pagination.per_page
-    # end
+    def per_page
+      if defined?(Settings)
+        Settings.views.pagination.per_page
+      else
+        RAILS_DEFAULT_LOGGER.warn "** [warning:] ActiveRecord::Base: Settings not defined => default :per_page ignored."
+      end
+    end
     
     # Make helpers accessible from models in same way as controllers
     def helpers

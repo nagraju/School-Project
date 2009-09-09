@@ -1,9 +1,21 @@
 module Machinist
-  module Extensions
-    def self.make_unvalidated(*args)
-      self.make_unsaved(*args).save(false)
+  module ActiveRecord
+    module Extensions
+      def self.included(base)
+        base.extend(ClassMethods)
+      end
+      
+      module ClassMethods
+        def make_unvalidated(*args)
+          object = self.make_unsaved(*args)
+          object.save(false)
+          object
+        end
+      end
     end
   end
 end
 
-ActiveRecord::Base.send :include, Machinist::Extensions
+class ActiveRecord::Base
+  include Machinist::ActiveRecord::Extensions
+end
