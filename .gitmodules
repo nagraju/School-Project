@@ -4,9 +4,6 @@
 [submodule "vendor/plugins/validation_reflection"]
 	path = vendor/plugins/validation_reflection
 	url = git://github.com/redinger/validation_reflection.git
-[submodule "vendor/plugins/resource_fu"]
-	path = vendor/plugins/resource_fu
-	url = git://github.com/sneakin/resource_fu.git
 [submodule "vendor/plugins/rack-bug"]
 	path = vendor/plugins/rack-bug
 	url = git://github.com/timocratic/rack-bug.git
@@ -28,15 +25,6 @@
 [submodule "vendor/plugins/default_values"]
 	path = vendor/plugins/default_values
 	url = git://github.com/rubaidh/default_values.git
-[submodule "vendor/plugins/delayed_job"]
-	path = vendor/plugins/delayed_job
-	url = git://github.com/collectiveidea/delayed_job.git
-[submodule "vendor/plugins/delayed_job_mailer"]
-	path = vendor/plugins/delayed_job_mailer
-	url = git://github.com/andersondias/delayed_job_mailer.git
 [submodule "vendor/plugins/i18n-js"]
 	path = vendor/plugins/i18n-js
 	url = git://github.com/fnando/i18n-js.git
-[submodule "vendor/plugins/bootstrapper"]
-	path = vendor/plugins/bootstrapper
-	url = git://github.com/sevenwire/bootstrapper.git

@@ -32,8 +32,8 @@ Rails::Initializer.run do |config|
   config.gem 'josevalim-simple_form',           :lib => 'simple_form'
   
   # Controllers.
-  #config.gem 'josevalim-inherited_resources',   :lib => 'inherited_resources'
-  config.gem 'inherited_resources', :lib => 'inherited_resources'
+  #config.gem 'josevalim-inherited_resources',    :lib => 'inherited_resources'
+  config.gem 'inherited_resources',             :lib => 'inherited_resources' # Ruby 1.9
   
   # MVC
   config.gem 'mislav-will_paginate',            :lib => 'will_paginate'
@@ -42,20 +42,18 @@ Rails::Initializer.run do |config|
   config.gem 'binarylogic-settingslogic',       :lib => 'settingslogic'
   
   # Database population.
-  #config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper'  # Using submodule/plugin
-  config.gem 'bootstrapper',                    :lib => 'bootstrapper'
+  config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper'
   
   # E-mails.
   config.gem 'JasonKing-inline_attachment',   :lib => 'inline_attachment'
-  #config.gem 'grimen-awesome_email',          :lib => 'awesome_email'
-  config.gem 'awesome_email',                 :lib => 'awesome_email'
-  # config.gem 'grimen-delayed_job_mailer',     :lib => 'delayed_job_mailer'
+  config.gem 'grimen-awesome_email',          :lib => 'awesome_email'
+  config.gem 'grimen-delayed_job_mailer',     :lib => 'delayed_job_mailer'
   
   # Crontab.
   config.gem 'javan-whenever',                :lib => false
   
   # Job queue
-  # config.gem 'collectiveidea-delayed_job',    :lib => 'delayed_job'   # Using submodule/plugin
+  config.gem 'collectiveidea-delayed_job',    :lib => 'delayed_job'
   
   # Domains.
   config.gem 'mbleigh-subdomain-fu',          :lib => 'subdomain-fu'
