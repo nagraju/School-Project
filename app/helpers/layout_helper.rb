@@ -66,8 +66,10 @@ module LayoutHelper
     if args.first.is_a?(Symbol) && args.last.is_a?(String)
       content_for(args.first, args.last)
     else # Hash
-      options.slice(:title, :description, :keywords).each do |type|
-        content_for(type, options[type])
+      returning '' do |html|
+        options.slice(:title, :description, :keywords).each do |type|
+          html << content_for(type, options[type])
+        end
       end
     end
   end
@@ -81,8 +83,10 @@ module LayoutHelper
     if args.first.is_a?(Symbol) && args.last.is_a?(String)
       send :"#{args.first}_tag", (args.last if args.last.present?)
     else # Hash
-      options.slice(:title, :description, :keywords).each do |type|
-        send :"#{type}_tag", (options[type] if options[type].present?)
+      returning '' do |html|
+        options.slice(:title, :description, :keywords).each do |type|
+          html << send(:"#{type}_tag", (options[type] if options[type].present?))
+        end
       end
     end
   end

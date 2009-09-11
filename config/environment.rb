@@ -31,24 +31,25 @@ Rails::Initializer.run do |config|
   config.gem 'justinfrench-formtastic',         :lib => 'formtastic'
   config.gem 'josevalim-simple_form',           :lib => 'simple_form'
   
-  # Views: 
-  config.gem 'mislav-will_paginate',            :lib => 'will_paginate'
-  
   # Controllers.
-  config.gem 'josevalim-inherited_resources',   :lib => 'inherited_resources'
+  #config.gem 'josevalim-inherited_resources',   :lib => 'inherited_resources'
+  config.gem 'inherited_resources', :lib => 'inherited_resources'
+  
+  # MVC
   config.gem 'mislav-will_paginate',            :lib => 'will_paginate'
   
   # Configuration.
   config.gem 'binarylogic-settingslogic',       :lib => 'settingslogic'
   
-  # Database Seeding.
-  # TODO: Pull latest version, and uncomment again.
-  # config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper'  # Using submodule/plugin
+  # Database population.
+  #config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper'  # Using submodule/plugin
+  config.gem 'bootstrapper',                    :lib => 'bootstrapper'
   
   # E-mails.
   config.gem 'JasonKing-inline_attachment',   :lib => 'inline_attachment'
   #config.gem 'grimen-awesome_email',          :lib => 'awesome_email'
-  config.gem 'awesome_email',          :lib => 'awesome_email'
+  config.gem 'awesome_email',                 :lib => 'awesome_email'
+  # config.gem 'grimen-delayed_job_mailer',     :lib => 'delayed_job_mailer'
   
   # Crontab.
   config.gem 'javan-whenever',                :lib => false

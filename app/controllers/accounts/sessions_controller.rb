@@ -12,9 +12,10 @@ class Accounts::SessionsController < InheritedResources::Base
   end
   
   def destroy
-    destroy! do |success, failure|
-      redirect_to root_url
-    end rescue redirect_to(root_url)
+    destroy!
+  rescue
+  ensure
+    redirect_to root_url
   end
   
   protected

@@ -36,7 +36,12 @@ end
 
 Bootstrapper.for :development do |b|
   b.run :admin_accounts
-  50.times { Account.make_unvalidated } # FIXME: Get this to work without make_unvalidated?
+  50.times { 
+    begin
+      Account.make_unvalidated
+    rescue
+    end
+  } # FIXME: Get this to work without make_unvalidated?
   b.run :cleanup_confirmations
 end
 

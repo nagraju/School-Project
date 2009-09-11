@@ -46,7 +46,7 @@ defaults: &defaults
     password: 
     
   sessions:
-    key: newapp
+    id: newapp
     secret: 0728d2b85ed6fe0e31d9b21bcde21f83b0c06bea14a14cdbff5a2bf5ec53a89e75b47a1c9cdd2c224506d4278323856fb642da6b245b2ee84ef26d51b9a7e0d9
     
   api_keys:
@@ -61,10 +61,12 @@ defaults: &defaults
       bcc_recipients: test@newapp.com
       cc_recipients: test@newapp.com
     hirb:
-      enabled: true
+      enabled: false
     rack_bug:
-      enabled: true
+      enabled: false
       password: 
+    bullet:
+      enabled: false
       
   views:
     forms:
@@ -87,6 +89,8 @@ development:
       enabled: true
     rack_bug:
       enabled: false
+    bullet:
+      enabled: true
       
 test:
   <<: *defaults

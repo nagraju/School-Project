@@ -19,9 +19,6 @@
 [submodule "vendor/plugins/safe_mass_assignment"]
 	path = vendor/plugins/safe_mass_assignment
 	url = git://github.com/jamis/safe_mass_assignment.git
-[submodule "vendor/plugins/awesome_email"]
-	path = vendor/plugins/awesome_email
-	url = git://github.com/bryanstearns/awesome_email.git
 [submodule "vendor/plugins/sanitize_email"]
 	path = vendor/plugins/sanitize_email
 	url = git://github.com/pboling/sanitize_email.git

@@ -1,6 +1,7 @@
 module FormHelper
   
   def flash_form_error(form)
+    # Formtastic base errors: f.errors_on :base
     content_for(:flash, form.error_messages) if Settings.views.forms.error_messages
   end
   

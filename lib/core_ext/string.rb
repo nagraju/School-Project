@@ -2,6 +2,9 @@ require 'RedCloth'
 
 class String
   
+  # Ruby 1.9: Temporary and ugly hack. TODO: Remove whenever possible.
+  alias_method :each, :each_line
+  
   def textilize(*args)
     return unless defined?(RedCloth)
     options = args.extract_options!

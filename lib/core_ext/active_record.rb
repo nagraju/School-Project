@@ -8,6 +8,18 @@ class ActiveRecord::Base
   
   module ClassMethods
     
+    # Only perform the wrapped validations if a value is present (non-blank).
+    #
+    def validates_presence_of(attribute, &block)
+      super attribute.to_sym
+      with_options :allow_blank => true do |wo|
+        wo.instance_eval &block
+      end
+    end
+    
+    # Extend all AR-models to respond to a default pagination per-page value.
+    # Note: Overridable for each model of course.
+    #
     def per_page
       if defined?(Settings)
         Settings.views.pagination.per_page

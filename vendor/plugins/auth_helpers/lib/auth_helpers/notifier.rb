@@ -1,3 +1,5 @@
+# coding: utf-8
+
 module AuthHelpers
   # The class responsable to send e-mails.
   #

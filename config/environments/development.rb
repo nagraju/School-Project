@@ -2,8 +2,12 @@
 
 # Development gems.
 
+# Database.
+gem 'sqlite3-ruby', '>= 1.0.0' # Ruby 1.9
+
 # Debugging.
-config.gem 'ruby-debug'
+#config.gem 'ruby-debug'
+config.gem 'ruby-debug19',                    :lib => 'ruby-debug'
 #config.gem 'josevalim-rails-footnotes',       :lib => 'rails-footnotes'
 config.gem 'internuity-quick_scopes',         :lib => 'quick_scopes'
 config.gem 'cldwalker-hirb',                  :lib => 'hirb'
@@ -17,7 +21,8 @@ config.gem 'capistrano-ext',                  :lib => 'capistrano'
 config.gem 'grimen-dry_scaffold',             :lib => false
 
 # Optimization.
-#config.gem 'wvanbergen-request-log-analyzer', :lib => 'request-log-analyzer'
+config.gem 'wvanbergen-request-log-analyzer', :lib => false
+config.gem 'flyerhzm-bullet',                 :lib => 'bullet'
 
 # Documentation.
 config.gem 'bryanlarsen-railroad',            :lib => 'railroad'
