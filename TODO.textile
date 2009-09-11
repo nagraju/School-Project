@@ -2,22 +2,21 @@ h1. TODO
 
 h2. Next
 
-* Fork and apply changes to Slicehost cap recipes
-* Implement similar pattern but for one DB? (User <=> Account): http://www.elctech.com/tutorials/splitting-up-rails-models-to-different-databases
+* I18nize the forms as soon as a new Formtastic version comes out as gem.
+* Move test/blueprint into db/blueprint, and set a constant BLUEPRINTS_ROOT
+* Facebook Connect integration
 
 h2. Priority
 
-* I18nize the forms as soon as a new Formtastic version comes out as gem.
-* Facebook Connect integration
+* Finalize "local_e", and add to "Useful extensions"
 
 h2. Future
 
+* Implement this cool load testing by default?: http://github.com/giraffesoft/trample
 * Learn from José's helpers? http://pastie.org/557958
-* Make Rake-task db:bootstrap loadable from gem
-* Rake-task for updating jQuery-libraries, etc....
-* Finalize "local_e", and add to "Useful extensions"
-* Finalize "i18n_extensions", and add to "Useful extensions"
-* Replace sprockets with http://github.com/cjohansen/juicer (http://www.cjohansen.no/en/ruby/juicer_a_css_and_javascript_packaging_tool)
+* Fork and apply changes to Slicehost cap recipes
+* Rake-task for updating jQuery-libraries, etc.... (jucier-rails?)
+* Replace sprockets with http://github.com/cjohansen/juicer (http://www.cjohansen.no/en/ruby/juicer_a_css_and_javascript_packaging_tool), i.e. "juicer-rails"
 
 h2. Maybe
 

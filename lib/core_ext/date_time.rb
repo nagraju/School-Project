@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class DateTime
   
   def time_ago_in_words_from(relative_date_time, options = {})

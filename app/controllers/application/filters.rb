@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Application::Filters
   def self.included(base)
     base.class_eval do

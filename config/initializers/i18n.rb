@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # Be sure to restart your server when you modify this file.
 
 # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.

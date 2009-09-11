@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class ContactFormMessage < SimpleForm
   sender { |sender| %{"#{sender.name}" <#{sender.email}>}}
   subject "Contact Form Message "

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Machinist
   module ActiveRecord
     module Extensions

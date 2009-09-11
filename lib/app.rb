@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module App
   
   VALID_LOG_LEVELS = [:debug, :info, :warn, :error, :fatal].freeze

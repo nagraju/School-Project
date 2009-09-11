@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # Modified implementation of: http://github.com/logandk/sprockets-compressor
 module Sprockets
   class Concatenation

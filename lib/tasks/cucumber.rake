@@ -1,3 +1,4 @@
+# encoding: utf-8
 $LOAD_PATH.unshift(RAILS_ROOT + '/vendor/plugins/cucumber/lib') if File.directory?(RAILS_ROOT + '/vendor/plugins/cucumber/lib')
 
 begin

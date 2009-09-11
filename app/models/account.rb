@@ -20,6 +20,8 @@
 #  last_login_ip        :string(255)
 #
 
+# encoding: utf-8
+
 class Account < ActiveRecord::Base
   # using_access_control
   

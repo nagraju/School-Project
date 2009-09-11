@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class CreateSlugs < ActiveRecord::Migration
   def self.up
     create_table :slugs do |t|

@@ -367,7 +367,7 @@ searching
   http://github.com/freelancing-god/thinking-sphinx (full-text search - sphinx)
   http://github.com/outoftime/sunspot (full-text search - solr)
   
-tableless models
+table-less models
   http://github.com/kennethkalmer/activerecord-tableless-models
   http://github.com/cherring/activerecord-tableless (new - and more maintained)
   
@@ -378,11 +378,12 @@ api
   http://github.com/quantipay/authlogic_haapi (http authentication with api key)
   
 state machine
-  http://github.com/ryan-allen/workflow
   http://github.com/pluginaweek/state_machine
+  http://github.com/ryan-allen/workflow
   
 model tagging
   http://github.com/giraffesoft/is_taggable
+  http://github.com/mbleigh/acts-as-taggable-on
   
 model categorization
   http://github.com/funkensturm/acts_as_category
@@ -417,7 +418,7 @@ graphs
 activerecord optimization
   http://github.com/nkallen/cache-money (memcached)
   http://github.com/methodmissing/scrooge (query optimization)
-  http://github.com/dsboulder/query_reviewer (mysql)
+  http://github.com/dsboulder/query_reviewer (currently only mysql)
   
 auto complete
   http://github.com/chris/auto_complete_jquery
@@ -442,15 +443,8 @@ ajax file uploads
 html generating/building
   http://github.com/judofyr/parkaby
   
-analyze performance
-  http://github.com/wvanbergen/request-log-analyzer
+load testing
   http://github.com/giraffesoft/trample
-  
-background processing
-  http://github.com/jnstq/job_fu
-  http://github.com/purzelrakete/workling
-  http://github.com/tra/spawn (simple)
-  http://github.com/tobi/delayed_job
   
 database backup
   http://github.com/gravelpup/backup_fu (simple)

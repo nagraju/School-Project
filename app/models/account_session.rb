@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AccountSession < Authlogic::Session::Base
   remember_me true
   remember_me_for 2.weeks

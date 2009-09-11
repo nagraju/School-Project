@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class ActiveSupport::TimeWithZone
   
   def time_ago_in_words_from(relative_date_time, options = {})

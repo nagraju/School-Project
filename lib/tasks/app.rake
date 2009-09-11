@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 namespace :app do
   
   desc "Initalize application for first use."

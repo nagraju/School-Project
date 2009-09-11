@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # General.
 set :application,   'socio_t' #'newapp'
 set :domain,        'socio-t.com' #'newapp.com'

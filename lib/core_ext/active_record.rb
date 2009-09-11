@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class ActiveRecord::Base
   def self.included(base)
     base.class_eval do

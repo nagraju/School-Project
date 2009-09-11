@@ -1,6 +1,6 @@
 # Sets up the Rails environment for Cucumber
 ENV['RAILS_ENV'] ||= 'cucumber'
-require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment'))
+require File.expand_path(File.join(File.dirname(__FILE__), *%w(.. .. config environment)))
 require 'cucumber/rails/world'
 
 # Comment out this line if you don't want Cucumber Unicode support.

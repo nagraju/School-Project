@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # Deploy to production site only from a stable branch.
 set :branch,          'production'
 set :rails_env,       'production'

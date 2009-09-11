@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 Capistrano::Configuration.instance.load do
   
   desc "Symlink shared configs and folders."

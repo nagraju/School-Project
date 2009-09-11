@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module FormHelper
   
   def flash_form_error(form)

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
@@ -42,12 +44,12 @@ Rails::Initializer.run do |config|
   config.gem 'binarylogic-settingslogic',       :lib => 'settingslogic'
   
   # Database population.
-  config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper'
+  config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper', :version => '>= 0.1.2'
   
   # E-mails.
   config.gem 'JasonKing-inline_attachment',   :lib => 'inline_attachment'
-  config.gem 'grimen-awesome_email',          :lib => 'awesome_email'
-  config.gem 'grimen-delayed_job_mailer',     :lib => 'delayed_job_mailer'
+  config.gem 'grimen-awesome_email',          :lib => 'awesome_email', :version => '>= 0.1.3'
+  config.gem 'grimen-delayed_job_mailer',     :lib => 'delayed_job_mailer', :version => '>= 0.1.2'
   
   # Crontab.
   config.gem 'javan-whenever',                :lib => false

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class AccountsController < InheritedResources::Base
   filter_access_to :all
   actions :all, :except => :index

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 namespace :doc do
   namespace :diagram do
     FileUtils.mkdir(Rails.root.join('doc')) unless File.exists?(Rails.root.join('doc'))

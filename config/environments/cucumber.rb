@@ -7,10 +7,11 @@ config.gem 'aslakhellesoy-cucumber',          :lib => 'cucumber',     :version =
 config.gem 'webrat',                          :lib => false,          :version => '>= 0.4.4'
 
 # Unit.
+config.gem 'test-unit',                       :lib => 'test/unit',    :version => '>= 1.2.3'
 config.gem 'thoughtbot-shoulda',              :lib => 'shoulda'
 config.gem 'rspec',                           :lib => false,          :version => '>= 1.2.7'
 config.gem 'rspec-rails',                     :lib => 'spec/rails',   :version => '>= 1.2.7'
-config.gem "remarkable_rails",                :lib => false,          :version => '>= 3.1.8'
+config.gem 'remarkable_rails',                :lib => false,          :version => '>= 3.1.8'
 
 # Data generation.
 config.gem 'notahat-machinist',               :lib => 'machinist'

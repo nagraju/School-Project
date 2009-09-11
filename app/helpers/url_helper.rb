@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module UrlHelper
   
   def current?(controller_expression = nil, action_expression = nil, params_expressions = nil)

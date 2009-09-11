@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Accounts::SessionsController < InheritedResources::Base
   defaults :resource_class => AccountSession, :instance_name => :account_session
   actions :new, :create, :destroy

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # Be sure to restart your server when you modify this file.
 
 Dir.glob(Rails.root.join('lib', '*.rb').to_s).uniq.each do |file|
