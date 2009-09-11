@@ -1,10 +1,11 @@
 coverage
 doc/*
 log/*
+public/assets/*
 public/cache/*
 tmp/*
 vendor/rails/*
 db/schema.rb
 *.sqlite3
 *.tmproj
-.DS_STORE
+.DS_Store
