@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # Settings specified here will take precedence over those in config/environment.rb
 
 # Development gems.
@@ -6,8 +8,12 @@
 gem 'sqlite3-ruby', '>= 1.0.0' # Ruby 1.9
 
 # Debugging.
-#config.gem 'ruby-debug'
-config.gem 'ruby-debug19',                    :lib => 'ruby-debug'
+if RUBY_VERSION >= '1.9'
+  config.gem 'ruby-debug19',                  :lib => 'ruby-debug'
+else
+  config.gem 'ruby-debug',                    :lib => 'ruby-debug'
+end
+
 #config.gem 'josevalim-rails-footnotes',       :lib => 'rails-footnotes'
 config.gem 'internuity-quick_scopes',         :lib => 'quick_scopes'
 config.gem 'cldwalker-hirb',                  :lib => 'hirb'

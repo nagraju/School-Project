@@ -1,7 +1,9 @@
+# encoding: utf-8
 # This file is copied to ~/spec when you run 'ruby script/generate rspec'
 # from the project root directory.
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path(File.join(File.dirname(__FILE__), '..', 'config', 'environment')) unless defined?(RAILS_ROOT)
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'db', 'blueprints'))
 require 'spec/autorun'
 require 'spec/rails'
 require 'remarkable_rails'
@@ -10,7 +12,7 @@ require 'email_spec/matchers'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
-Dir.glob(File.join(File.dirname(__FILE__), 'support', '**', '*.rb')).each { |f| require f }
+Dir.glob(File.join(File.dirname(__FILE__), 'support', '**', '*.rb').to_s).each { |f| require f }
 
 Spec::Runner.configure do |config|
   # If you're not using ActiveRecord you should remove these

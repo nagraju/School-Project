@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # Example: Given I'm a anonymous user "jonas"
 Given /I'm an anonymous user/ do
   visit destroy_account_session_path

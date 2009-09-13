@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # Settings specified here will take precedence over those in config/environment.rb
 
 # Production gems.

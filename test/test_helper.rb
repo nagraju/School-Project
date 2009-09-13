@@ -1,7 +1,8 @@
+# encoding: utf-8
 ENV['RAILS_ENV'] = 'test'
 require File.expand_path(File.join(File.dirname(__FILE__), '..', 'config', 'environment'))
 require 'test_help'
-require File.expand_path(File.join(File.dirname(__FILE__), '..', 'test', 'blueprints'))
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'db', 'blueprints'))
 
 class ActiveSupport::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method

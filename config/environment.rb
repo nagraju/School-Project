@@ -22,6 +22,7 @@ Rails::Initializer.run do |config|
   
   # Models.
   config.gem 'norman-friendly_id',              :lib => 'friendly_id'
+  config.gem 'redinger-validation_reflection',  :lib => 'validation_reflection'
   
   # Views: Frameworks + Templating.
   config.gem 'haml'

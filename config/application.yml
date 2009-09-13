@@ -11,9 +11,13 @@ defaults: &defaults
     enabled: true
     environments:
       - staging
-    login: "admin"
-    password: "1234"
-    
+    site_access:
+      login: "private"
+      password: "1234"
+    admin:
+      login: "admin"
+      password: "1234" # TODO: For production; set to very secure.
+      
   meta:
     default_title: Untitled
     default_keywords: <No description>
@@ -46,14 +50,16 @@ defaults: &defaults
     password: 
     
   sessions:
-    id: newapp
+    name: newapp
     secret: 0728d2b85ed6fe0e31d9b21bcde21f83b0c06bea14a14cdbff5a2bf5ec53a89e75b47a1c9cdd2c224506d4278323856fb642da6b245b2ee84ef26d51b9a7e0d9
     
   api_keys:
     hoptoad: 3b2019ffdeb1cc9612be42adbc18b0a3
     google_analytics: UA-7154429-1
     
-  debugging:
+  debugging: &debugging
+    accounts:
+      password: "123456"
     hoptoad:
       track_404s: false
     sanitize_email: &sanitize_email
@@ -77,12 +83,21 @@ defaults: &defaults
       
 development:
   <<: *defaults
+  site:
+    name: NewApp
+    devname: newapp
+    domain: app.local
+    email:
+      contact_form: support@app.local
+      no_reply: no_reply@app.local
   smtp_mail:
     domain: app.local
-    user_name: mailer@newapp.com
+    user_name: mailer@app.local
     password: 
     
   debugging:
+    accounts:
+      password: "123456"
     sanitize_email:
       <<: *sanitize_email
     hirb:

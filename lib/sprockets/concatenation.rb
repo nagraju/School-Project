@@ -6,7 +6,7 @@ module Sprockets
     
     def save_to_with_compress(filename)
       status = save_to_without_compress(filename)
-      compressor = Dir.glob(File.join(Rails.root, 'vendor', 'tools', 'yui', 'yuicompressor-*.jar')).first
+      compressor = Dir.glob(File.join(Rails.root, 'vendor', 'tools', 'yui', 'yuicompressor-*.jar').to_s).first
       `java -jar #{compressor} -o #{filename} #{filename}`
       status
     end

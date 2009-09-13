@@ -2,6 +2,13 @@
 
 module LayoutHelper
   
+  def content(*args, &block)
+    options = args.extract_options!
+    
+    content ||= capture_if_given(&block)
+    content_tag(:div, content, :class => 'content')
+  end
+  
   def title(*args, &block)
     options = args.extract_options!
     options[:meta] ||= false

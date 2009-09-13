@@ -24,6 +24,7 @@ module DevelopmentHelper
     content << "*Release:* #{App.deployed_revision} (#{App.deployed_revision})" if App.deployed_revision.present?
     content << "*Env:* #{Rails.env}"
     content << "*DB:* #{App.current_database}"
+    content << "*Switch to:* %s | %s | %s" % [:guest, :user, :admin].collect! { |type| link_to(type.to_s, fake_login_test_path(:as => type.to_sym)) }
     content << "*Tools:* #{internet_connection? ? bookmarklet_links.join(' . ') : 'No internet'}"
     
     html = content_tag(:div,
@@ -31,6 +32,7 @@ module DevelopmentHelper
         :id => 'app_info_toolbar',
         :class => "debug_toolbar #{Rails.env}"
       )
+      
     html << resources_toolbar(options.merge(:except => skip_controllers)) if options.delete(:resources)
     html << resource_actions_toolbar(options) if options.delete(:resource_actions)
     html = content_tag(:div, html, :id => 'debug_toolbar')
@@ -111,7 +113,7 @@ module DevelopmentHelper
       )
     [:only, :except].each { |key| options[key] ||= []; options[key].collect!(&:to_sym) }
     
-    view_file_names = Dir.glob(File.join(Rails.root, 'app', 'views', controller, '*.html.haml'))
+    view_file_names = Dir.glob(File.join(Rails.root, 'app', 'views', controller, '*.html.haml').to_s)
     actions = view_file_names.collect! do |file|
       file = File.basename(file, '.html.haml')
       file unless file.match(/^_+/) # ignore paritals

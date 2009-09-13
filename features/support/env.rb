@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # Sets up the Rails environment for Cucumber
 ENV['RAILS_ENV'] ||= 'cucumber'
 require File.expand_path(File.join(File.dirname(__FILE__), *%w(.. .. config environment)))
@@ -36,7 +38,7 @@ include Authlogic::TestCase
 # require 'declarative_authorization/maintenance'
 # include Authorization::Maintenance
 
-require File.join(File.dirname(__FILE__), '..', '..', 'test', 'blueprints')
+require File.join(File.dirname(__FILE__), *%w(.. .. db blueprints))
 
 # Make Shoulds-matchers accessible in your step definitions.
 World(Shoulda::ActionController::Matchers)

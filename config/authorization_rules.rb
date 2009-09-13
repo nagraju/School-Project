@@ -1,5 +1,9 @@
+# encoding: utf-8
+
 authorization do
   role :guest do
+    has_permission_on :test, :to => :fake_login if Rails.env?(:development)
+    
     # Note: Don't remove this, or you can't signup.
     has_permission_on :accounts, :to => :create
     has_permission_on :authorization_rules, :to => :read
@@ -28,4 +32,6 @@ privileges do
   privilege :create,  :includes => :new
   privilege :update,  :includes => :edit
   privilege :delete,  :includes => :destroy
+  
+  privilege :fake_login
 end

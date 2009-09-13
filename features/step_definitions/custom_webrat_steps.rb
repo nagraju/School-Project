@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 Given /^I'm on (.+)$/ do |page_name|
   Given "I am on #{page_name}"
 end

@@ -1,7 +1,8 @@
 = title do
-  Accounts
+  = "Accounts"
 = description do
-  Listing of all accounts.
+  = "Listing of all accounts."
   
-- collection.each do |r|
-  %p= r.email
+= content do
+  - collection.each do |r|
+    %p= r.email

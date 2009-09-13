@@ -1,18 +1,17 @@
 = title do
-  Resend confirmation instructions
-= description do
-  Enter the e-mail address you used when creating your account. Then, hit the
-  %strong "Resend confirmation code"
-  button and we will send you an email with a new confirmation code.
+  = "Resend confirmation instructions"
+= description :textile do
+  = "Enter the e-mail address you used when creating your account. Then, hit the *\"Resend confirmation code\"* button and we will send you an email with a new confirmation code."
   
-- semantic_form_for(@account, :url => account_confirmation_url, :html => {:method => :post}) do |f|
-  - flash_form_error(f)
-  
-  - f.inputs do
-    = f.input :email, :label => 'E-mail', :hint => 'The e-mail address you used when creating your account.'
-  
-  - f.buttons do
-    = submit_button(f, 'Resend confirmation code')
+= content do
+  - semantic_form_for(@account, :url => account_confirmation_url, :html => {:method => :post}) do |f|
+    - flash_form_error(f)
     
+    - f.inputs do
+      = f.input :email, :required => true #, :hint => 'The e-mail address you used when creating your account.'
+    
+    - f.buttons do
+      = submit_button(f, 'Resend confirmation code')
+      
 %ul.horizontal
-  %li= link_to 'Cancel', :back
+  %li= link_to t('actions.cancel'), :back

@@ -264,6 +264,9 @@ API Protection & Analytics
 Metaprogramming Toolbox (for plugins)
   http://weare.buildingsky.net/2009/08/25/rubys-metaprogramming-toolbox
   
+Database Query/Memory Optimization
+  http://www.engineyard.com/blog/2009/thats-not-a-memory-leak-its-bloat/
+  
 == Default jQuery/JavaScript Extensions
 
 jquery-ui

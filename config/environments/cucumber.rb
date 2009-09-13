@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # Settings specified here will take precedence over those in config/environment.rb
 
 # Cucumber gems.
@@ -7,8 +9,8 @@ config.gem 'aslakhellesoy-cucumber',          :lib => 'cucumber',     :version =
 config.gem 'webrat',                          :lib => false,          :version => '>= 0.4.4'
 
 # Unit.
-config.gem 'test-unit',                       :lib => 'test/unit',    :version => '>= 1.2.3'
-config.gem 'thoughtbot-shoulda',              :lib => 'shoulda'
+config.gem 'test-unit',                       :lib => 'test/unit',    :version => '= 1.2.3'
+config.gem 'thoughtbot-shoulda',              :lib => 'shoulda',      :version => '= 2.10.2'
 config.gem 'rspec',                           :lib => false,          :version => '>= 1.2.7'
 config.gem 'rspec-rails',                     :lib => 'spec/rails',   :version => '>= 1.2.7'
 config.gem 'remarkable_rails',                :lib => false,          :version => '>= 3.1.8'

@@ -1,15 +1,17 @@
 = title do
-  My account
+  = "My account"
 = description do
-  Your account details.
-
-%dl
-  %dt Username:
-  %dd= h @account.login || 'None'
+  = "Your account details."
   
-  %dt E-mail:
-  %dd= secure_mail_to(@account.email)
-  
+= content do
+  %dl
+    %dt= "Username:"
+    %dd= h @account.login || 'None'
+    
+    %dt= "E-mail:"
+    %dd= secure_mail_to(@account.email)
+    
 %ul.horizontal
-  %li= link_to 'Edit', edit_account_path if permitted_to?(:edit, @account)
-  %li= link_to 'Delete', delete_account_path if permitted_to?(:delete, @account)
+  // TODO: helper: %li= action_link(:delete)
+  %li= link_to t('actions.edit'), edit_account_path if permitted_to?(:edit, @account)
+  %li= link_to t('actions.delete'), delete_account_path if permitted_to?(:delete, @account)

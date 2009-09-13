@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 Given /^I should see the delete account form$/ do
   assert_have_selector 'a[href="/account"]'
   

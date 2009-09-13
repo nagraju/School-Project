@@ -1,23 +1,23 @@
 = title do
-  Edit my account
+  = "Edit my account"
 = description do
-  Here you can manage your account settings.
+  = "Here you can manage your account settings."
   
-- semantic_form_for(@account, :url => account_path) do |f|
-  - flash_form_error(f)
-    
-  - f.inputs :name => 'Account settings' do
-    = f.input :login, :label => 'Username', :hint => 'You unique username.'
-    = f.input :email, :label => 'E-mail', :hint => 'If you change your e-mail, new confirmation instructions will be sent to your new e-mail.'
-    = #f.input :password, :required => false, :label => 'Password', :hint => 'If you want to change your password, fill in the new password here and confirm it below.'
-    = #f.input :password_confirmation, :required => false, :label => 'Confirm Password'
-    
-  / - f.inputs :for => @account.profile, :name => 'Account settings' do |p|
-  /     = p.input :first_name
-  /     = p.input :last_name
-    
-  - f.buttons do
-    = submit_button(f, 'Save changes')
-    
+= content do
+  - semantic_form_for(@account, :url => account_path) do |f|
+    - flash_form_error(f)
+      
+    - f.inputs :name => 'Account settings' do
+      = f.input :login
+      = f.input :email, :required => true
+      = # f.input :password, :required => false
+      = # f.input :password_confirmation, :required => false
+      
+    - f.inputs :for => @account.profile, :name => 'Profile settings' do |p|
+      - p.input :real_name
+          
+    - f.buttons do
+      = submit_button(f, t('formtastic.actions.account.edit.submit'))
+      
 %ul.horizontal
   %li= link_to 'Cancel', :back

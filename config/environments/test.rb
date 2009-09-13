@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # Settings specified here will take precedence over those in config/environment.rb
 
 # Test gems.
@@ -7,7 +9,7 @@ config.gem 'aslakhellesoy-cucumber',          :lib => 'cucumber',     :version =
 config.gem 'webrat',                          :lib => false,          :version => '>= 0.4.4'
 
 # Unit.
-config.gem 'test-unit',                       :lib => 'test/unit',    :version => '>= 1.2.3'
+config.gem 'test-unit',                       :lib => 'test/unit',    :version => '= 1.2.3'
 config.gem 'thoughtbot-shoulda',              :lib => 'shoulda'
 config.gem 'rspec',                           :lib => false,          :version => '>= 1.2.7'
 config.gem 'rspec-rails',                     :lib => 'spec/rails',   :version => '>= 1.2.7'
@@ -23,6 +25,9 @@ config.gem 'sevenwire-forgery',               :lib => 'forgery'
 # E-mails.
 #config.gem 'cwninja-inaction_mailer',         :lib => 'inaction_mailer/force_load'
 config.gem 'bmabey-email_spec',               :lib => 'email_spec',   :version => '>= 0.3.0'
+
+# HTML/CSS standards.
+config.gem 'w3c_validators',                  :lib => 'w3c_validators', :version => '>= 0.9.3'
 
 # The test environment is used exclusively to run your application's
 # test suite.  You never need to work with it otherwise.  Remember that

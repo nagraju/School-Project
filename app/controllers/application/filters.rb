@@ -57,8 +57,8 @@ module Application::Filters
       if Settings.security.enabled && Settings.security.environments.present?
         if Settings.security.environments.any? { |env| Rails.env?(env.to_sym) rescue false }
           authenticate_or_request_with_http_basic do |login, password|
-            login == Settings.security.login &&
-            password == Settings.security.password
+            login == Settings.security.site_access.login &&
+            password == Settings.security.site_access.password
           end
         end
       end

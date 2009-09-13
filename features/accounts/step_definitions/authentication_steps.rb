@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 Given /^I'm a logged in user$/ do
   Given "I'm a logged in user \"jonas\""
 end

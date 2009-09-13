@@ -8,6 +8,7 @@ module Machinist
       end
       
       module ClassMethods
+        # Added class method make_unvalidated: Construct objects without performing validations (ActiveRecord + DataMapper).
         def make_unvalidated(*args)
           object = self.make_unsaved(*args)
           object.save(false)

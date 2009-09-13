@@ -52,8 +52,8 @@ role :files,    domain
 # Capistrano extensions.
 require 'vendor/plugins/slicehost/lib/capistrano/ext/slicehost'
 
-recipe_paths = [File.join('vendor', 'plugins', '*', 'recipes', '**', '*.rb'),
-                File.join('lib', 'recipes', '**', '*.rb')]
+recipe_paths = [File.join('vendor', 'plugins', '*', 'recipes', '**', '*.rb').to_s,
+                File.join('lib', 'recipes', '**', '*.rb').to_s]
                 
 # Recipes: app + plugins.
 Dir.glob(recipe_paths).each do |recipe|

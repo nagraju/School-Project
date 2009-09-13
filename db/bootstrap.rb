@@ -1,5 +1,6 @@
 # encoding: utf-8
-require Rails.root.join('test', 'blueprints')
+
+require Rails.root.join('db', 'blueprints')
 
 #
 # == USAGE:
@@ -50,7 +51,9 @@ end
 #  By Model or Context
 # ---------------------------------------------------
 Bootstrapper.for :admin_accounts do |b|
-  Account.make_unvalidated(:admin)
+  admin = Account.make_unvalidated(:admin)
+  admin.roles.make_unvalidated(:title => 'admin')
+  Account.make_unvalidated(:user)
 end
 
 Bootstrapper.for :cleanup_confirmations do |b|

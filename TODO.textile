@@ -2,8 +2,8 @@ h1. TODO
 
 h2. Next
 
-* I18nize the forms as soon as a new Formtastic version comes out as gem.
-* Move test/blueprint into db/blueprint, and set a constant BLUEPRINTS_ROOT
+* Fork latest AuthHelpers, and apply additions (I18n, mailer, ...).
+* Make Bootstrapper-task to work... =P
 * Facebook Connect integration
 
 h2. Priority

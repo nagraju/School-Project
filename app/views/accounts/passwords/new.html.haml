@@ -1,18 +1,17 @@
 = title do
-  Reset password
-= description do
-  Enter the email address you used when creating your account. Then, hit the
-  %strong "Send instructions"
-  button and we will send you an email with instructions on how to reset your password.
+  = "Reset password"
+= description :textile do
+  = "Enter the email address you used when creating your account. Then, hit the *\"Send instructions\"* button and we will send you an email with instructions on how to reset your password."
   
-- semantic_form_for(@account, :url => account_password_url, :html => {:method => :post}) do |f|
-  - flash_form_error(f)
-  
-  - f.inputs do
-    = f.input :email, :label => 'E-mail', :hint => 'The email address you used when creating your account.'
-  
-  - f.buttons do
-    = submit_button(f, 'Send me instructions')
+= content do
+  - semantic_form_for(@account, :url => account_password_url, :html => {:method => :post}) do |f|
+    - flash_form_error(f)
     
+    - f.inputs do
+      = f.input :email, :required => true #, :hint => 'The email address you used when creating your account.'
+    
+    - f.buttons do
+      = submit_button(f, 'Send me instructions')
+      
 %ul.horizontal
-  %li= link_to 'Cancel', :back
+  %li= link_to t('actions.cancel'), :back

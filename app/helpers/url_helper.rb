@@ -30,4 +30,12 @@ module UrlHelper
     session[:return_to]
   end
   
+  def action_link(action, object, options = {})
+    # TODO
+  end
+  
+  def link_to_back(text = I18n.t('actions.back', :default => "&laquo; Back"))
+    link_to(text, :back, :class => 'button small')
+  end
+  
 end

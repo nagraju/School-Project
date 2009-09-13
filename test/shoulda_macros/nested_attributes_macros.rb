@@ -1,3 +1,4 @@
+# encoding: utf-8
 
 ActiveSupport::TestCase.class_eval do
   

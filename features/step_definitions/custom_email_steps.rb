@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 When /^I open the most recent email$/ do
   open_last_email
 end

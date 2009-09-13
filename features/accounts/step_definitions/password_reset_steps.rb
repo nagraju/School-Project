@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 Given /^I'm a user "([^\"]*)" who opened my password reset email$/ do |name|
   Given "I'm a confirmed user \"#{name}\" with email \"#{name}@example.com\""
   When "I go to the password reset page"

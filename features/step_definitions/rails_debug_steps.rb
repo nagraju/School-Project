@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 # Source: http://github.com/mischa/cucumber_rails_debug
 
 module CucumberRailsDebug

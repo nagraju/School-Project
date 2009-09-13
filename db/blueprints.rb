@@ -1,10 +1,13 @@
+# encoding: utf-8
 require 'machinist'
 require 'machinist/active_record'
 # require 'machinist/object' # for non-active_record models.
 require 'sham'
 require 'forgery'
 
-Dir.glob(Rails.root.join('lib', 'machinist', '*.rb')).uniq.each do |file|
+BLUEPRINTS_ROOT = File.dirname(__FILE__).freeze
+
+Dir.glob(Rails.root.join('lib', 'machinist', '*.rb').to_s).uniq.each do |file|
   require file
 end
 
@@ -45,6 +48,6 @@ Sham.updated_at             { Sham.date }
 # ---
 
 # Load model blueprints.
-Dir.glob(Rails.root.join('test', 'blueprints', '**', '*.rb')).uniq.each do |blueprint|
+Dir.glob(File.join(BLUEPRINTS_ROOT, 'blueprints', '**', '*.rb').to_s).uniq.each do |blueprint|
   require blueprint
 end

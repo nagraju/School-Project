@@ -1,20 +1,20 @@
 = title do
-  Sign up
-= description do
-  Create a new account. Already got an account?
-  %strong= link_to 'Login', new_account_session_path
-
-- semantic_form_for(@account, :url => account_url) do |f|
-  - flash_form_error(f)
+  = "Sign up"
+= description :textile do
+  = "Create a new account. Already got an account? *%s*" % link_to 'Login', new_account_session_path
   
-  - f.inputs do
-    = f.input :email, :required => true, :label => 'E-mail', :hint => 'Account confirmation instructions will be sent to this address, and will also be used as your account login username.'
-    = f.input :password, :required => true, :label => 'Password', :hint => 'Choose a secret password.'
-    = f.input :password_confirmation, :required => true, :label => 'Confirm Password', :hint => '...and type it again.'
+= content do
+  - semantic_form_for(@account, :url => account_url) do |f|
+    - flash_form_error(f)
     
-  - f.buttons do
-    = submit_button(f, 'Create my account')
-    
+    - f.inputs do
+      = f.input :email, :required => true
+      = f.input :password, :required => true
+      = f.input :password_confirmation, :required => true
+      
+    - f.buttons do
+      = submit_button(f, t('formtastic.actions.account.new.submit'))
+      
 - content_for :page_notice do
   = succeed '.' do
     By clicking on "Create my account" above, you confirm that you accept the
