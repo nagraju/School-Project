@@ -1,5 +1,8 @@
 # encoding: utf-8
 
+# TODO: Submit a generic solution on this as a AuthHelpers-patch,
+# i.e. optional e-mail-confirmation - not a good default.
+#
 module AuthHelpers
   module Model
     module Updatable
@@ -11,13 +14,13 @@ module AuthHelpers
       
       def update_attributes(options)
         options.delete(:email)              if options[:email] == self.email
-        options.delete(:email_confirmation) if options[:email_confirmation].blank?
+        # removed: options.delete(:email_confirmation) if options[:email_confirmation].blank?
         
         options.delete(:password)              if options[:password].blank? || self.valid_password?(options[:password])
         options.delete(:password_confirmation) if options[:password_confirmation].blank?
         
         # Force confirmations (if confirmation is nil, it won't validate, it has to be at least blank)
-        options[:email_confirmation]    ||= '' if options[:email]
+        # removed: options[:email_confirmation]    ||= '' if options[:email]
         options[:password_confirmation] ||= '' if options[:password]
         
         if super(options)

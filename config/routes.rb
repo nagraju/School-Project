@@ -2,7 +2,7 @@
 
 ActionController::Routing::Routes.draw do |map|
   
-  map.resource :test, :member => {:fake_login => :get}, :controller => 'test'
+  map.resource :test, :member => {:login => :get}, :controller => 'test'
   
   # Aliases
   map.login 'login', :controller => 'accounts/sessions', :action => 'new', :conditions => {:method => :get}

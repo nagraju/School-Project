@@ -2,7 +2,7 @@
 
 authorization do
   role :guest do
-    has_permission_on :test, :to => :fake_login if Rails.env?(:development)
+    has_permission_on :test, :to => :login if Rails.env?(:development)
     
     # Note: Don't remove this, or you can't signup.
     has_permission_on :accounts, :to => :create
@@ -33,5 +33,5 @@ privileges do
   privilege :update,  :includes => :edit
   privilege :delete,  :includes => :destroy
   
-  privilege :fake_login
+  privilege :login
 end

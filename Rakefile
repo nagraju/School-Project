@@ -8,3 +8,8 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 
 require 'tasks/rails'
+begin
+  require 'bootstrapper/tasks'
+rescue LoadError
+  # skip
+end

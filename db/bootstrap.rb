@@ -1,7 +1,5 @@
 # encoding: utf-8
-
 require Rails.root.join('db', 'blueprints')
-
 #
 # == USAGE:
 #    rake db:bootstrap
@@ -17,46 +15,39 @@ Bootstrapper.for :all do |b|
   # b.truncate_tables :accounts, :posts     # clear specified model database tables
   # b.fixtures :accounts, :posts            # load fixtures into database for specified models
   # b.sql "..."                             # run SQL
-end
-
-# ---------------------------------------------------
-#  By Environments
-# ---------------------------------------------------
-Bootstrapper.for :production do |b|
+  
+  b.run :standard_roles
   b.run :admin_accounts
-  b.run :cleanup_confirmations
-end
-
-Bootstrapper.for :staging do |b|
-  b.run :development
-end
-
-Bootstrapper.for :test do |b|
-  b.run :admin_accounts
-  b.run :cleanup_confirmations
-end
-
-Bootstrapper.for :development do |b|
-  b.run :admin_accounts
-  50.times { 
-    begin
-      Account.make_unvalidated
-    rescue
-    end
-  } # FIXME: Get this to work without make_unvalidated?
   b.run :cleanup_confirmations
 end
 
 # ---------------------------------------------------
 #  By Model or Context
 # ---------------------------------------------------
+Bootstrapper.for :standard_roles do |b|
+  Role.make(:admin)
+  Role.make(:user)
+end
+
 Bootstrapper.for :admin_accounts do |b|
-  admin = Account.make_unvalidated(:admin)
-  admin.roles.make_unvalidated(:title => 'admin')
-  Account.make_unvalidated(:user)
+  a = Account.make_unvalidated(:admin)
+  a.roles.create(:title => 'admin')
+  a.save(false)
+  
+  Account.make_unvalidated(:test_user) # Note: "user"-role added on create by default.
 end
 
 Bootstrapper.for :cleanup_confirmations do |b|
   # Delete confiramtion e-mails, not needed for bootstrapping.
   Delayed::Job.delete_all
+end
+
+# ---------------------------------------------------
+#  By Environment
+# ---------------------------------------------------
+#
+#  Require bootstrappers (RAILS_ROOT/config/bootstrap/*.rb).
+#
+Dir.glob(File.join(File.dirname(__FILE__), *%w(bootstrap *.rb))).each do |bootstrapper|
+  require bootstrapper
 end

@@ -6,7 +6,7 @@ namespace :app do
   task :setup do
     # Initialize and update submodules.
     puts "** Initialize Git submodules..."
-    `git submodule init && git submodule update`
+    `git submodule update --init`
     
     # Build JavaScripts.
     puts "** Merge and compress JavaScripts..."

@@ -17,7 +17,9 @@ Rails::Initializer.run do |config|
   
   # Authentication + Authorization.
   config.gem 'binarylogic-authlogic',           :lib => 'authlogic'
-  # config.gem 'josevalim-auth_helpers',          :lib => 'auth_helpers'  # Using submodule/plugin
+  # config.gem 'josevalim-auth_helpers',          :lib => 'auth_helpers'
+  # gem built from: http://github.com/grimen/auth_helpers, awaiting patch approval
+  config.gem 'auth_helpers',                    :lib => 'auth_helpers'
   config.gem 'stffn-declarative_authorization', :lib => 'declarative_authorization'
   
   # Models.
@@ -34,9 +36,13 @@ Rails::Initializer.run do |config|
   config.gem 'justinfrench-formtastic',         :lib => 'formtastic'
   config.gem 'josevalim-simple_form',           :lib => 'simple_form'
   
-  # Controllers.
-  #config.gem 'josevalim-inherited_resources',    :lib => 'inherited_resources'
-  config.gem 'inherited_resources',             :lib => 'inherited_resources' # Ruby 1.9
+  # Controllers.  
+  if RUBY_VERSION >= '1.9'
+    # gem built from: grimen/auth_helpers, patch-work in progress...
+    config.gem 'inherited_resources',             :lib => 'inherited_resources' # Ruby 1.9
+  else
+    config.gem 'josevalim-inherited_resources',    :lib => 'inherited_resources'
+  end
   
   # MVC
   config.gem 'mislav-will_paginate',            :lib => 'will_paginate'
@@ -45,7 +51,7 @@ Rails::Initializer.run do |config|
   config.gem 'binarylogic-settingslogic',       :lib => 'settingslogic'
   
   # Database population.
-  config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper', :version => '>= 0.1.2'
+  config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper', :version => '>= 0.1.3'
   
   # E-mails.
   config.gem 'JasonKing-inline_attachment',   :lib => 'inline_attachment'
@@ -64,6 +70,9 @@ Rails::Initializer.run do |config|
   # IE
   config.gem 'sant0sk1-rack-noie6',           :lib => 'noie6'
   
+  # Misc.
+  config.gem 'polyglot',                      :lib => 'polyglot', :version => '>= 0.2.9' # Ruby 1.9.x
+  
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [:all]
@@ -73,8 +82,10 @@ Rails::Initializer.run do |config|
   # config.frameworks -= [:active_record, :active_resource, :action_mailer]
   
   # Add additional load paths for your own custom dirs
-  config.load_paths += [Rails.root.join('lib', 'middleware')]
-  
+  config.load_paths += [
+      Rails.root.join('lib', 'middleware')
+    ]
+    
   # Cache storage locations.
   config.action_controller.page_cache_directory = Rails.root.join('public', 'cache')
   config.action_controller.cache_store = [:file_store, Rails.root.join('tmp', 'cache', 'fragments')]

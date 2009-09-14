@@ -1,7 +1,7 @@
 = title do
   = "Sign up"
 = description :textile do
-  = "Create a new account. Already got an account? *%s*" % link_to 'Login', new_account_session_path
+  = "Create a new account. Already got an account? *%s*" % link_to('Login', new_account_session_path)
   
 = content do
   - semantic_form_for(@account, :url => account_url) do |f|

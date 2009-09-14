@@ -2,8 +2,8 @@
 
 Account.blueprint do
   email
-  password              { '123456' }
-  password_confirmation { '123456' }
+  password
+  password_confirmation { Sham.password }
   
   confirmed_at          { Sham.date }
   confirmation_sent_at  { Sham.date }
@@ -18,16 +18,12 @@ end
 
 Account.blueprint :admin do
   email                 { "#{Settings.security.admin.login}@#{Settings.site.domain}" }
-  password              { Settings.security.admin.password }
-  password_confirmation { Settings.security.admin.password }
+  password              { Settings.security.admin.pass }
+  password_confirmation { Settings.security.admin.pass }
   
   profile               { Profile.make(:admin) }
 end
 
-Account.blueprint :fake_user do
+Account.blueprint :test_user do
   email                 { "user@#{Settings.site.domain}" }
-  password              { Settings.debugging.accounts.password }
-  password_confirmation { Settings.debugging.accounts.password }
-  
-  profile               { Profile.make }
 end

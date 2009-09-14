@@ -25,7 +25,7 @@ module Application::Filters
     def permission_denied
       respond_to do |format|
         flash[:error] = I18n.t('users.flashs.errors.not_allowed')
-        format.html { redirect_to(:back) rescue redirect_to(root_path) }
+        format.html { redirect_back_or_to(root_path) }
         format.xml  { head :unauthorized }
         format.js   { head :unauthorized }
       end
@@ -58,7 +58,7 @@ module Application::Filters
         if Settings.security.environments.any? { |env| Rails.env?(env.to_sym) rescue false }
           authenticate_or_request_with_http_basic do |login, password|
             login == Settings.security.site_access.login &&
-            password == Settings.security.site_access.password
+            password == Settings.security.site_access.pass
           end
         end
       end

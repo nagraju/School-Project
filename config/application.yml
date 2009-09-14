@@ -13,10 +13,10 @@ defaults: &defaults
       - staging
     site_access:
       login: "private"
-      password: "1234"
+      pass: "123456"
     admin:
       login: "admin"
-      password: "1234" # TODO: For production; set to very secure.
+      pass: "123456"
       
   meta:
     default_title: Untitled
@@ -73,6 +73,8 @@ defaults: &defaults
       password: 
     bullet:
       enabled: false
+    rails_footnotes:
+      enabled: false
       
   views:
     forms:
@@ -97,7 +99,7 @@ development:
     
   debugging:
     accounts:
-      password: "123456"
+      pass: "123456"
     sanitize_email:
       <<: *sanitize_email
     hirb:
@@ -106,6 +108,8 @@ development:
       enabled: false
     bullet:
       enabled: true
+    rails_footnotes:
+      enabled: false
       
 test:
   <<: *defaults

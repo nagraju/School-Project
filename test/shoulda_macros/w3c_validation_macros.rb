@@ -1,6 +1,6 @@
 # encoding: utf-8
 gem 'w3c_validators', '>= 0.9.3'
-require 'w3c_validators', '>= 0.9.3'
+require 'w3c_validators'
 
 #
 # INSPIRATION: http://mediumexposure.com/techblog/w3c-validation-functional-tests-shoulda-macros

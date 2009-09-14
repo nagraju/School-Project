@@ -2,19 +2,35 @@
 
 module FormHelper
   
-  def flash_form_error(form)
-    # Formtastic base errors: f.errors_on :base
-    content_for(:flash, form.error_messages) if Settings.views.forms.error_messages
+  # Puts error messages where they should be put in this certain app, 
+  # i.e. not necessary within the form (as the form builer default behaviour).
+  #
+  def flash_form_error(form, base_errors = false)
+    error_message = base_errors ? form.errors_on(:base) : form.error_messages
+    content_for(:flash, error_message) if Settings.views.forms.error_messages
   end
   
-  def submit_button(form, text)
-    form.commit_button text || t('.submit'), :button_html => {
-        :disable_with => I18n.t('formtastic.processing')
+  # Generates a "better" form submit button, with I18n and some defaults.
+  #
+  def submit_button(form, text, options = {})
+    button_label = text || t('.submit')
+    button_working_label = I18n.t('formtastic.processing', :default => 'Please wait...')
+    button_class = [
+        'action default',
+        options[:class]
+      ].compact.join(' ')
+      
+    form.commit_button button_label, :button_html => {
+        :disable_with => button_working_label,
+        :name => nil,
+        :class => button_class
       }
   end
   
+  # Generates a "better" form cancel button, with I18n and some defaults.
+  #
   def cancel_button
-    # TODO
+    # TODO: Formtastic DSL don't support "cancel"-buttons yet, monkey-patch or fast-hack needed.
   end
   
 end
