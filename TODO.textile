@@ -2,17 +2,21 @@ h1. TODO
 
 h2. Next
 
-* feature: Facebook Connect integration
+* feature: Finalized Facebook Connect integration (Reference: http://facebooker.pjkh.com/connect/)
+* feature: Should save Facebook email-hash(es) - serialized?
 
 h2. High Priority
 
 * gemify: Finalize gem "local_e", and add to "Useful extensions"
 * bug: Clicking back/cancel in /account/confirmation gives exception: "NoMethodError (You have a nil object when you didn't expect it! You might have expected an instance of ActiveRecord::Base.". AuthHelpers gem issue.
+* bug: "protect_from_forgery" needs to be trigged on again, but facebook now fails if this is on. xP
+* bug: Update password allows blank fields, and don't uppdate password if this is the case. =o
 
 h2. Low Priority
 
+* testing: Cucumber features for Facebook Connect.
 * feature: Implement this cool load testing by default?: http://github.com/giraffesoft/trample
-* fork/patch: Fork and apply changes to Slicehost cap recipes
+* fork/patch: Fork and apply modifications to Slicehost cap recipes
 * refacor: Replace sprockets with http://github.com/cjohansen/juicer (http://www.cjohansen.no/en/ruby/juicer_a_css_and_javascript_packaging_tool), i.e. "juicer-rails"
 * gemify: Finalize gem "i18n_extensions", and add to "Useful extensions"
 * feature: make Boostrapper terminal output more readable, i.e. recursive tree

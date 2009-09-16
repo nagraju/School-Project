@@ -24,7 +24,21 @@ module DevelopmentHelper
     content << "*Release:* #{App.deployed_revision} (#{App.deployed_revision})" if App.deployed_revision.present?
     content << "*Env:* #{Rails.env}"
     content << "*DB:* #{App.current_database}"
-    content << "*Switch to:* %s | %s | %s" % [:guest, :user, :admin].collect! { |type| link_to(type.to_s, login_test_path(:as => type.to_sym)) }
+    content << "*Act:* %s | %s | %s" % [:guest, :user, :admin].collect! do |role|
+        if [:user, :admin].include?(role)
+          if current_account && current_account.has_role?(role)
+            content_tag(:strong, role.to_s, :class => 'current')
+          else
+            link_to(role.to_s, login_test_path(:as => role.to_sym))
+          end
+        else
+          if current_account
+            link_to(role.to_s, login_test_path(:as => role.to_sym))
+          else
+            content_tag(:strong, role.to_s, :class => 'current')
+          end
+        end
+      end
     content << "*Tools:* #{internet_connection? ? bookmarklet_links.join(' . ') : 'No internet'}"
     
     html = content_tag(:div,
@@ -83,7 +97,7 @@ module DevelopmentHelper
     end
     
     namespaces.collect do |base_controller, controllers|
-      next unless File.exist?(File.join(Rails.root, 'app', 'views', base_controller))
+      next unless File.exist?(Rails.root.join('app', 'views', base_controller))
       html = []
       html << (link_to(base_controller.gsub('/', '::'),
           url_for(
@@ -113,7 +127,7 @@ module DevelopmentHelper
       )
     [:only, :except].each { |key| options[key] ||= []; options[key].collect!(&:to_sym) }
     
-    view_file_names = Dir.glob(File.join(Rails.root, 'app', 'views', controller, '*.html.haml').to_s)
+    view_file_names = Dir.glob(Rails.root.join('app', 'views', controller, '*.html.haml').to_s)
     actions = view_file_names.collect! do |file|
       file = File.basename(file, '.html.haml')
       file unless file.match(/^_+/) # ignore paritals

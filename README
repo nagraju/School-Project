@@ -382,10 +382,8 @@ api
   
 state machine
   http://github.com/pluginaweek/state_machine
-  http://github.com/ryan-allen/workflow
   
 model tagging
-  http://github.com/giraffesoft/is_taggable
   http://github.com/mbleigh/acts-as-taggable-on
   
 model categorization
@@ -422,6 +420,7 @@ activerecord optimization
   http://github.com/nkallen/cache-money (memcached)
   http://github.com/methodmissing/scrooge (query optimization)
   http://github.com/dsboulder/query_reviewer (currently only mysql)
+  http://github.com/eladmeidar/rails_indexes (track down missing database indexes)
   
 auto complete
   http://github.com/chris/auto_complete_jquery

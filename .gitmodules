@@ -25,3 +25,6 @@
 [submodule "vendor/plugins/i18n-js"]
 	path = vendor/plugins/i18n-js
 	url = git://github.com/fnando/i18n-js.git
+[submodule "vendor/plugins/facebooker"]
+	path = vendor/plugins/facebooker
+	url = git://github.com/grimen/facebooker.git

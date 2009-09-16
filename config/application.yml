@@ -17,6 +17,7 @@ defaults: &defaults
     admin:
       login: "admin"
       pass: "123456"
+      facebook_uid: "576585936"
       
   meta:
     default_title: Untitled

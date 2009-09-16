@@ -1,5 +1,5 @@
 !!! 1.1
-%html{html_attributes(:xhtml)}
+%html{html_attributes(:xhtml).merge(:'xmlns:fb' => 'http://www.facebook.com/2008/fbml')}
   %head
     = meta_tag :title, "#{Settings.site.name} | #{controller.controller_name}: #{controller.action_name}"
     = meta_tag :description
@@ -22,6 +22,9 @@
   %body{body_attributes}
     = debug_toolbar(:resources => true) if debug_env?
     = yield :debug if debug_env?
+    
+    = fb_connect_javascript_tag
+    = init_fb_connect :XFBML, :js => :jquery
     
     #container
       #header
