@@ -1,0 +1,8 @@
+.fb_connect_login_wrapper
+  - semantic_form_for(AccountSession.new, :url => account_session_path, :html => {:id => 'fb_connect_login_form', :style => 'display:none;'}) { |f| }
+  :javascript
+    function fb_connect_login() {
+      jQuery('#fb_connect_login_form').submit();
+    };
+    
+  = fb_login_button('fb_connect_login();', options)

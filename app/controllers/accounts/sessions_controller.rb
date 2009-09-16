@@ -3,13 +3,14 @@
 class Accounts::SessionsController < InheritedResources::Base
   defaults :resource_class => AccountSession, :instance_name => :account_session
   actions :new, :create, :destroy
+  respond_to :html, :xml, :json, :js
   
   skip_before_filter :find_current_account
   before_filter :require_no_account, :only => [:new, :create]
   
   def create
     create! do |success, failure|
-      success.html { redirect_back_or_to account_url }
+      success.all { redirect_back_or_to account_url }
     end
   end
   

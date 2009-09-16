@@ -24,7 +24,21 @@ module DevelopmentHelper
     content << "*Release:* #{App.deployed_revision} (#{App.deployed_revision})" if App.deployed_revision.present?
     content << "*Env:* #{Rails.env}"
     content << "*DB:* #{App.current_database}"
-    content << "*Switch to:* %s | %s | %s" % [:guest, :user, :admin].collect! { |type| link_to(type.to_s, login_test_path(:as => type.to_sym)) }
+    content << "*Act:* %s | %s | %s" % [:guest, :user, :admin].collect! do |role|
+        if [:user, :admin].include?(role)
+          if current_account && current_account.has_role?(role)
+            content_tag(:strong, role.to_s, :class => 'current')
+          else
+            link_to(role.to_s, login_test_path(:as => role.to_sym))
+          end
+        else
+          if current_account
+            link_to(role.to_s, login_test_path(:as => role.to_sym))
+          else
+            content_tag(:strong, role.to_s, :class => 'current')
+          end
+        end
+      end
     content << "*Tools:* #{internet_connection? ? bookmarklet_links.join(' . ') : 'No internet'}"
     
     html = content_tag(:div,
