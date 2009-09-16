@@ -8,8 +8,17 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 
 require 'tasks/rails'
+
 begin
   require 'bootstrapper/tasks'
 rescue LoadError
   # skip
+end
+
+if Rails.env.to_sym == :development
+  begin
+    require 'dry_scaffold/tasks'
+  rescue LoadError
+    # skip
+  end
 end

@@ -459,6 +459,8 @@ active_record versioning
 A/B-testing
   http://www.bingocardcreator.com/abingo/
   
+speed-up rspec/cucumber
+  http://github.com/timcharper/spork
   
 == Other
 

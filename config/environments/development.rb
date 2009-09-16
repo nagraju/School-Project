@@ -23,7 +23,7 @@ config.gem 'capistrano-ext',                  :lib => 'capistrano'
 #config.gem 'eric-gemist',                     :lib => 'gemist'
 
 # Scaffolding (generators).
-config.gem 'grimen-dry_scaffold',             :lib => false
+config.gem 'grimen-dry_scaffold',             :lib => false, :version => '>= 0.3.5'
 
 # Optimization.
 config.gem 'wvanbergen-request-log-analyzer', :lib => false
