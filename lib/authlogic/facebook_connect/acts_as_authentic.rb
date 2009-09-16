@@ -12,6 +12,9 @@ module Authlogic
       end
       
       module Config
+        
+        # nothing
+        
       end
       
       module Methods
@@ -68,17 +71,17 @@ module Authlogic
           end
         end
         
-        # Checks if this user model has Facebook Connect enabled, and
-        # has a Facebook UID saved.
-        #
-        def using_facebook_connect?
-          self.respond_to?(:facebook_uid) && self.facebook_uid.present?
-        end
-        
-        private
+        protected
+          
+          # Checks if this user model has Facebook Connect enabled, and
+          # has a Facebook UID saved.
+          #
+          def using_facebook_connect?
+            self.respond_to?(:facebook_uid) && self.facebook_uid.present?
+          end
           
           def validate_password_with_facebook_connect?
-            !self.using_facebook_connect? && self.require_password?
+            !self.using_facebook_connect? && self.send(:require_password?)
           end
           
           def validate_email_with_facebook_connect?

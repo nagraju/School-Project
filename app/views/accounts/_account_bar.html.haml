@@ -3,9 +3,7 @@
   - if @current_account
     %li= link_to 'My account', account_path
     %li= logout_link(:standard)
-    //%li= logout_link(:facebook)
   - else
     %li= link_to 'Home', root_path
     %li= login_link(:standard)
-    //%li= login_link(:facebook)
     %li= link_to 'Sign up', new_account_path

@@ -101,7 +101,7 @@ class Account < ActiveRecord::Base
     begin
       # Get user info and store in session.
       facebook_session.user.populate
-      logger.debug "FACEBOOK SESSION: \n#{pp(facebook_session)}"
+      logger.debug "FACEBOOK SESSION: #{facebook_session}"
       
       # == Account details.
       self.facebook_proxy_email = facebook_session.user.try(:proxied_email)

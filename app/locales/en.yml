@@ -94,7 +94,8 @@ en:
       account_session:
         new:
           submit: "Login"
-          
+        delete:
+          submit: "Logout"
           
   simple_form:
     models:
