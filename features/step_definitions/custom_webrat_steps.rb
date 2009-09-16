@@ -11,11 +11,11 @@ When /^I open (.*) in a seperate window$/ do |page_name|
 end
 
 Then /^I should have a successful/ do
-  assert_have_no_selector '.error'
+  assert_have_no_selector '#page_flash.error'
 end
  
 Then /^I should have an unsuccessful/ do
-  assert_have_selector '.error'
+  assert_have_selector '#page_flash.error'
 end
 
 # Example: When I attach the "image/jpg" file at "features/support/picture.jpg" to "avatar_image"

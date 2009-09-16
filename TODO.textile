@@ -7,6 +7,7 @@ h2. Next
 h2. High Priority
 
 * gemify: Finalize gem "local_e", and add to "Useful extensions"
+* bug: Clicking back/cancel in /account/confirmation gives exception: "NoMethodError (You have a nil object when you didn't expect it! You might have expected an instance of ActiveRecord::Base.". AuthHelpers gem issue.
 
 h2. Low Priority
 

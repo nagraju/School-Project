@@ -69,7 +69,7 @@ class Account < ActiveRecord::Base
   
   # Add presence validations since we added allow blank to validates length of
   validates_presence_of   :email
-  validates_presence_of   :password, :on => :create #:if => :has_no_credentials?
+  validates_presence_of   :password, :if => :has_no_credentials?
   validates_uniqueness_of :login, :on => :update, :case_sensitive => false, :allow_blank => true
   
   # default_values  :time_zone => 'UTC', :locale => 'en'

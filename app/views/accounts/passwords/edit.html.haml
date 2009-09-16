@@ -9,8 +9,8 @@
     
     - f.inputs do
       = f.input :perishable_token, :as => :hidden
-      = f.input :password, :required => :true
-      = f.input :password_confirmation, :required => :true
+      = f.input :password, :required => true
+      = f.input :password_confirmation, :required => true
       
     - f.buttons do
       = submit_button(f, 'Update my password')

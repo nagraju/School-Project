@@ -18,7 +18,9 @@ ActionMailer::Base.smtp_settings = {
 subdomain = 'staging' if Rails.env?(:staging)
 ActionMailer::Base.default_url_options = {:host => "#{subdomain}#{Settings.smtp_mail.domain}"}
 
-# Enable asynchronous mailing by default.
-ActionMailer::Base.class_eval do
-  include Delayed::Mailer
+if [:staging, :production].include?(Rails.env.to_sym)
+  # Enable asynchronous mailing by default - only in "staging" or "production".
+  ActionMailer::Base.class_eval do
+    include Delayed::Mailer
+  end
 end

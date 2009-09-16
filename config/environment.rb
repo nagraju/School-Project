@@ -44,7 +44,7 @@ Rails::Initializer.run do |config|
     config.gem 'josevalim-inherited_resources',    :lib => 'inherited_resources'
   end
   
-  # MVC
+  # MVC.
   config.gem 'mislav-will_paginate',            :lib => 'will_paginate'
   
   # Configuration.

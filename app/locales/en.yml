@@ -61,12 +61,16 @@ en:
       login: "Login"
       email: "E-mail"
       password: "Password"
-      password_confirmation: "Confirm password"
+      password_confirmation: "Confirm Password"
       remember_me: "Remember me"
       
       account:
         edit:
           login: "Username"
+          
+      account_session:
+        new:
+          login: "E-mail"
           
     hints:
       email: "Account confirmation instructions will be sent to this address, and will also be used as your account login username."

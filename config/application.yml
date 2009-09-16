@@ -59,7 +59,7 @@ defaults: &defaults
     
   debugging: &debugging
     accounts:
-      password: "123456"
+      pass: "123456"
     hoptoad:
       track_404s: false
     sanitize_email: &sanitize_email
