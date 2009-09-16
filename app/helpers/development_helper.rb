@@ -97,7 +97,7 @@ module DevelopmentHelper
     end
     
     namespaces.collect do |base_controller, controllers|
-      next unless File.exist?(File.join(Rails.root, 'app', 'views', base_controller))
+      next unless File.exist?(Rails.root.join('app', 'views', base_controller))
       html = []
       html << (link_to(base_controller.gsub('/', '::'),
           url_for(
@@ -127,7 +127,7 @@ module DevelopmentHelper
       )
     [:only, :except].each { |key| options[key] ||= []; options[key].collect!(&:to_sym) }
     
-    view_file_names = Dir.glob(File.join(Rails.root, 'app', 'views', controller, '*.html.haml').to_s)
+    view_file_names = Dir.glob(Rails.root.join('app', 'views', controller, '*.html.haml').to_s)
     actions = view_file_names.collect! do |file|
       file = File.basename(file, '.html.haml')
       file unless file.match(/^_+/) # ignore paritals

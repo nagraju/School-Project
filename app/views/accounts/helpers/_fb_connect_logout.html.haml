@@ -1,10 +1,11 @@
 .fb_connect_logout_wrapper
-  - semantic_form_for(AccountSession.new, :url => destroy_account_session_path, :method => :get, :html => {:id => 'fb_connect_logout_form', :style => 'display:none;'}) { |f| }
+  - semantic_form_for(AccountSession.new, :url => destroy_account_session_path, :html => {:method => :delete, :id => 'fb_connect_logout_form', :style => 'display:none;'}) { |f| }
   :javascript
     function fb_connect_logout() {
       jQuery('#fb_connect_logout_form').submit();
       return false;
     };
-    
-  = fb_login_button('fb_connect_logout();', options)
-  = link_to_function(text, 'FB.Connect.logout(facebook_logout);', options)
+  - if options.delete(:switch)
+    = fb_login_button('fb_connect_logout();', options)
+  - else
+    = link_to_function(label, 'FB.Connect.logout(fb_connect_logout);')

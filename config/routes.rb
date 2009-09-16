@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
     account.with_options(:controller => 'accounts/sessions', :name_prefix => nil) do |m|
       m.new_account_session     'login',  :action => 'new',     :conditions => {:method => :get}
       m.account_session         'login',  :action => 'create',  :conditions => {:method => :post}
-      m.destroy_account_session 'logout', :action => 'destroy', :conditions => {:method => :get}
+      m.destroy_account_session 'logout', :action => 'destroy', :conditions => {:method => :delete}
     end
   end
   

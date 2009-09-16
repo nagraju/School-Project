@@ -20,17 +20,19 @@ module AccountHelper
   def logout_link(*args)
     options = args.extract_options!
     type = args.first.is_a?(Symbol) ? args.shift : :standard
+    type = :facebook if current_account && current_account.using_facebook_connect?
     
     case type
     when :standard
-      link_to 'Logout', destroy_account_session_path
+      link_to 'Logout', destroy_account_session_path, :method => :delete
     when :facebook
       options.reverse_merge!(
+          :switch => false,
           :size => :small,
           :autologoutlink => true,
-          :background => :white
+          :background => :dark
         )
-      render '/accounts/helpers/fb_connect_logout', :options => options
+      render '/accounts/helpers/fb_connect_logout', :label => 'Logout', :options => options
     end
   end
   

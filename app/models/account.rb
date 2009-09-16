@@ -104,7 +104,7 @@ class Account < ActiveRecord::Base
       logger.debug "FACEBOOK SESSION: \n#{pp(facebook_session)}"
       
       # == Account details.
-      # self.facebook_proxy_email = facebook_session.user.try(:proxy_email)
+      self.facebook_proxy_email = facebook_session.user.try(:proxied_email)
       self.login      = facebook_session.user.try(:username) # not supported by Facebooker right now
       self.locale     = facebook_session.user.try(:locale) # or nil
       # "Stockholm" => "(GMT+01:00) Stockholm", "Never-Never-land" => "(GMT+00:00) UTC"
