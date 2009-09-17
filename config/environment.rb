@@ -17,9 +17,7 @@ Rails::Initializer.run do |config|
   
   # Authentication + Authorization.
   config.gem 'binarylogic-authlogic',           :lib => 'authlogic'
-  # config.gem 'josevalim-auth_helpers',          :lib => 'auth_helpers'
-  # gem built from: http://github.com/grimen/auth_helpers, awaiting patch approval
-  config.gem 'auth_helpers',                    :lib => 'auth_helpers'
+  # config.gem 'josevalim-auth_helpers',          :lib => 'auth_helpers' # Using submodule grimen/auth_helpers - awaiting patch approval
   config.gem 'stffn-declarative_authorization', :lib => 'declarative_authorization'
   
   # Models.

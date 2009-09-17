@@ -31,3 +31,6 @@
 [submodule "vendor/plugins/validation_reflection"]
 	path = vendor/plugins/validation_reflection
 	url = git://github.com/redinger/validation_reflection.git
+[submodule "vendor/plugins/auth_helpers"]
+	path = vendor/plugins/auth_helpers
+	url = git@github.com:grimen/auth_helpers.git

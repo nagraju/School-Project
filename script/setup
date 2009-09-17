@@ -62,10 +62,18 @@ echo "== STEP 7/7: Merge and compress JavaScripts for first use..."
 echo ""
 rake sprockets:install_script $1
 
+# Remove remote
+git remote rm origin
+
 echo ""
 echo "== FINISHED."
 echo ""
-echo "Now, start the server using:"
+echo "If using the private git clone URL; then don't forget to replace the core remote source:"
+echo ""
+echo "  git remote rm origin"
+echo "  git remote add origin SOME_NEW_REPO_URL"
+echo ""
+echo "Now, let's go:"
 echo ""
 echo "  ./script/server"
 echo ""
