@@ -8,7 +8,7 @@ h2. High Priority
 
 * gemify: Finalize gem "local_e", and add to "Useful extensions"
 * bug: "protect_from_forgery" needs to be trigged on again, but facebook now fails if this is on. xP
-* bug: Update password allows blank fields, and don't uppdate password if this is the case. =o
+* bug: Update password allows blank fields, and don't update password if this is the case. =o
 
 h2. Low Priority
 
