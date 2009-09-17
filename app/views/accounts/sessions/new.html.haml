@@ -1,7 +1,7 @@
 = title do
   = "Login"
 = description :textile do
-  = "Got no account? *%s*" % link_to('Sign up', new_account_path)
+  = "Got no account? *%s*" % link_to(t('formtastic.actions.account.new'), new_account_path)
   
 = content do
   = login_link(:facebook)
@@ -17,7 +17,7 @@
       = f.input :remember_me, :as => :boolean
       
     - f.buttons do
-      = submit_button(f, t('formtastic.actions.account_session.new.submit'))
+      = submit_button(f, t('formtastic.actions.account_session.create'))
       
   %ul.horizontal
     %li= link_to 'Forgot your password?', new_account_password_path

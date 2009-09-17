@@ -86,19 +86,30 @@ en:
           email: "If you change your e-mail, new confirmation instructions will be sent to your new e-mail."
           password: "If you want to change your password, fill in the new password here and confirm it below."
           
+      confirmable:
+        email: "The e-mail address you used when creating your account."
+      updatable:
+        email: "The email address you used when creating your account."
+        
     actions:
       account:
-        new:
-          submit: "Create my account"
-        edit:
-          submit: "Save my changes"
-          
+        new: "Sign up"
+        create: "Create my account"
+        edit: "Edit"
+        update: "Save my changes"
+        delete: "Delete"
+        
       account_session:
-        new:
-          submit: "Login"
-        delete:
-          submit: "Logout"
-          
+        new: "Login"
+        create: "Login"
+        destroy: "Logout"
+        
+      confirmable:
+        create: "Resend confirmation code"
+        
+      updatable:
+        create: "Send me instructions"
+        
   simple_form:
     models:
       contact_message: "Your site contact form"

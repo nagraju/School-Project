@@ -3,7 +3,7 @@ module AccountHelper
   def login_link(*args)
     options = args.extract_options!
     options.reverse_merge!(
-        :label => t('formtastic.actions.account_session.new.submit')
+        :label => t('formtastic.actions.account_session.new')
       )
     session_type = args.first.is_a?(Symbol) ? args.shift : :standard
     
@@ -25,7 +25,7 @@ module AccountHelper
   def logout_link(*args)
     options = args.extract_options!
     options.reverse_merge!(
-        :label => t('formtastic.actions.account_session.delete.submit')
+        :label => t('formtastic.actions.account_session.destroy')
       )
     session_type = args.first.is_a?(Symbol) ? args.shift : :standard
     

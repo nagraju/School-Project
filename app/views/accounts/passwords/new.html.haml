@@ -8,10 +8,10 @@
     - flash_form_error(f, true)
     
     - f.inputs do
-      = f.input :email, :required => true #, :hint => 'The email address you used when creating your account.'
+      = f.input :email, :required => true, :hint => t('formtastic.hints.confirmable.email') # must be specified here explicit becuase it's still the Account model
     
     - f.buttons do
-      = submit_button(f, 'Send me instructions')
+      = submit_button(f, t('formtastic.actions.updatable.create'))
       
 %ul.horizontal
   %li= link_to t('actions.cancel'), :back

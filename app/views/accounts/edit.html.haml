@@ -17,7 +17,7 @@
       - p.input :real_name
           
     - f.buttons do
-      = submit_button(f, t('formtastic.actions.account.edit.submit'))
+      = submit_button(f, t('formtastic.actions.account.update'))
       
 %ul.horizontal
-  %li= link_to 'Cancel', :back
+  %li= link_to t('actions.cancel'), :back
