@@ -63,15 +63,16 @@ test:
   #database: newapp_test
   
 cucumber:
-  test
+  <<: *sqlite
+  database: db/test.sqlite3
+  
+production: &production
+  <<: *sqlite
+  database: db/production.sqlite3
+  #database: newapp_production
   
 staging:
   <<: *production
   database: db/staging.sqlite3
   #database: newapp_staging
-  
-production:
-  <<: *sqlite
-  database: db/production.sqlite3
-  #database: newapp_production
   

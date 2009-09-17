@@ -112,16 +112,23 @@ development:
     rails_footnotes:
       enabled: false
       
-test:
+production: &production
+  <<: *defaults
+  smtp_mail:
+    domain: newapp.com
+    user_name: mailer@newapp.com
+    password: 
+    
+staging:
+  <<: *production
+  
+test: &test
   <<: *defaults
   smtp_mail:
     domain: app.local
     user_name: mailer@newapp.com
     password: 
     
-production:
-  <<: *defaults
-  smtp_mail:
-    domain: newapp.com
-    user_name: mailer@newapp.com
-    password: 
+cucumber:
+  <<: *test
+  

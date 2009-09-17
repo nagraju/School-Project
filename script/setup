@@ -1,0 +1,71 @@
+#!/usr/bin/env sh
+
+echo "======================================================="
+echo "  APP:SETUP "
+echo "======================================================="
+echo ""
+echo "  ./script/setup [--trace]"
+echo ""
+echo "  NOTE: If gem-errors occurs, try to install the failing gem manually using: sudo gem install GEM."
+echo ""
+echo "== STEP 1/7: Initializing Git submodules..."
+git submodule update --init
+
+echo ""
+echo "== STEP 2/7: Installing the required gems..."
+echo ""
+echo " for: DEVELOPMENT"
+rake gems:install RAILS_ENV=development $1
+echo " for: TEST"
+rake gems:install RAILS_ENV=test $1
+rake gems:install RAILS_ENV=cucumber $1
+echo " for: STAGING"
+rake gems:install RAILS_ENV=staging $1
+echo " for: PRODUCTION"
+rake gems:install RAILS_ENV=production $1
+
+echo ""
+echo "== STEP 3/7: Migrating database..."
+echo ""
+echo " for: DEVELOPMENT"
+rake db:migrate:reset RAILS_ENV=development $1
+echo " for: TEST"
+rake db:migrate:reset RAILS_ENV=test $1
+echo " for: STAGING"
+rake db:migrate:reset RAILS_ENV=staging $1
+echo " for: PRODUCTION"
+rake db:migrate:reset RAILS_ENV=production $1
+
+echo ""
+echo "== STEP 4/7: Bootstrapping the database..."
+echo ""
+echo " for: DEVELOPMENT"
+rake db:bootstrap RAILS_ENV=development $1
+echo " for: STAGING"
+rake db:bootstrap RAILS_ENV=staging $1
+echo " for: PRODUCTION"
+rake db:bootstrap RAILS_ENV=production $1
+
+echo ""
+echo "== STEP 5/7: Clone the database for testing..."
+echo ""
+rake db:test:clone $1
+
+echo ""
+echo "== STEP 6/7: Cleanup..."
+echo ""
+rake log:clear $1
+rake tmp:clear $1
+
+echo ""
+echo "== STEP 7/7: Merge and compress JavaScripts for first use..."
+echo ""
+rake sprockets:install_script $1
+
+echo ""
+echo "== FINISHED."
+echo ""
+echo "Now, start the server using:"
+echo ""
+echo "  ./script/server"
+echo ""

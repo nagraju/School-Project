@@ -1,3 +1,2 @@
 #!/usr/bin/env ruby
-`git submodule init`
-`git submodule update`
+`git submodule update --init`

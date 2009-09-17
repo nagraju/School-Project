@@ -24,7 +24,7 @@ Rails::Initializer.run do |config|
   
   # Models.
   config.gem 'norman-friendly_id',              :lib => 'friendly_id'
-  config.gem 'redinger-validation_reflection',  :lib => 'validation_reflection'
+  #config.gem 'redinger-validation_reflection',  :lib => 'validation_reflection'  # Using submodule - gem has some issues
   
   # Views: Frameworks + Templating.
   config.gem 'haml'

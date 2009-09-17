@@ -28,3 +28,6 @@
 [submodule "vendor/plugins/facebooker"]
 	path = vendor/plugins/facebooker
 	url = git://github.com/grimen/facebooker.git
+[submodule "vendor/plugins/validation_reflection"]
+	path = vendor/plugins/validation_reflection
+	url = git://github.com/redinger/validation_reflection.git

@@ -23,9 +23,16 @@ defaults: &defaults
     
 development:
   <<: *defaults
-    
-test:
+  
+test: &test
   <<: *defaults
-    
-production:
+  
+cucumber:
+  <<: *test
+  
+production: &production
   <<: *defaults
+  
+staging:
+  <<: *production
+  
