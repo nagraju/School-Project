@@ -9,14 +9,18 @@ namespace :app do
     puts `git submodule update --init`
     
     # Install required gems
-    puts "** Migrate and bootstrap database..."
+    puts "** Install the required gems..."
     [:development, :test, :cucumber, :staging, :production].each do |env|
       puts "* for #{env.to_s.upcase}"
       puts `rake gems:install RAILS_ENV=#{env}`
     end
     
     # Migrate and bootstrap the database.
-    puts "** Migrating and bootstrapping the database (using Bootstrapper)"
+    puts "** Migrating the database..."
+    Rake::Task['db:migrate:reset'].invoke
+    
+    # Migrate and bootstrap the database.
+    puts "** Bootstrapping the database... (using Bootstrapper)"
     Rake::Task['db:bootstrap'].invoke
     
     # Build JavaScripts.
@@ -41,7 +45,7 @@ namespace :app do
     puts "    3. rake gems:install RAILS_ENV=test         - Install all required gems for test"
     puts "    4. rake gems:install RAILS_ENV=cucumber     - Install all required gems for cucumber (test)"
     puts "    5. rake gems:install RAILS_ENV=staging      - Install all required gems for staging"
-    puts "    6. rake gems:install RAILS_ENV=production   - Install all required gems for staging"
+    puts "    6. rake gems:install RAILS_ENV=production   - Install all required gems for production"
     puts "    7. rake db:bootstrap                        - Migrate and bootstrap the database"
     puts "    8. rake sprockets:install_script            - Build and merge JavaScripts"
     puts

@@ -1,7 +1,7 @@
 = title do
   = "Login"
 = description :textile do
-  = "Got no account? *%s*" % link_to(t('formtastic.actions.account.new'), new_account_path)
+  = "Have account? If not you can *%s*" % link_to(t('formtastic.actions.account.new'), new_account_path)
   
 = content do
   = login_link(:facebook)
@@ -12,14 +12,10 @@
     - flash_form_error(f, true)
     
     - f.inputs do
-      = f.input :login, :required => true
-      = f.input :password, :required => true
-      = f.input :remember_me, :as => :boolean
+      = f.input :login, :required => true, :hint => link_to('Not confirmed yet?', new_account_confirmation_path) # THis hin probably not wanted there
+      = f.input :password, :required => true, :hint => link_to('Forgot your password?', new_account_password_path)
+      = f.input :remember_me, :as => :boolean, :label => t('formtastic.labels.remember_me')
       
     - f.buttons do
       = submit_button(f, t('formtastic.actions.account_session.create'))
-      
-  %ul.horizontal
-    %li= link_to 'Forgot your password?', new_account_password_path
-    %li= link_to 'Re-send confirmation instructions', new_account_confirmation_path
   

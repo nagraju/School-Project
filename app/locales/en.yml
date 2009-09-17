@@ -78,7 +78,7 @@ en:
       email: "Account confirmation instructions will be sent to this address, and will also be used as your account login username."
       
       account:
-        password: "Choose a secret password."
+        password: "Choose a secret password..."
         password_confirmation: "...and type it again."
         
         edit:

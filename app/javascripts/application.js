@@ -2,28 +2,31 @@
 //  Require
 // ---------------------------------------------------
 
-// == Dependencies: General
+// == General
 //= require <jquery.tools>
 //= require <jquery.livequery>
 
-// == Dependencies: Forms
+// == Forms
 //= require <jquery.validate>
 //= require <jquery.autofocus>
 //= require <jquery.input_hint>
 //= require <jquery.elastic>
 //= require <jquery.truncator>
 
-// == Dependencies: Images
+// == Images
 //= require <jquery.lazyload>
 
-// == Dependencies: Dialogs/Popups
+// == Dialogs/Popups
 // require <jquery.qtip>
 
-// == Dependencies: String/Text
+// == String/Text
 //= require <jquery.timeago>
 //= require <jquery.truncator>
 //= require <hyphenator>
 //= require <cufon>
+
+// == Keyboards
+//= require <jquery.shortkeys>
 
 // == Fonts (Cufon)
 //= require <Tuffy_500-Tuffy_700-Tuffy_italic_500-Tuffy_italic_700.font>
@@ -62,9 +65,15 @@ jQuery(function()
   Hyphenator.config({displaytogglebox: true});
   Hyphenator.run();
   
+  // Cufonize H1-headers.
+  Cufon.replace('h1');
+  
+  // Keyboard shortcuts
+  jQuery(document).shortkeys({
+    ',+.': function () { jQuery('#debug_toolbar').toggle(); }
+  });
+  
   // Enhanced pagination.
   //jQuery('.ajax.pagination').live_paginate();
-  
-  Cufon.replace('h1');
   
 });
