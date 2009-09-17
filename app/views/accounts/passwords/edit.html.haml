@@ -5,7 +5,7 @@
   
 = content do
   - semantic_form_for(@account, :url => account_password_url, :html => {:method => :put}) do |f|
-    - flash_form_error(f)
+    - flash_form_error(f, true)
     
     - f.inputs do
       = f.input :perishable_token, :as => :hidden

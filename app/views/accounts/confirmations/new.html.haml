@@ -5,7 +5,7 @@
   
 = content do
   - semantic_form_for(@account, :url => account_confirmation_url, :html => {:method => :post}) do |f|
-    - flash_form_error(f)
+    - flash_form_error(f, true)
     
     - f.inputs do
       = f.input :email, :required => true #, :hint => 'The e-mail address you used when creating your account.'

@@ -2,15 +2,24 @@
 
 class AccountsController < InheritedResources::Base
   filter_access_to :all
-  actions :all, :except => :index
-  
   before_filter :require_account, :only => [:show, :edit, :update, :delete, :destroy]
   before_filter :require_no_account, :only => [:new, :create]
   
+  actions :all, :except => :index
+  respond_to :html, :xml, :json
+  
   def create
     create! do |success, failure|
-      success.all do
+      success.html do
         # AccountSession.create(@account)
+        redirect_back_or_to root_url
+      end
+    end
+  end
+  
+  def update
+    create! do |success, failure|
+      success.html do
         redirect_back_or_to root_url
       end
     end

@@ -4,7 +4,7 @@
   = "Got any, *questions*, *problems*, *suggestions*, or any *other issues*? Let us know, and we'll do our best to help you with this."
 
 - semantic_form_for @contact_form_message, :url => contact_path do |f|
-  - flash_form_error(f)
+  - flash_form_error(f, true)
   
   - f.inputs do
     = f.input :issue_type, :as => :select, :collection => ContactFormMessage.issue_types, :include_blank => false

@@ -38,7 +38,7 @@ Rails::Initializer.run do |config|
   
   # Controllers.  
   if RUBY_VERSION >= '1.9'
-    # gem built from: grimen/auth_helpers, patch-work in progress...
+    # gem built from: grimen/inherited_resources, patch-work in progress... (might break with newer versions)
     config.gem 'inherited_resources',             :lib => 'inherited_resources' # Ruby 1.9
   else
     config.gem 'josevalim-inherited_resources',    :lib => 'inherited_resources'

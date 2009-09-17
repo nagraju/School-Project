@@ -5,15 +5,15 @@
   
 = content do
   - semantic_form_for(@account, :url => account_path) do |f|
-    - flash_form_error(f)
+    - flash_form_error(f, true)
       
-    - f.inputs :name => 'Account settings' do
+    - f.inputs :title => :account_settings do
       = f.input :login
       = f.input :email, :required => true
       = # f.input :password, :required => false
       = # f.input :password_confirmation, :required => false
       
-    - f.inputs :for => @account.profile, :name => 'Profile settings' do |p|
+    - f.inputs :for => @account.profile, :title => :profile_settings do |p|
       - p.input :real_name
           
     - f.buttons do

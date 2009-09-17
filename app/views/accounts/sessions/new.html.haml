@@ -6,10 +6,10 @@
 = content do
   = login_link(:facebook)
   
-  %hr.top.thick
+  %hr.top
   
   - semantic_form_for(@account_session, :url => account_session_path) do |f|
-    - flash_form_error(f)
+    - flash_form_error(f, true)
     
     - f.inputs do
       = f.input :login, :required => true

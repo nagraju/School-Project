@@ -6,12 +6,12 @@
 = content do
   = login_link(:facebook)
   
-  %hr.top.thick
+  %hr.top
   
   - semantic_form_for(@account, :url => account_url) do |f|
-    - flash_form_error(f)
+    - flash_form_error(f, true)
     
-    - f.inputs :title => :account_info do
+    - f.inputs :title => (:account_info unless @account.new_record?) do
       = f.input :email, :required => true
       = f.input :password, :required => true
       = f.input :password_confirmation, :required => true

@@ -55,7 +55,9 @@ en:
     required: "Required"
     processing: "Please wait..."
     
-    legends:
+    titles:
+      account_info: "Account info"
+      profile_info: "Profile info"
       
     labels:
       login: "Login"
@@ -163,3 +165,8 @@ en:
           notice: "We sent instructions for you to reset your password. Please check your inbox."
         update:
           notice: "Your password was successfully updated."
+    help:
+      contacts:
+        create:
+          notice: "Your was successfully delivered. Our support team will take a look at it right away, stay tuned!"
+          
