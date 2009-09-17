@@ -6,3 +6,5 @@
   - app/javascripts/**/*
   - vendor/javascripts
   - vendor/javascripts/**/*
+  - vendor/fonts
+  - vendor/fonts/**/*

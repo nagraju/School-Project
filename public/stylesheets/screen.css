@@ -624,12 +624,6 @@ input.span-21, textarea.span-21, select.span-21 {
 .push-21 {
   margin: 0 -840px 1.5em 840px; }
 
-.prepend-top {
-  margin-top: 1.5em; }
-
-.append-bottom {
-  margin-bottom: 1.5em; }
-
 label {
   font-weight: bold; }
 
@@ -948,12 +942,19 @@ body {
 body {
   background-color: #4b7399; }
 
+hr.top {
+  margin-top: 1em; }
+hr.thick {
+  border-width: 5px !important; }
+
 #container {
   width: 825px;
   margin: 0 auto;
   overflow: hidden;
   display: inline-block;
-  margin-top: 1em; }
+  margin-top: 1em;
+  padding: 0.4em !important;
+  background: rgba(0,0,0,0.2); }
   #container {
     display: block; }
   #container > div {
@@ -985,8 +986,9 @@ body {
       #container #header ul.horizontal a {
         color: white; }
   #container #footer {
-    background-color: transparent;
-    text-align: center; }
+    background-color: #fff;
+    text-align: center;
+    margin-top: 0; }
     #container #footer ul.horizontal {
       zoom: 1;
       display: inline;
@@ -1119,15 +1121,19 @@ form .boolean label {
     background-color: #c00; }
 
 #page_notice {
+  text-align: center;
   background-color: #fff6bf !important;
   color: #514721;
   font-size: 0.9em;
   font-weight: bold;
-  margin-top: 0 !important; }
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  border-top: 1px solid #ffd324;
+  border-bottom: 1px solid #ffd324; }
   #page_notice a {
     color: #514721; }
   #page_notice .padding {
-    padding: 0 0.2em; }
+    padding: 1em 1.2em !important; }
 
 #errorExplanation {
   overflow: hidden;

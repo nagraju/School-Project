@@ -17,14 +17,14 @@
     
     = sprockets_include_tag
     
-    = fb_connect_javascript_tag :lang => I18n.locale.to_s.gsub('-', '_')
-    = init_fb_connect :XFBML, :js => :jquery
-    
     = yield :head
     
   %body{body_attributes}
     = debug_toolbar(:resources => true) if debug_env?
     = yield :debug if debug_env?
+    
+    = fb_connect_javascript_tag :lang => I18n.locale.to_s.gsub('-', '_')
+    = init_fb_connect :XFBML, :js => :jquery
     
     #container
       #header
@@ -44,3 +44,4 @@
           = render '/shared/site_footer'
           
     = yield :foot
+    

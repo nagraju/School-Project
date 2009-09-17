@@ -14,7 +14,7 @@ module AccountHelper
       options.reverse_merge!(
           :size => :large,
           :length => :long,
-          :autologoutlink => true,
+          :autologoutlink => false,
           :background => :white,
           :button => true
         )

@@ -23,6 +23,10 @@
 //= require <jquery.timeago>
 //= require <jquery.truncator>
 //= require <hyphenator>
+//= require <cufon>
+
+// == Fonts (Cufon)
+//= require <Tuffy_500-Tuffy_700-Tuffy_italic_500-Tuffy_italic_700.font>
 
 // == Localization: en
 //= require <hyphenator.en>
@@ -60,4 +64,7 @@ jQuery(function()
   
   // Enhanced pagination.
   //jQuery('.ajax.pagination').live_paginate();
+  
+  Cufon.replace('h1');
+  
 });

@@ -12,9 +12,16 @@
 body
   :background-color= !body_bg_color
   
+hr
+  &.top
+    :margin-top 1em
+  &.thick
+    :border-width 5px !important
 #container
   +container
   :margin-top 1em
+  :padding 0.4em !important
+  :background rgba(0,0,0,0.2)
   
   > div
     +column(!site_width, true)
@@ -35,9 +42,11 @@ body
         
   #footer
     :background
-      :color transparent
+      :color #fff
     :text-align center
-      
+    :margin
+      :top 0
+    
     ul.horizontal
       +inline-block
       

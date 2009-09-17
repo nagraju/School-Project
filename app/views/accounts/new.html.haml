@@ -4,10 +4,14 @@
   = "Create a new account. Already got an account? *%s*" % link_to('Login', new_account_session_path)
   
 = content do
+  = login_link(:facebook)
+  
+  %hr.top.thick
+  
   - semantic_form_for(@account, :url => account_url) do |f|
     - flash_form_error(f)
     
-    - f.inputs do
+    - f.inputs :title => :account_info do
       = f.input :email, :required => true
       = f.input :password, :required => true
       = f.input :password_confirmation, :required => true

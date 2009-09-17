@@ -32,6 +32,7 @@
       :background-color #c00
       
 #page_notice
+  :text-align center
   :background
     :color= !notice_bg_color !important
   :color= !notice_color
@@ -40,12 +41,17 @@
     :weight bold
   :margin
     :top 0 !important
+    :bottom 0 !important
     
+  :border
+    :top= 1px solid !notice_border_color
+    :bottom= 1px solid !notice_border_color
+  
   a
     :color= !notice_color
     
   .padding
-    :padding 0 0.2em
+    :padding 1em 1.2em !important
     
 #errorExplanation
   +clearfix

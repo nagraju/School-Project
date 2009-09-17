@@ -4,10 +4,14 @@
   = "Got no account? *%s*" % link_to('Sign up', new_account_path)
   
 = content do
+  = login_link(:facebook)
+  
+  %hr.top.thick
+  
   - semantic_form_for(@account_session, :url => account_session_path) do |f|
     - flash_form_error(f)
     
-    - f.inputs :title => :account_info do
+    - f.inputs do
       = f.input :login, :required => true
       = f.input :password, :required => true
       = f.input :remember_me, :as => :boolean
@@ -15,8 +19,7 @@
     - f.buttons do
       = submit_button(f, t('formtastic.actions.account_session.new.submit'))
       
-  = login_link(:facebook)
+  %ul.horizontal
+    %li= link_to 'Forgot your password?', new_account_password_path
+    %li= link_to 'Re-send confirmation instructions', new_account_confirmation_path
   
-%ul.horizontal
-  %li= link_to 'Forgot your password?', new_account_password_path
-  %li= link_to 'Re-send confirmation instructions', new_account_confirmation_path
