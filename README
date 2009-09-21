@@ -300,6 +300,12 @@ text truncator
   http://github.com/derrick/jquery.truncator.js
   
   
+== Useful Sites/Tools
+
+Hurl - API testing/debugging
+  http://hurl.r09.railsrumble.com
+
+
 == Default Rails Extensions (gems/plugins)
 
 See:
@@ -364,6 +370,9 @@ form validation
   
 == Useful Rails Extensions (gems/plugins)
 
+attribute normalization
+  http://github.com/mdeering/attribute_normalizer
+  
 searching
   http://github.com/thoughtbot/squirrel (search query DSL #1)
   http://github.com/binarylogic/searchlogic (search query DSL #2)

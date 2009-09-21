@@ -30,9 +30,25 @@ module Application::Filters
     # See "declarative_authorization" documentation for more info.
     #
     def permission_denied
+      # respond_to do |format|
+      #         flash[:error] = I18n.t('users.flashs.errors.not_allowed')
+      #         format.html { redirect_back_or_to(root_path) }
+      #         format.xml  { head :unauthorized }
+      #         format.js   { head :unauthorized }
+      #       end
       respond_to do |format|
         flash[:error] = I18n.t('users.flashs.errors.not_allowed')
-        format.html { redirect_back_or_to(root_path) }
+        format.html do
+          begin
+            if current_account
+              redirect_to :back
+            else
+              redirect_to login_path
+            end
+          rescue
+            redirect_to root_path
+          end
+        end
         format.xml  { head :unauthorized }
         format.js   { head :unauthorized }
       end

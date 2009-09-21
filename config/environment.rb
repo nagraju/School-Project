@@ -72,7 +72,7 @@ Rails::Initializer.run do |config|
   config.gem 'polyglot',                      :lib => 'polyglot', :version => '>= 0.2.9' # Ruby 1.9.x
   
   # Facebook integration.
-  # config.gem 'facebooker',                    :lib => 'facebooker'
+  # config.gem 'facebooker',                    :lib => 'facebooker'  # Using submodule grimen/facebooker
   
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

@@ -2,7 +2,9 @@
 require 'rubygems'
 require 'settingslogic'
 
-class Settings < Settingslogic
-  source Rails.root.join('config', 'application.yml')
-  namespace Rails.env
+module Settingslogic
+  class Settings
+    source ::Rails.root.join('config', 'application.yml')
+    namespace ::Rails.env
+  end
 end
