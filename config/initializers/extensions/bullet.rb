@@ -1,9 +1,10 @@
 if defined?(Bullet) && Settings.debugging.bullet.enabled
   Bullet.enable = true
-  Bullet::Association.alert = true
-  Bullet::Association.console = true
-  Bullet::Association.bullet_logger = true
-  Bullet::Association.rails_logger = true
+  Bullet.alert = true
+  Bullet.console = true
+  Bullet.bullet_logger = true
+  Bullet.rails_logger = true
+  Bullet.disable_browser_cache = true
   
   begin
     # Growl OS X
