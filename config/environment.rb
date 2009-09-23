@@ -52,9 +52,10 @@ Rails::Initializer.run do |config|
   config.gem 'grimen-bootstrapper',           :lib => 'bootstrapper', :version => '>= 0.1.3'
   
   # E-mails.
-  config.gem 'JasonKing-inline_attachment',   :lib => 'inline_attachment'
   config.gem 'grimen-awesome_email',          :lib => 'awesome_email', :version => '>= 0.1.3'
   config.gem 'grimen-delayed_job_mailer',     :lib => 'delayed_job_mailer', :version => '>= 0.1.2'
+  # For embedding images (etc.) in e-mails:
+  # config.gem 'JasonKing-inline_attachment',   :lib => 'inline_attachment'
   
   # Crontab.
   config.gem 'javan-whenever',                :lib => false

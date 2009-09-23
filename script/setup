@@ -14,15 +14,7 @@ git submodule update --init
 echo ""
 echo "== STEP 2/7: Installing the required gems..."
 echo ""
-echo " for: DEVELOPMENT"
-rake gems:install RAILS_ENV=development $1
-echo " for: TEST"
-rake gems:install RAILS_ENV=test $1
-rake gems:install RAILS_ENV=cucumber $1
-echo " for: STAGING"
-rake gems:install RAILS_ENV=staging $1
-echo " for: PRODUCTION"
-rake gems:install RAILS_ENV=production $1
+rake gems:install4real $1
 
 echo ""
 echo "== STEP 3/7: Migrating database..."
@@ -63,7 +55,7 @@ echo ""
 rake sprockets:install_script $1
 
 # Remove remote
-git remote rm origin
+# git remote rm origin
 
 echo ""
 echo "== FINISHED."
