@@ -8,7 +8,7 @@
 #   
 #
 
-Test::Unit::TestCase.class_eval do
+ActiveSupport::TestCase.class_eval do
   
   # Sets the current user in the session from the users fixtures. TODO: Machinist...
   def logged_in_as(user, &block)

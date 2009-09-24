@@ -11,10 +11,10 @@ namespace :gems do
   #
   # Usage:
   #
-  #   $ rake gems:install4real
+  #   $ rake gems:install!
   #
   desc "Like gems:install - but works."
-  task :install4real => :environment do
+  task :install! => :environment do
     gems = {}
     
     puts "** Detecting gems..."

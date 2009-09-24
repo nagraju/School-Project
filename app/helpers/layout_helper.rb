@@ -9,6 +9,7 @@ module LayoutHelper
     content_tag(:div, content, :class => 'content')
   end
   
+  # 
   def title(*args, &block)
     options = args.extract_options!
     options[:meta] ||= false
@@ -24,9 +25,9 @@ module LayoutHelper
     title ||= capture_if_given(&block)
     title = t('.title') if title.blank? # I18n
     title = title.textilize(:strip => true) if options[:textile]
-    #meta(:title, description) if options.delete(:meta)
+    #meta(:title, title) if options.delete(:meta)
     
-    content_tag(:h1, title, :class => 'title')
+    content_tag(:h1, title, :class => "title #{options[:class]}")
   end
   
   def description(*args, &block)
@@ -47,7 +48,7 @@ module LayoutHelper
     description = description.textilize(:strip => true) if options[:textile]
     #meta(:description, description) if options.delete(:meta)
     
-    content_tag(:p, description, options.update(:class => "description #{options.delete(:class)}"))
+    content_tag(:p, description, options.update(:class => "description #{options[:class]}"))
   end
   
   def keywords(*args, &block)
@@ -64,7 +65,7 @@ module LayoutHelper
     end
     keywords ||= capture_if_given(&block)
     keywords = t('.keywords') if keywords.blank? # I18n
-    meta(:description, description) if options.delete(:meta)
+    meta(:keywords, keywords) if options.delete(:meta)
     
     # no view output
   end

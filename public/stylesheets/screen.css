@@ -624,6 +624,12 @@ input.span-21, textarea.span-21, select.span-21 {
 .push-21 {
   margin: 0 -840px 1.5em 840px; }
 
+.prepend-top {
+  margin-top: 1.5em; }
+
+.append-bottom {
+  margin-bottom: 1.5em; }
+
 label {
   font-weight: bold; }
 

@@ -14,7 +14,7 @@ git submodule update --init
 echo ""
 echo "== STEP 2/7: Installing the required gems..."
 echo ""
-rake gems:install4real $1
+rake gems:install! $1
 
 echo ""
 echo "== STEP 3/7: Migrating database..."

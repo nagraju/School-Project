@@ -15,7 +15,7 @@
 #   end
 #
 
-Test::Unit::TestCase.class_eval do
+ActiveSupport::TestCase.class_eval do
   
   def self.should_not_allow(action, object, msg = nil)
     msg ||= "a #{object.class.name.downcase}" 

@@ -347,6 +347,12 @@ A/B-testing
 speed-up rspec/cucumber
   http://github.com/timcharper/spork
   
+friends/network
+  http://github.com/sjlombardo/acts_as_network
+  
+activity feed
+  http://github.com/face/activity_streams
+  
 == Other
 
 rdoc browser

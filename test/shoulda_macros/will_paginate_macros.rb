@@ -8,7 +8,7 @@
 #   end
 #   
 
-Test::Unit::TestCase.class_eval do
+ActiveSupport::TestCase.class_eval do
   
   def should_paginate_collection(collection_name)
     should "paginate #{collection_name}" do

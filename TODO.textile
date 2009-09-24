@@ -7,22 +7,22 @@ h2. Next
 h2. High Priority
 
 * gemify: Finalize gem "local_e", and add to "Useful extensions"
-* bug: "protect_from_forgery" needs to be trigged on again, but facebook now fails if this is on. xP
 * bug: Update password allows blank fields, and don't update password if this is the case. =o
 
 h2. Low Priority
 
 * testing: Cucumber features for Facebook Connect.
-* feature: Implement this cool load testing by default?: http://github.com/giraffesoft/trample
 * fork/patch: Fork and apply modifications to Slicehost cap recipes
 * refacor: Replace sprockets with http://github.com/cjohansen/juicer (http://www.cjohansen.no/en/ruby/juicer_a_css_and_javascript_packaging_tool), i.e. "juicer-rails"
 * gemify: Finalize gem "i18n_extensions", and add to "Useful extensions"
 * feature: make Boostrapper terminal output more readable, i.e. recursive tree
 * feature: Should save Facebook email-hash(es), for identifying already signed up users/emails - serialized into one column?
 * new gem: Client side form validations that generates same DOM structure as Formtastic - no such working solution available. Should probably use: "validation_reflection" + "jquery.validate".
+* testing: Write unit tests for helpers.
 
 h2. Maybe
 
+* feature: Implement this cool load testing by default?: http://github.com/giraffesoft/trample
 * feature: Learn from José's helpers? http://pastie.org/557958
 * feature: Rake-task for updating jQuery-libraries, etc.... (jucier-rails?)
 * feature: Add Formtastic-I18n-ish method for more general purposes (terms_of_service, etc.)
