@@ -31,7 +31,7 @@ Rails::Initializer.run do |config|
   config.gem 'RedCloth',                        :lib => false
   
   # Views: Forms.
-  config.gem 'justinfrench-formtastic',         :lib => 'formtastic'
+  config.gem 'justinfrench-formtastic',         :lib => 'formtastic', :version => '>= 0.2.4'
   config.gem 'josevalim-simple_form',           :lib => 'simple_form'
   
   # Controllers.  

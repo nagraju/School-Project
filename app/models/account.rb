@@ -32,9 +32,6 @@ class Account < ActiveRecord::Base
   acts_as_authentic do |c|
     c.perishable_token_valid_for 5.days
     
-    # Use this if you have your accountable polymorphic association
-    # c.validations_scope = :accountable_type
-    
     # Disable require password confirmation and AuthHelpers handle it, since it
     # adds email and password confirmation without validates length of password
     # check.
@@ -42,25 +39,34 @@ class Account < ActiveRecord::Base
     
     # Login/Username is optional, not required for account signup.
     c.validate_login_field = false
+    c.validate_email_field = false
     
     # E-mail validations.
     c.validates_length_of_email_field_options = {
         :within => 5..100,
-        :allow_blank => true
+        :allow_blank => true # should be true unless facebook connect
       }
+      
     c.merge_validates_format_of_email_field_options :allow_blank => true
     
-     # Password validations.
+    # Password validations.
     c.validates_length_of_password_field_options = {
         :within => 6..20,
-        :allow_blank => false,
+        :allow_blank => true,
         :if => :has_no_credentials?
       }
+    c.merge_validates_uniqueness_of_email_field_options :case_sensitive => false,
+        :scope => validations_scope,
+        :if => :email_changed?
+      
+    # Use this if you have your accountable polymorphic association
+    # c.validations_scope = :accountable_type
   end
   
   has_many :roles, :dependent => :delete_all
   has_one :profile, :dependent => :destroy
   
+  # Login cannot be blank when using this - until friendly_id gets patched to support :skip_blank.
   # has_friendly_id :login, :use_slug => true, :strip_diacritics => true
   
   # Un-protect login field.
@@ -71,13 +77,13 @@ class Account < ActiveRecord::Base
   
   # Add presence validations since we added allow blank to validates length of
   #
-  validates_presence_of   :email
-  validates_presence_of   :password, :if => :has_no_credentials?
-  validates_uniqueness_of :login, :on => :update, :case_sensitive => false, :allow_blank => true
+  validates_presence_of   :email #, :unless => :facebook_connected?
+  validates_uniqueness_of :login, :case_sensitive => false, :allow_blank => true
   
   # default_values  :time_zone => 'UTC', :locale => 'en'
   
   after_create :bootstrap!
+  before_save :validate_params
   
   # Login using either username/login, or e-mail.
   #
@@ -132,6 +138,10 @@ class Account < ActiveRecord::Base
   
   protected
     
+    def validate_params
+      self.login = nil if self.login.blank?
+    end
+    
     # Strip unessecary locale info, e.g. "en_US"/"en-US" => "en"
     #
     def format_locale
@@ -142,6 +152,9 @@ class Account < ActiveRecord::Base
     #
     def has_no_credentials?
       self.crypted_password.blank?
+    end
+    def has_credentials?
+      !self.has_no_credentials?
     end
     
     # Initialize account upon creation.

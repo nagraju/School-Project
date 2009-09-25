@@ -1,0 +1,7 @@
+- render '/accounts/profiles/profile_info_form', :f => f, :profile => account.profile
+  
+- f.inputs :title => :account_info do
+  = f.input :login, :required => false
+  = f.input :email, :required => true
+  = f.input :password, :required => false
+  = f.input :password_confirmation, :required => false

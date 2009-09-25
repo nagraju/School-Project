@@ -3,21 +3,21 @@ h1. TODO
 h2. Next
 
 * bug: Clicking back/cancel in /account/confirmation gives exception: "NoMethodError (You have a nil object when you didn't expect it! You might have expected an instance of ActiveRecord::Base.". AuthHelpers gem issue.
+* feature: Callback for "after account confirmation" - or "after Facebook connect account creation" - where the user gets redirected to a page to fill in additional info (optional).
 
 h2. High Priority
 
 * gemify: Finalize gem "local_e", and add to "Useful extensions"
-* bug: Update password allows blank fields, and don't update password if this is the case. =o
+* new gem: Client side form validations that generates same DOM structure as Formtastic - no such working solution available. Should probably use: "validation_reflection" + "jquery.validate".
 
 h2. Low Priority
 
 * testing: Cucumber features for Facebook Connect.
 * fork/patch: Fork and apply modifications to Slicehost cap recipes
 * refacor: Replace sprockets with http://github.com/cjohansen/juicer (http://www.cjohansen.no/en/ruby/juicer_a_css_and_javascript_packaging_tool), i.e. "juicer-rails"
-* gemify: Finalize gem "i18n_extensions", and add to "Useful extensions"
+* gemify: Finalize gem "i18n_extensions" (aka "i18n_cache"), and add to "Useful extensions"
 * feature: make Boostrapper terminal output more readable, i.e. recursive tree
 * feature: Should save Facebook email-hash(es), for identifying already signed up users/emails - serialized into one column?
-* new gem: Client side form validations that generates same DOM structure as Formtastic - no such working solution available. Should probably use: "validation_reflection" + "jquery.validate".
 * testing: Write unit tests for helpers.
 
 h2. Maybe

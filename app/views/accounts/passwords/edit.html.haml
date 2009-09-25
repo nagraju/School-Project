@@ -13,10 +13,7 @@
       = f.input :password_confirmation, :required => true
       
     - f.buttons do
-      = submit_button(f, 'Update my password')
+      = submit_button(f, t('formtastic.actions.recoverable.update'))
       
 %ul.horizontal
-  %li= link_to 'Login', new_account_session_path
-  %li= link_to 'Sign up', new_account_path
-  %li= link_to 'Forgot your password?', new_account_password_path
-  %li= link_to 'Resend confirmation instructions', new_account_confirmation_path
+  %li= link_to t('actions.cancel'), new_account_session_path

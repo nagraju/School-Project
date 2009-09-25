@@ -6,6 +6,7 @@ module Application::Filters
       # FIXME: protect_from_forgery fails while fetching user info upon registration. Needs to be handled somhow...
       protect_from_forgery # See ActionController::RequestForgeryProtection for details.
       helper :all # Include all helpers, all the time.
+      helper_method :store_referer, :store_location
       layout :set_layout
       before_filter :verify_site_access
       before_filter :set_current_user_for_model_security
@@ -68,8 +69,8 @@ module Application::Filters
     
     # Store the destination path in session.
     #
-    def store_location
-      session[:return_to] = request.request_uri
+    def store_location(location = request.request_uri)
+      session[:return_to] = location
     end
     
     # Redirect back to the store in session or go to the given url.

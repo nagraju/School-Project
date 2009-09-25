@@ -110,6 +110,9 @@ en:
       updatable:
         create: "Send me instructions"
         
+      recoverable:
+        update: "Update my password"
+        
   simple_form:
     models:
       contact_message: "Your site contact form"

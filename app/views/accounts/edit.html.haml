@@ -4,20 +4,13 @@
   = "Here you can manage your account settings."
   
 = content do
-  - semantic_form_for(@account, :url => account_path) do |f|
+  - semantic_form_for(@account, :url => account_path, :html => {:method => :put}) do |f|
     - flash_form_error(f, true)
-      
-    - f.inputs :title => :account_settings do
-      = f.input :login
-      = f.input :email, :required => true
-      = # f.input :password, :required => false
-      = # f.input :password_confirmation, :required => false
-      
-    - f.inputs :for => @account.profile, :title => :profile_settings do |p|
-      - p.input :real_name
-          
+    
+    = render '/accounts/account_info_form', :f => f
+    
     - f.buttons do
       = submit_button(f, t('formtastic.actions.account.update'))
       
 %ul.horizontal
-  %li= link_to t('actions.cancel'), :back
+  %li= link_to t('actions.cancel'), session[:return_to] #:back

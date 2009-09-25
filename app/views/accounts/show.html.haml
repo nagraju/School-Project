@@ -15,6 +15,5 @@
     %dd= secure_mail_to(@account.email) || 'None'
     
 %ul.horizontal
-  // TODO: helper: %li= action_link(:delete)
   %li= link_to t('formtastic.actions.account.edit'), edit_account_path if permitted_to?(:edit, @account)
   %li= link_to t('formtastic.actions.account.delete'), delete_account_path if permitted_to?(:delete, @account)

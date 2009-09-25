@@ -17,8 +17,13 @@ class AccountsController < InheritedResources::Base
     end
   end
   
+  def edit
+    store_location account_path
+    edit!
+  end
+  
   def update
-    create! do |success, failure|
+    update! do |success, failure|
       success.html do
         redirect_back_or_to root_url
       end
