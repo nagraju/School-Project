@@ -9,7 +9,7 @@
     %dd= h @account.login || 'None'
     
     %dt= "Real Name:"
-    %dd= h @account.profile.real_name || 'None'
+    %dd= h @account.profile.try(:real_name) || 'None'
     
     %dt= "E-mail:"
     %dd= secure_mail_to(@account.email) || 'None'

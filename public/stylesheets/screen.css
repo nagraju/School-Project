@@ -1111,17 +1111,18 @@ form .boolean label {
   #page_flash .padding {
     padding: 0 !important;
     margin: 0 !important; }
-    #page_flash .padding > p {
+    #page_flash .padding > p,
+    #page_flash .padding > ul {
       font-weight: bold;
       font-size: 1em;
       color: #fff;
       padding: 0.5em 0.9em;
       margin: 0; }
-  #page_flash.notice .message {
+  #page_flash.notice {
     background-color: #0b0; }
-  #page_flash.warn .message {
+  #page_flash.warn {
     background-color: #000; }
-  #page_flash.error .message {
+  #page_flash.error {
     background-color: #c00; }
 
 #page_notice {

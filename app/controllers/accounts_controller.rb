@@ -12,7 +12,8 @@ class AccountsController < InheritedResources::Base
     create! do |success, failure|
       success.html do
         # AccountSession.create(@account)
-        redirect_back_or_to root_url
+        #redirect_back_or_to root_url
+        redirect_to edit_account_path
       end
     end
   end
@@ -37,6 +38,11 @@ class AccountsController < InheritedResources::Base
   end
   
   protected
+    
+    def update_resource(object, attributes)
+      object.build_profile(attributes[:profile])
+      object.update_attributes(attributes)
+    end
     
     def resource
       @account = current_account_session.account.dup

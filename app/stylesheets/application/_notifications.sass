@@ -13,24 +13,22 @@
     :bottom 0 !important
     
   .padding
-    > p
+    > p,
+    > ul
       +flash_heading
       :margin 0
     :padding 0 !important
     :margin 0 !important
     
   &.notice
-    .message
-      :background-color #0b0
-      
+    :background-color #0b0
+    
   &.warn
-    .message
-      :background-color #000
-      
+    :background-color #000
+    
   &.error
-    .message
-      :background-color #c00
-      
+    :background-color #c00
+    
 #page_notice
   :text-align center
   :background

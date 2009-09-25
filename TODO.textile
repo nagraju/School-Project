@@ -2,8 +2,9 @@ h1. TODO
 
 h2. Next
 
-* bug: Clicking back/cancel in /account/confirmation gives exception: "NoMethodError (You have a nil object when you didn't expect it! You might have expected an instance of ActiveRecord::Base.". AuthHelpers gem issue.
+* bug: WARNING: Can't mass-assign these protected attributes: profile. Don't know why attr_accessible don't work...
 * feature: Callback for "after account confirmation" - or "after Facebook connect account creation" - where the user gets redirected to a page to fill in additional info (optional).
+* bug: When opening confirmation page without a token: "NoMethodError (You have a nil object when you didn't expect it! You might have expected an instance of ActiveRecord::Base.". AuthHelpers gem issue.
 
 h2. High Priority
 
@@ -12,6 +13,7 @@ h2. High Priority
 
 h2. Low Priority
 
+* should not try to send a confirmation email if account is facebook connected.
 * testing: Cucumber features for Facebook Connect.
 * fork/patch: Fork and apply modifications to Slicehost cap recipes
 * refacor: Replace sprockets with http://github.com/cjohansen/juicer (http://www.cjohansen.no/en/ruby/juicer_a_css_and_javascript_packaging_tool), i.e. "juicer-rails"

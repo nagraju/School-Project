@@ -7,7 +7,7 @@
   - semantic_form_for(@account, :url => account_path, :html => {:method => :put}) do |f|
     - flash_form_error(f, true)
     
-    = render '/accounts/account_info_form', :f => f
+    = render '/accounts/account_info_form', :f => f, :account => @account
     
     - f.buttons do
       = submit_button(f, t('formtastic.actions.account.update'))

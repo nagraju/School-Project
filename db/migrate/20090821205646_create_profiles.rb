@@ -6,7 +6,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.references  :account
       
       t.string      :real_name
-      t.boolean     :gender
+      t.string      :gender
       
       #t.string      :website
       #t.text        :about_me

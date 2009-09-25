@@ -69,11 +69,12 @@ class Account < ActiveRecord::Base
   # Login cannot be blank when using this - until friendly_id gets patched to support :skip_blank.
   # has_friendly_id :login, :use_slug => true, :strip_diacritics => true
   
-  # Un-protect login field.
-  #
-  attr_accessible :login
   accepts_nested_attributes_for :profile, :allow_destroy => false
-  accepts_nested_attributes_for :roles, :allow_destroy => true
+  accepts_nested_attributes_for :roles, :allow_destroy => false
+  
+  # Make these fields accessible (non-mass-assignment-protected).
+  #
+  attr_accessible :login, :profile_attributes
   
   # Add presence validations since we added allow blank to validates length of
   #
@@ -103,27 +104,30 @@ class Account < ActiveRecord::Base
   
   # Facebook Connect: Synchronize user info from Facebook (Account <=> Facebook).
   #
-  def before_connect(facebook_session)
+  def before_connect(fb_session)
     begin
       # Get user info and store in session.
-      facebook_session.user.populate
-      logger.debug "FACEBOOK SESSION: #{facebook_session}"
+      fb_session.user.populate
+      logger.debug "FACEBOOK SESSION: #{pp fb_session.user}"
       
       # == Account details.
-      self.facebook_proxy_email = facebook_session.user.try(:proxied_email)
-      self.login      = facebook_session.user.try(:username) # not supported by Facebooker right now
-      self.locale     = facebook_session.user.try(:locale) # or nil
+      self.facebook_proxy_email = fb_session.user.try(:proxied_email)
+      self.login      = fb_session.user.try(:username) # not supported by Facebooker right now
+      self.locale     = fb_session.user.try(:locale) # or nil
+      self.format_locale
       # "Stockholm" => "(GMT+01:00) Stockholm", "Never-Never-land" => "(GMT+00:00) UTC"
-      self.time_zone  = facebook_session.user.try(:current_location).try(:city)
-      self.country    = facebook_session.user.try(:current_location).try(:country) # or nil
+      self.time_zone  = fb_session.user.try(:current_location).try(:city)
+      self.country    = fb_session.user.try(:current_location).try(:country) # or nil
       
       # == Account profile details.
       profile_hash = {}
-      profile_hash[:real_name] = facebook_session.user.try(:name)
+      profile_hash[:real_name]  = fb_session.user.try(:name)
+      # Based on locale =P
+      puts "x %s" % fb_parse_gender(fb_session.user.try(:sex))
+      profile_hash[:gender]     = fb_parse_gender(fb_session.user.try(:sex))
       
       # == Examples:
       # profile_hash[:about_me]   = facebook_session.user.try(:profile_blurb)
-      # profile_hash[:gender]     = facebook_session.user.try(:sex) # Based on locale =P
       # profile_hash[:birthdate]  = facebook_session.user.try(:birthday_date).try(:to_date)
       # profile_hash[:birthdate]  ||= facebook_session.user.try(:birthday).try(:to_date)
       
@@ -153,9 +157,6 @@ class Account < ActiveRecord::Base
     def has_no_credentials?
       self.crypted_password.blank?
     end
-    def has_credentials?
-      !self.has_no_credentials?
-    end
     
     # Initialize account upon creation.
     #
@@ -166,6 +167,21 @@ class Account < ActiveRecord::Base
     def bootstrap!
       self.roles << Role.create(:title => 'user') unless self.roles.include?(:user)
       self.profile ||= Profile.create
+    end
+    
+    ### Facebook Connect ###
+    
+    # Gender needs to be looked up based on FB locale. xP
+    #
+    GENDER_MAP = {
+      :en => {'male' => :m, 'female' => :f},
+      :sv => {'man' => :m, 'kvinna' => :f}
+    }
+    
+    # Lookup gender based on locale.
+    #
+    def fb_parse_gender(fb_sex)
+      GENDER_MAP[self.locale.to_sym][fb_sex.to_s.downcase] rescue nil
     end
     
 end

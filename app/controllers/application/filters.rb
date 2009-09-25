@@ -3,8 +3,8 @@
 module Application::Filters
   def self.included(base)
     base.class_eval do
-      # FIXME: protect_from_forgery fails while fetching user info upon registration. Needs to be handled somhow...
-      protect_from_forgery # See ActionController::RequestForgeryProtection for details.
+      # *suck* FIXME: protect_from_forgery fails while fetching user info upon registration. Needs to be handled somhow...
+      # protect_from_forgery # See ActionController::RequestForgeryProtection for details.
       helper :all # Include all helpers, all the time.
       helper_method :store_referer, :store_location
       layout :set_layout
