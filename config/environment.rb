@@ -39,7 +39,7 @@ Rails::Initializer.run do |config|
     # gem built from: grimen/inherited_resources, patch-work in progress... (might break with newer versions)
     config.gem 'inherited_resources',             :lib => 'inherited_resources' # Ruby 1.9
   else
-    config.gem 'josevalim-inherited_resources',    :lib => 'inherited_resources'
+    config.gem 'josevalim-inherited_resources',    :lib => 'inherited_resources', :version => '>= 0.9.1'
   end
   
   # MVC.

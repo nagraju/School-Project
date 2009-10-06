@@ -141,6 +141,9 @@ Metaprogramming Toolbox (for plugins)
 Database Query/Memory Optimization
   http://www.engineyard.com/blog/2009/thats-not-a-memory-leak-its-bloat/
   
+Security
+  http://www.tonyamoyal.com/2009/08/04/defending-against-attacks-with-rails/
+  
 == Default jQuery/JavaScript Extensions
 
 jquery-ui

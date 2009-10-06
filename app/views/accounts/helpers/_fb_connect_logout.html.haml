@@ -2,9 +2,11 @@
   - semantic_form_for(AccountSession.new, :url => destroy_account_session_path, :html => {:method => :delete, :id => 'fb_connect_logout_form', :style => 'display:none;'}) { |f| }
   
   :javascript
+    // Note: JavaScript framework agnostic version - native JavaScript.
+    
     function fb_connect_logout() {
-      jQuery('#fb_connect_logout_form').submit();
-      return false;
+      document.getElementById('fb_connect_logout_form').submit();
+      // return false;
     };
     
     function fb_connect_logout_custom() {

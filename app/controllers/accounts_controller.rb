@@ -8,12 +8,16 @@ class AccountsController < InheritedResources::Base
   actions :all, :except => :index
   respond_to :html, :xml, :json
   
+  # TODO: Try any of this for Facebook Connect
+  # uses one of the other session stores that uses a session_id value.
+  # protect_from_forgery :secret => 'my-little-pony'
+  # you can disable csrf protection on controller-by-controller basis:
+  # skip_before_filter :verify_authenticity_token
+  
   def create
     create! do |success, failure|
       success.html do
-        # AccountSession.create(@account)
-        #redirect_back_or_to root_url
-        redirect_to edit_account_path
+        redirect_back_or_to root_url
       end
     end
   end

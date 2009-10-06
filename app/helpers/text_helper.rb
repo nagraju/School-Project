@@ -22,22 +22,18 @@ module TextHelper
           # this node has children, can't be a text node,
           # lets descend and look for text nodes
           current = current.children.first
-        elsif not current.next.nil?
+        elsif current.next
           #this has no children, but has a sibling, let's check it out
           current = current.next
         else 
           # we are the last child, we need to ascend until we are
           # either done or find a sibling to continue on to
           n = current
-          while n.parent.next.nil? and n != doc
+          while n.parent.next.nil? && n != doc
             n = n.parent
           end
           
-          if n == doc
-            current = nil
-          else
-            current = n.parent.next
-          end
+          current = (n == doc) ? nil : n.parent.next
         end
       end
       
@@ -51,13 +47,13 @@ module TextHelper
         # to find how many we need to take off of this last text node
         # so we subtract from the number of words in this text node.
         # Finally we add 1 because we are doing a range and we need to get the index right.
-        new_content = new_content[0..(new_content.length-(count-num_words)+1)]
+        new_content = new_content[0..(new_content.length - (count - num_words) + 1)]
         
         current.content= new_content.join(' ') + truncate_string
         
         #remove everything else
         while current != doc
-          while not current.next.nil?
+          while current.next
             current.next.remove
           end
           current = current.parent

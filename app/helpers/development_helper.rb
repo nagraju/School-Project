@@ -156,7 +156,8 @@ module DevelopmentHelper
   end
   
   def bookmarklet_links(*names)
-    names = [:rack_bug, :firebug_lite, :dom_inspector, :selector_gadget, :yaml_debug, :design, :sprite_me] if names.blank?
+    names = [:rack_bug, :firebug_lite, :dom_inspector, :selector_gadget,
+              :yaml_debug, :design, :sprite_me, :jash] if names.blank?
     names.delete(:rack_bug) unless Settings.debugging.rack_bug.enabled
     names.collect do |name|
       link_to_bookmarklet(name)
@@ -226,6 +227,7 @@ module DevelopmentHelper
           document.body.appendChild(nScript);}
           fnStartDesign('http://www.sprymedia.co.uk/design/design/media/js/design-loader.js');}]
       when :sprite_me
+        # http://spriteme.org
         ['SpriteMe',
           %{javascript:(function(){
           spritemejs=document.createElement('SCRIPT');
@@ -234,6 +236,7 @@ module DevelopmentHelper
           document.getElementsByTagName('head')[0].appendChild(spritemejs);
           })();}]
       when :jash
+        # http://billyreisinger.com/jash
         ['Jash',
           %{javascript:(function(){
             document.body.appendChild(document.createElement('script')).src='http://www.billyreisinger.com/jash/source/latest/Jash.js';

@@ -2,6 +2,7 @@ h1. TODO
 
 h2. Next
 
+* issue: "skip_before_filter :verify_authenticity_token, :id => :facebook_connect_request?" to solve issues with protect_from_forgery with FB Connect.
 * bug: WARNING: Can't mass-assign these protected attributes: profile. Don't know why attr_accessible don't work...
 * feature: Callback for "after account confirmation" - or "after Facebook connect account creation" - where the user gets redirected to a page to fill in additional info (optional).
 * bug: When opening confirmation page without a token: "NoMethodError (You have a nil object when you didn't expect it! You might have expected an instance of ActiveRecord::Base.". AuthHelpers gem issue.

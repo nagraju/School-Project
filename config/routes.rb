@@ -5,8 +5,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :test, :member => {:login => :get}, :controller => 'test'
   
   # Aliases
-  map.login 'login', :controller => 'accounts/sessions', :action => 'new', :conditions => {:method => :get}
-  map.login 'signup', :controller => 'accounts', :action => 'new', :conditions => {:method => :get}
+  map.with_options(:action => 'new', :conditions => {:method => :get}) do |m|
+    m.login   'login',  :controller => 'accounts/sessions'
+    m.signup  'signup', :controller => 'accounts'
+  end
   
   # /account/...
   map.resource :account, :path_names => {:new => :signup}, :member => {:delete => :get} do |account|

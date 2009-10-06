@@ -55,19 +55,16 @@ class Account < ActiveRecord::Base
         :allow_blank => true,
         :if => :has_no_credentials?
       }
-    c.merge_validates_uniqueness_of_email_field_options :case_sensitive => false,
-        :scope => validations_scope,
-        :if => :email_changed?
-      
-    # Use this if you have your accountable polymorphic association
-    # c.validations_scope = :accountable_type
   end
   
   has_many :roles, :dependent => :delete_all
   has_one :profile, :dependent => :destroy
   
-  # Login cannot be blank when using this - until friendly_id gets patched to support :skip_blank.
-  # has_friendly_id :login, :use_slug => true, :strip_diacritics => true
+  # has_friendly_id :login, :use_slug => true, :strip_diacritics => true do |value|
+  #   ::Slug.normalize(value)
+  # rescue FriendlyId::SlugGenerationError # Value is nil or blank (most probably).
+  #   # skip - or handle it here
+  # end
   
   accepts_nested_attributes_for :profile, :allow_destroy => false
   accepts_nested_attributes_for :roles, :allow_destroy => false
@@ -123,7 +120,6 @@ class Account < ActiveRecord::Base
       profile_hash = {}
       profile_hash[:real_name]  = fb_session.user.try(:name)
       # Based on locale =P
-      puts "x %s" % fb_parse_gender(fb_session.user.try(:sex))
       profile_hash[:gender]     = fb_parse_gender(fb_session.user.try(:sex))
       
       # == Examples:

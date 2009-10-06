@@ -10,6 +10,37 @@ class ActiveRecord::Base
   
   module ClassMethods
     
+    # Make any ActiveRecord model loggable - for easier debugging of models.
+    #
+    # == Usage:
+    #
+    #   class Post < ActiveRecord::Base
+    #     loggable                        # enables logging to RAILS_ROOT/log/classes/post.log
+    #     loggable :suffix => Rails.env   # enables logging to RAILS_ROOT/log/classes/post_{RAILS_ENV}.log
+    #     
+    #     def my_method
+    #       some_value = "Pip!"
+    #       self.log some_value, :debug
+    #     end
+    #   end
+    #   
+    def loggable(*args)
+      options = extract_options!(args)
+      
+      log_suffix = "_#{options[:with].to_s.strip.underscore}"
+      
+      # Set log file.
+      self.remove_const :MODEL_LOG_FILE if defined?(::MODEL_LOG_FILE)
+      self.const_set :MODEL_LOG_FILE, Rails.root.join('log', 'classes', "#{self.class.name.downcase}#{log_suffix}.log")
+      
+      # The actual log method for this class.
+      def self.log(message, level = :info)
+        level = :info if level.blank?
+        @model_logger ||= ::ActiveSupport::BufferedLogger.new(::MODEL_LOG_FILE)
+        @model_logger.send level.to_sym, "[#{self.class.name.downcase}:] #{level.to_s.capitalize} #{message}\n" 
+      end
+    end
+    
     # Only perform the wrapped validations if a value is present (non-blank).
     #
     def validates_presence_of(attribute, &block)

@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
   include Application::Filters
   include Accounts::Filters
   
+  def local_request?
+    true # Set to "false" to produce error in development environment.
+  end
+  
   protected
     
     # Add new key only if flash is empty. Otherwise, refreshes it.

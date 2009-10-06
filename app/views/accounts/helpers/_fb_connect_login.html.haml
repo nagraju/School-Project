@@ -2,8 +2,10 @@
   - semantic_form_for(AccountSession.new, :url => account_session_path, :html => {:id => 'fb_connect_login_form', :style => 'display:none;'}) { |f| }
   
   :javascript
+    // Note: JavaScript framework agnostic version - native JavaScript.
+    
     function fb_connect_login() {
-      jQuery('#fb_connect_login_form').submit();
+      document.getElementById('fb_connect_login_form').submit();
     };
     
     function fb_connect_login_custom() {

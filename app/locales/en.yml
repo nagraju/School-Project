@@ -171,7 +171,7 @@ en:
           notice: "Bye! We hope to see you again soon."
       confirmations:
         show:
-          notice: "Your account is now activated. Just login to get started."
+          notice: "Your account is now activated. Let's go!"
         create:
           notice: "We sent instructions for you to confirm your account. Please check your inbox."
       passwords:

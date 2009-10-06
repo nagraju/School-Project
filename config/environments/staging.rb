@@ -32,6 +32,15 @@ config.action_controller.page_cache_directory = Rails.root.join('public', 'cache
 
 # Enable serving of images, stylesheets, and javascripts from an asset server
 # config.action_controller.asset_host = "http://assets.example.com"
+# config.action_controller.asset_host = "http://assets%.example.com"  # => http://assets1.example.com, ...
+# config.action_controller.asset_host = Proc.new { |source|
+#     case source
+#     when /^\/images/
+#       "http://images.example.com"
+#     else
+#       "http://assets.example.com"
+#     end
+#   }
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
