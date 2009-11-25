@@ -5,8 +5,8 @@
 # Production gems.
 
 # Analytics.
-config.gem 'newrelic_rpm'
-config.gem 'rubaidh-google_analytics',        :lib => 'rubaidh/google_analytics'
+#config.gem 'newrelic_rpm'
+#config.gem 'rubaidh-google_analytics',        :lib => 'rubaidh/google_analytics'
 
 # The production environment is meant for finished, "live" apps.
 # Code is not reloaded between requests

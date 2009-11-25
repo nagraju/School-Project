@@ -36,7 +36,7 @@ config.gem 'machinist'
 config.gem 'forgery'
 
 # E-mails.
-config.gem 'inaction_mailer',         :lib => 'inaction_mailer/force_load'
+config.gem 'cwninja-inaction_mailer',         :lib => 'inaction_mailer/force_load'
 
 # In the development environment your application's code is reloaded on
 # every request.  This slows down response time but is perfect for development
