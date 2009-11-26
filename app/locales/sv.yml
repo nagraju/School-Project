@@ -1,0 +1,31 @@
+sv:
+  formtastic:
+    yes: "Ja"
+    no: "Nej"
+    create: "Skapa"
+    save: "Spara"
+    submit: "Skicka"
+    required: "Required"
+    processing: "Var god vänta..."
+    
+    titles:
+      account_info: "Kontoinformation"
+      profile_info: "Profilinformation"
+      
+    labels:
+      login: "Logga in"
+      email: "E-mail"
+      password: "Lösenord"
+      password_confirmation: "Bekräfta lösenord"
+      remember_me: "Kom ihåg mig"
+      
+      account:
+        edit:
+          login: "Användarnamn"
+          
+      account_session:
+        new:
+          login: "E-mail"
+          
+    hints:
+      email: "Kontokonfirmerings instruktioner kommer skickas till denna adress, dessa kommer användas för ditt inloggningsnamn."

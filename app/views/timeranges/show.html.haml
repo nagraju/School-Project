@@ -1,0 +1,13 @@
+%h1.heading
+  = "Timerange %s" % @timerange.id
+  
+- content_tag_for(:dl, @timerange) do
+  %dt.label= 'Name'
+  %dd.name= h @timerange.try(:name)
+  %dt.label= 'Number of days'
+  %dd.number_of_days= h @timerange.try(:number_of_days)
+  
+%p.actions
+  = link_to 'Edit', edit_timerange_path(@timerange)
+  |
+  = link_to 'Index', timeranges_path

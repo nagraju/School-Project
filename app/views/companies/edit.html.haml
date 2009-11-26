@@ -1,0 +1,21 @@
+= title
+= description
+
+- semantic_form_for(@company) do |form|
+  - form.inputs :basic do
+    = form.input :org_nr
+    = form.input :name
+    = form.input :location
+  - form.inputs :basic, :for => :company_contacts do |cc|
+    = cc.input :first_name
+    = cc.input :last_name
+    = cc.input :email
+    = cc.input :phone
+    = cc.input :mobile
+    = cc.input :position
+  - form.inputs :logo do
+    = form.input :logo
+  - form.buttons do
+    = form.commit_button
+%p.actions
+  = link_to 'Cancel', companies_path

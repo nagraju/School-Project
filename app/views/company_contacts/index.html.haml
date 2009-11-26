@@ -1,0 +1,22 @@
+%h1.heading
+  = "Company contacts"
+  
+%p.actions
+  = link_to 'New Company contact', new_company_contact_path
+  
+%table
+  %thead.header
+    %tr
+      %th.first_name= 'First name'
+      %th.last_name= 'Last name'
+      %th.position= 'Position'
+      %th.email= 'Email'
+      %th.mobile= 'Mobile'
+      %th.phone= 'Phone'
+      %th.company= 'Company'
+      %th.actions= 'Actions'
+  %tbody.items.company_contacts
+    - @company_contacts.each do |company_contact|
+      = render 'item', :company_contact => company_contact
+      
+= will_paginate(@company_contacts)

@@ -1,0 +1,23 @@
+%h1.heading
+  = "Company contact %s" % @company_contact.id
+  
+- content_tag_for(:dl, @company_contact) do
+  %dt.label= 'First name'
+  %dd.first_name= h @company_contact.try(:first_name)
+  %dt.label= 'Last name'
+  %dd.last_name= h @company_contact.try(:last_name)
+  %dt.label= 'Position'
+  %dd.position= h @company_contact.try(:position)
+  %dt.label= 'Email'
+  %dd.email= h @company_contact.try(:email)
+  %dt.label= 'Mobile'
+  %dd.mobile= h @company_contact.try(:mobile)
+  %dt.label= 'Phone'
+  %dd.phone= h @company_contact.try(:phone)
+  %dt.label= 'Company'
+  %dd.company= h @company_contact.try(:company)
+  
+%p.actions
+  = link_to 'Edit', edit_company_contact_path(@company_contact)
+  |
+  = link_to 'Index', company_contacts_path

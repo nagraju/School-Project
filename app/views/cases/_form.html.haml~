@@ -1,0 +1,11 @@
+- form.inputs do
+  = form.input :name, :label => 'Name'
+  = form.input :synopsis, :label => 'Synopsis'
+  = form.input :instructions, :label => 'Instructions'
+  = form.input :starting_at, :label => 'Starting at'
+  = form.input :ending_at, :label => 'Ending at'
+  = form.input :max_winners, :label => 'Max winners'
+  =# form.input :winning_submission, :label => 'Winning submission'
+  = form.input :time_range, :label => 'Time range'
+  = form.input :category, :label => 'Category'
+  = form.input :company, :label => 'Company'

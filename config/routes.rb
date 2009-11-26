@@ -1,6 +1,23 @@
 # encoding: utf-8
 
 ActionController::Routing::Routes.draw do |map|
+ 
+  map.resources :prize_categories
+
+  map.resources :prizes
+
+  map.resources :timeranges
+
+  map.resources :categories
+
+  map.resources :cases
+
+  map.resources :company_contacts
+
+  map.resources :companies do |c|
+    c.resources :cases
+  end
+
   
   map.resource :test, :member => {:login => :get}, :controller => 'test'
   

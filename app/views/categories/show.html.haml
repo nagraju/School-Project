@@ -1,0 +1,13 @@
+%h1.heading
+  = "Category %s" % @category.id
+  
+- content_tag_for(:dl, @category) do
+  %dt.label= 'Name'
+  %dd.name= h @category.try(:name)
+  %dt.label= 'Description'
+  %dd.description= h @category.try(:description)
+  
+%p.actions
+  = link_to 'Edit', edit_category_path(@category)
+  |
+  = link_to 'Index', categories_path

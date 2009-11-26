@@ -1,0 +1,17 @@
+%h1.heading
+  = "Timeranges"
+  
+%p.actions
+  = link_to 'New Timerange', new_timerange_path
+  
+%table
+  %thead.header
+    %tr
+      %th.name= 'Name'
+      %th.number_of_days= 'Number of days'
+      %th.actions= 'Actions'
+  %tbody.items.timeranges
+    - @timeranges.each do |timerange|
+      = render 'item', :timerange => timerange
+      
+= will_paginate(@timeranges)

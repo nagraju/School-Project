@@ -1,0 +1,29 @@
+%h1.heading
+  = "Case %s" % @case.id
+  
+- content_tag_for(:dl, @case) do
+  %dt.label= 'Name'
+  %dd.name= h @case.try(:name)
+  %dt.label= 'Synopsis'
+  %dd.synopsis= h @case.try(:synopsis)
+  %dt.label= 'Instructions'
+  %dd.instructions= h @case.try(:instructions)
+  %dt.label= 'Starting at'
+  %dd.starting_at= h @case.try(:starting_at)
+  %dt.label= 'Ending at'
+  %dd.ending_at= h @case.try(:ending_at)
+  %dt.label= 'Max winners'
+  %dd.max_winners= h @case.try(:max_winners)
+  %dt.label= 'Winning submission'
+  %dd.winning_submission= h @case.try(:winning_submission)
+  %dt.label= 'Time range'
+  %dd.time_range= h @case.try(:time_range)
+  %dt.label= 'Category'
+  %dd.category= h @case.try(:category)
+  %dt.label= 'Company'
+  %dd.company= h @case.try(:company)
+  
+%p.actions
+  = link_to 'Edit', edit_case_path(@case)
+  |
+  = link_to 'Index', cases_path

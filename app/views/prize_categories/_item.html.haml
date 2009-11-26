@@ -1,0 +1,9 @@
+- content_tag_for(:tr, prize_category, :class => cycle(:odd, :even)) do
+  %td.name= h prize_category.try(:name)
+  %td.description= h prize_category.try(:description)
+  %td.actions
+    = link_to 'Show', prize_category_path(prize_category)
+    |
+    = link_to 'Edit', edit_prize_category_path(prize_category)
+    |
+    = link_to 'Destroy', prize_category, :confirm => 'Are you sure?', :method => :delete

@@ -1,0 +1,17 @@
+= title
+= description
+  
+- semantic_form_for(@case) do |form|
+  - form.inputs do
+    = form.input :name
+    = form.input :synopsis
+    = form.input :instructions
+    = form.input :starting_at
+    = form.input :time_range, :as => :select, :collection => TimeRange.for_select
+    = form.input :category, :as => :select, :collection => Category.for_select
+    = form.input :max_winners
+  - form.buttons do
+    = form.commit_button
+    
+%p.actions
+  = link_to 'Cancel', cases_path

@@ -1,0 +1,18 @@
+%h1.heading
+  = "Prizes"
+  
+%p.actions
+  = link_to 'New Prize', new_prize_path
+  
+%table
+  %thead.header
+    %tr
+      %th.title= 'Title'
+      %th.prize_category= 'Prize category'
+      %th.prize_presentation= 'Prize presentation'
+      %th.actions= 'Actions'
+  %tbody.items.prizes
+    - @prizes.each do |prize|
+      = render 'item', :prize => prize
+      
+= will_paginate(@prizes)

@@ -41,4 +41,7 @@ if defined?(Formtastic)
   # Default value: false. Overridden for specific fields by setting value to true,
   # i.e. :label => true, or :hint => true (or opposite depending on initialized value)
   Formtastic::SemanticFormBuilder.i18n_lookups_by_default = true
+  # Should select fields have a blank option/prompt by default?
+  # Defaults to true.
+  Formtastic::SemanticFormBuilder.include_blank_for_select_by_default = false
 end

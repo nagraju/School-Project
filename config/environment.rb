@@ -61,10 +61,13 @@ Rails::Initializer.run do |config|
 #  config.gem 'javan-whenever',                :lib => false
   
   # Job queue
-#  config.gem 'collectiveidea-delayed_job',    :lib => 'delayed_job'
+  config.gem 'delayed_job'
   
   # Domains.
   config.gem 'subdomain-fu'
+  
+  # Paperclip
+  config.gem 'paperclip'
   
   # IE
 #  config.gem 'sant0sk1-rack-noie6',           :lib => 'noie6'

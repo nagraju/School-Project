@@ -9,7 +9,7 @@ gem 'sqlite3-ruby', '>= 1.0.0' # Ruby 1.9
 
 # Debugging.
 gem_suffix = '19' if RUBY_VERSION >= '1.9'
-config.gem "ruby-debug#{gem_suffix}",         :lib => 'ruby-debug'
+config.gem "ruby-debug19",         :lib => 'ruby-debug'
 
 if RUBY_PLATFORM =~ /darwin/
   #config.gem 'josevalim-rails-footnotes',     :lib => 'rails-footnotes' # OS X

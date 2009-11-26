@@ -9,7 +9,7 @@ gem 'sqlite3-ruby', '>= 1.0.0' # Ruby 1.9
 
 # Debugging.
 gem_suffix = '19' if RUBY_VERSION >= '1.9'
-config.gem "ruby-debug#{gem_suffix}",         :lib => 'ruby-debug'
+config.gem "ruby-debug19",         :lib => 'ruby-debug'
 
 if RUBY_PLATFORM =~ /darwin/
   #config.gem 'josevalim-rails-footnotes',     :lib => 'rails-footnotes' # OS X
@@ -36,7 +36,7 @@ config.gem 'machinist'
 config.gem 'forgery'
 
 # E-mails.
-config.gem 'cwninja-inaction_mailer',         :lib => 'inaction_mailer/force_load'
+config.gem 'inaction_mailer',         :lib => 'inaction_mailer/force_load'
 
 # In the development environment your application's code is reloaded on
 # every request.  This slows down response time but is perfect for development

@@ -1,6 +1,6 @@
 if defined?(Bullet) && Settings.debugging.bullet.enabled
   Bullet.enable = true
-  Bullet.alert = true
+  Bullet.alert = false
   Bullet.console = true
   Bullet.bullet_logger = true
   Bullet.rails_logger = true

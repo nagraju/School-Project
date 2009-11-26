@@ -6,7 +6,7 @@
 
 # Functional.
 #config.gem 'aslakhellesoy-cucumber',          :lib => 'cucumber',     :version => '>= 0.3.9'
-config.gem 'cucumber',                        :lib => 'cucumber',     :version => '= 0.3.5'
+#config.gem 'cucumber',                        :lib => 'cucumber',     :version => '= 0.3.5'
 config.gem 'webrat',                          :lib => false,          :version => '>= 0.4.4'
 
 # Unit.

@@ -1,0 +1,13 @@
+%h1.heading
+  = "Prize category %s" % @prize_category.id
+  
+- content_tag_for(:dl, @prize_category) do
+  %dt.label= 'Name'
+  %dd.name= h @prize_category.try(:name)
+  %dt.label= 'Description'
+  %dd.description= h @prize_category.try(:description)
+  
+%p.actions
+  = link_to 'Edit', edit_prize_category_path(@prize_category)
+  |
+  = link_to 'Index', prize_categories_path

@@ -1,0 +1,9 @@
+- content_tag_for(:tr, timerange, :class => cycle(:odd, :even)) do
+  %td.name= h timerange.try(:name)
+  %td.number_of_days= h timerange.try(:number_of_days)
+  %td.actions
+    = link_to 'Show', timerange_path(timerange)
+    |
+    = link_to 'Edit', edit_timerange_path(timerange)
+    |
+    = link_to 'Destroy', timerange, :confirm => 'Are you sure?', :method => :delete

@@ -1,0 +1,10 @@
+%h1.heading
+  = "Editing case %s" % @case.id
+  
+- semantic_form_for(@case) do |form|
+  = render 'form', :form => form
+  - form.buttons do
+    = form.commit_button 'Update'
+    
+%p.actions
+  = link_to 'Cancel', cases_path

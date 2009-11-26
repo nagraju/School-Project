@@ -1,0 +1,14 @@
+---
+en:
+  -
+    name: "Two Months" 
+    number_of_days: 60
+  -
+    name: "One Month"
+    number_of_days: 30
+  -
+    name: "Two Weeks"
+    number_of_days: 14
+  -
+    name: "One Week"
+    number_of_days: 7

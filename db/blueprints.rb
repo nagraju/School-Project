@@ -23,6 +23,7 @@ Sham.login                        { Forgery(:internet).user_name }
 Sham.email                        { Forgery(:internet).email_address }
 Sham.password(:unique => false)   { Settings.debugging.accounts.pass }
 Sham.ip                           { (1..4).collect { |x| rand(256) }.join('.') }
+Sham.org_nr                       { "%s-%s" % [(rand(1000000) + 1000000), (rand(1000) + 1000)] }
 # ---
 Sham.language                     { Forgery(:personal).language } # TODO: "locale"-forgery
 Sham.time_zone                    { 'UTC' }                       # TODO: "time_zone"-forgery

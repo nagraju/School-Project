@@ -1,0 +1,10 @@
+- content_tag_for(:tr, company, :class => cycle(:odd, :even)) do
+  %td.name= h company.try(:name)
+  %td.location= h company.try(:location)
+  %td.primary_company_contact= h company.try(:primary_company_contact)
+  %td.actions
+    = link_to 'Show', company_path(company)
+    |
+    = link_to 'Edit', edit_company_path(company)
+    |
+    = link_to 'Destroy', company, :confirm => 'Are you sure?', :method => :delete

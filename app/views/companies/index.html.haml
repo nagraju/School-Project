@@ -1,0 +1,18 @@
+%h1.heading
+  = "Companies"
+  
+%p.actions
+  = link_to 'New Company', new_company_path
+  
+%table
+  %thead.header
+    %tr
+      %th.name= 'Name'
+      %th.location= 'Location'
+      %th.primary_company_contact= 'Primary company contact'
+      %th.actions= 'Actions'
+  %tbody.items.companies
+    - @companies.each do |company|
+      = render 'item', :company => company
+      
+= will_paginate(@companies)

@@ -27,6 +27,7 @@
 # encoding: utf-8
 
 class Account < ActiveRecord::Base
+  
   # using_access_control
   
   acts_as_authentic do |c|
@@ -57,6 +58,8 @@ class Account < ActiveRecord::Base
       }
   end
   
+  belongs_to :accountable, :polymorphic => true
+
   has_many :roles, :dependent => :delete_all
   has_one :profile, :dependent => :destroy
   

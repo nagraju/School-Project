@@ -1,0 +1,15 @@
+%h1.heading
+  = "Company %s" % @company.id
+  
+- content_tag_for(:dl, @company) do
+  %dt.label= 'Name'
+  %dd.name= h @company.try(:name)
+  %dt.label= 'Location'
+  %dd.location= h @company.try(:location)
+  %dt.label= 'Primary company contact'
+  %dd.primary_company_contact= h @company.try(:primary_company_contact)
+  
+%p.actions
+  = link_to 'Edit', edit_company_path(@company)
+  |
+  = link_to 'Index', companies_path

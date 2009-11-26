@@ -6,26 +6,26 @@
 
 # Functional.
 #config.gem 'aslakhellesoy-cucumber',          :lib => 'cucumber',     :version => '= 0.3.9'
-config.gem 'cucumber',                        :lib => 'cucumber',     :version => '= 0.3.5'
-config.gem 'webrat',                          :lib => false,          :version => '>= 0.4.4'
+#config.gem 'cucumber',                        :lib => 'cucumber',     :version => '= 0.3.5'
+#config.gem 'webrat',                          :lib => false,          :version => '>= 0.4.4'
 
 # Unit.
-config.gem 'test-unit',                       :lib => 'test/unit',    :version => '= 1.2.3'
-config.gem 'thoughtbot-shoulda',              :lib => 'shoulda',      :version => '= 2.10.2'
-config.gem 'rspec',                           :lib => false,          :version => '>= 1.2.7'
-config.gem 'rspec-rails',                     :lib => 'spec/rails',   :version => '>= 1.2.7'
-config.gem 'remarkable_rails',                :lib => false,          :version => '>= 3.1.8'
+#config.gem 'test-unit',                       :lib => 'test/unit',    :version => '= 1.2.3'
+#config.gem 'thoughtbot-shoulda',              :lib => 'shoulda',      :version => '= 2.10.2'
+#config.gem 'rspec',                           :lib => false,          :version => '>= 1.2.7'
+#config.gem 'rspec-rails',                     :lib => 'spec/rails',   :version => '>= 1.2.7'
+#config.gem 'remarkable_rails',                :lib => false,          :version => '>= 3.1.8'
 
 # Data generation.
-config.gem 'notahat-machinist',               :lib => 'machinist'
-config.gem 'sevenwire-forgery',               :lib => 'forgery'
+config.gem 'machinist'
+config.gem 'forgery'
 
 # Mocking/Stubbing.
-config.gem 'rr',                              :lib => false,          :version => '>= 0.10.0'
+#config.gem 'rr',                              :lib => false,          :version => '>= 0.10.0'
 
 # E-mails.
 #config.gem 'cwninja-inaction_mailer',         :lib => 'inaction_mailer/force_load'
-config.gem 'bmabey-email_spec',               :lib => 'email_spec',   :version => '>= 0.3.0'
+#config.gem 'bmabey-email_spec',               :lib => 'email_spec',   :version => '>= 0.3.0'
 
 config.cache_classes = true # This must be true for Cucumber to operate correctly!
 

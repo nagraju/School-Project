@@ -1,0 +1,21 @@
+class CreateCompanies < ActiveRecord::Migration
+  def self.up
+    create_table :companies do |t|
+      t.string :name
+      t.string :location
+      t.references :primary_company_contact
+      t.string :org_nr
+      
+      #paperclip
+      t.string :logo_file_name
+      t.string :logo_content_type
+      t.string :logo_file_size
+      
+      t.timestamps
+    end
+  end
+  
+  def self.down
+    drop_table :companies
+  end
+end

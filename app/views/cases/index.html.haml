@@ -1,0 +1,25 @@
+%h1.heading
+  = "Cases"
+  
+%p.actions
+  = link_to 'New Case', new_case_path
+  
+%table
+  %thead.header
+    %tr
+      %th.name= 'Name'
+      %th.synopsis= 'Synopsis'
+      %th.instructions= 'Instructions'
+      %th.starting_at= 'Starting at'
+      %th.ending_at= 'Ending at'
+      %th.max_winners= 'Max winners'
+      %th.winning_submission= 'Winning submission'
+      %th.time_range= 'Time range'
+      %th.category= 'Category'
+      %th.company= 'Company'
+      %th.actions= 'Actions'
+  %tbody.items.cases
+    - @cases.each do |_case|
+      = render 'item', :case => _case
+      
+= will_paginate(@cases)

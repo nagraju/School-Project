@@ -1,8 +1,8 @@
 namespace :gems do
   
   ENV_GLOB_EXPRESSIONS = [
-      Rails.root.join('config', 'environment.rb'),
-      Rails.root.join("config", "environments", '*.rb')
+      Rails.root.join('config', 'environment.rb').to_s,
+      Rails.root.join("config", "environments", '*.rb').to_s
     ]
   GEM_EXPRESSION = /^\s*config.gem\s+['"]([^'"]*)['"](.+:version\s*=>\s*['"]([^'"]*)['"])?(.+:source\s*=>\s*['"]([^'"]*)['"])?/
   
